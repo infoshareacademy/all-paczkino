@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AllPaczkino/1.0.0": {
+        "runtime": {
+          "AllPaczkino.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AllPaczkino/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
