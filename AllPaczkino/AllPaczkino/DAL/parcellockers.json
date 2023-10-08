@@ -1,0 +1,604 @@
+{
+  "parcel_lockers": [
+    {
+      "id": 1,
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
+    },
+    {
+      "id": 2,
+      "city": "Kraków",
+      "postal_code": "30-001",
+      "address": "ul. Lipowa 2"
+    },
+    {
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
+    },
+    {
+      "id": 4,
+      "city": "Wrocław",
+      "postal_code": "50-001",
+      "address": "ul. Sosnowa 4"
+    },
+    {
+      "id": 5,
+      "city": "Poznań",
+      "postal_code": "60-001",
+      "address": "ul. Kasztanowa 5"
+    },
+    {
+      "id": 6,
+      "city": "Łódź",
+      "postal_code": "90-001",
+      "address": "ul. Dębowa 6"
+    },
+    {
+      "id": 7,
+      "city": "Szczecin",
+      "postal_code": "70-001",
+      "address": "ul. Topolowa 7"
+    },
+    {
+      "id": 8,
+      "city": "Katowice",
+      "postal_code": "40-001",
+      "address": "ul. Bukowa 8"
+    },
+    {
+      "id": 9,
+      "city": "Bydgoszcz",
+      "postal_code": "85-001",
+      "address": "ul. Świerkowa 9"
+    },
+    {
+      "id": 10,
+      "city": "Lublin",
+      "postal_code": "20-001",
+      "address": "ul. Cedrowa 10"
+    },
+    {
+      "id": 11,
+      "city": "Szczecinek",
+      "postal_code": "78-100",
+      "address": "ul. Brzeziny 11"
+    },
+    {
+      "id": 12,
+      "city": "Gdynia",
+      "postal_code": "81-100",
+      "address": "ul. Jesionowa 12"
+    },
+    {
+      "id": 13,
+      "city": "Kielce",
+      "postal_code": "25-100",
+      "address": "ul. Modrzewiowa 13"
+    },
+    {
+      "id": 14,
+      "city": "Białystok",
+      "postal_code": "15-100",
+      "address": "ul. Dąbrowa 14"
+    },
+    {
+      "id": 15,
+      "city": "Sopot",
+      "postal_code": "81-200",
+      "address": "ul. Cisowa 15"
+    },
+    {
+      "id": 16,
+      "city": "Toruń",
+      "postal_code": "87-100",
+      "address": "ul. Akacjowa 16"
+    },
+    {
+      "id": 17,
+      "city": "Olsztyn",
+      "postal_code": "10-100",
+      "address": "ul. Bukietowa 17"
+    },
+    {
+      "id": 18,
+      "city": "Rzeszów",
+      "postal_code": "35-100",
+      "address": "ul. Dalia 18"
+    },
+    {
+      "id": 19,
+      "city": "Legnica",
+      "postal_code": "59-100",
+      "address": "ul. Górczyńska 19"
+    },
+    {
+      "id": 20,
+      "city": "Opole",
+      "postal_code": "45-100",
+      "address": "ul. Kasztanowa 20"
+    },
+    {
+      "id": 21,
+      "city": "Częstochowa",
+      "postal_code": "42-100",
+      "address": "ul. Lipowa 21"
+    },
+    {
+      "id": 22,
+      "city": "Rybnik",
+      "postal_code": "44-100",
+      "address": "ul. Dębowa 22"
+    },
+    {
+      "id": 23,
+      "city": "Tarnów",
+      "postal_code": "33-100",
+      "address": "ul. Słoneczna 23"
+    },
+    {
+      "id": 24,
+      "city": "Zielona Góra",
+      "postal_code": "65-100",
+      "address": "ul. Brzozowa 24"
+    },
+    {
+      "id": 25,
+      "city": "Gliwice",
+      "postal_code": "44-100",
+      "address": "ul. Wierzbowy 25"
+    },
+    {
+      "id": 26,
+      "city": "Słupsk",
+      "postal_code": "76-200",
+      "address": "ul. Topolowa 26"
+    },
+    {
+      "id": 27,
+      "city": "Płock",
+      "postal_code": "09-100",
+      "address": "ul. Kasztanowa 27"
+    },
+    {
+      "id": 28,
+      "city": "Koszalin",
+      "postal_code": "75-100",
+      "address": "ul. Dębowa 28"
+    },
+    {
+      "id": 29,
+      "city": "Ostrów Wielkopolski",
+      "postal_code": "63-400",
+      "address": "ul. Brzozowa 29"
+    },
+    {
+      "id": 30,
+      "city": "Wałbrzych",
+      "postal_code": "58-100",
+      "address": "ul. Dąbrowa 30"
+    },
+    {
+      "id": 31,
+      "city": "Ełk",
+      "postal_code": "19-300",
+      "address": "ul. Lipowa 31"
+    },
+    {
+      "id": 32,
+      "city": "Świdnica",
+      "postal_code": "58-100",
+      "address": "ul. Topolowa 32"
+    },
+    {
+      "id": 33,
+      "city": "Mielec",
+      "postal_code": "39-300",
+      "address": "ul. Bukietowa 33"
+    },
+    {
+      "id": 34,
+      "city": "Kędzierzyn-Koźle",
+      "postal_code": "47-200",
+      "address": "ul. Sosnowa 34"
+    },
+    {
+      "id": 35,
+      "city": "Konin",
+      "postal_code": "62-500",
+      "address": "ul. Klonowa 35"
+    },
+    {
+      "id": 36,
+      "city": "Tychy",
+      "postal_code": "43-100",
+      "address": "ul. Jesionowa 36"
+    },
+    {
+      "id": 37,
+      "city": "Ruda Śląska",
+      "postal_code": "41-700",
+      "address": "ul. Modrzewiowa 37"
+    },
+    {
+      "id": 38,
+      "city": "Wejherowo",
+      "postal_code": "84-200",
+      "address": "ul. Cedrowa 38"
+    },
+    {
+      "id": 39,
+      "city": "Piekary Śląskie",
+      "postal_code": "41-940",
+      "address": "ul. Akacjowa 39"
+    },
+    {
+      "id": 40,
+      "city": "Głogów",
+      "postal_code": "67-200",
+      "address": "ul. Topolowa 40"
+    },
+    {
+      "id": 41,
+      "city": "Olkusz",
+      "postal_code": "32-300",
+      "address": "ul. Bukietowa 41"
+    },
+    {
+      "id": 42,
+      "city": "Puławy",
+      "postal_code": "24-100",
+      "address": "ul. Dąbrowa 42"
+    },
+    {
+      "id": 43,
+      "city": "Zamość",
+      "postal_code": "22-400",
+      "address": "ul. Kasztanowa 43"
+    },
+    {
+      "id": 44,
+      "city": "Pabianice",
+      "postal_code": "95-200",
+      "address": "ul. Lipowa 44"
+    },
+    {
+      "id": 45,
+      "city": "Legionowo",
+      "postal_code": "05-120",
+      "address": "ul. Brzozowa 45"
+    },
+    {
+      "id": 46,
+      "city": "Piotrków Trybunalski",
+      "postal_code": "97-300",
+      "address": "ul. Dębowa 46"
+    },
+    {
+      "id": 47,
+      "city": "Skierniewice",
+      "postal_code": "96-100",
+      "address": "ul. Jesionowa 47"
+    },
+    {
+      "id": 48,
+      "city": "Jastrzębie-Zdrój",
+      "postal_code": "44-330",
+      "address": "ul. Modrzewiowa 48"
+    },
+    {
+      "id": 49,
+      "city": "Sieradz",
+      "postal_code": "98-200",
+      "address": "ul. Cedrowa 49"
+    },
+    {
+      "id": 50,
+      "city": "Śrem",
+      "postal_code": "64-100",
+      "address": "ul. Akacjowa 50"
+    },
+    {
+      "id": 51,
+      "city": "Biała Podlaska",
+      "postal_code": "21-500",
+      "address": "ul. Topolowa 51"
+    },
+    {
+      "id": 52,
+      "city": "Gniezno",
+      "postal_code": "62-200",
+      "address": "ul. Klonowa 52"
+    },
+    {
+      "id": 53,
+      "city": "Jarosław",
+      "postal_code": "37-500",
+      "address": "ul. Lipowa 53"
+    },
+    {
+      "id": 54,
+      "city": "Zgierz",
+      "postal_code": "95-100",
+      "address": "ul. Brzozowa 54"
+    },
+    {
+      "id": 55,
+      "city": "Przemyśl",
+      "postal_code": "37-700",
+      "address": "ul. Dębowa 55"
+    },
+    {
+      "id": 56,
+      "city": "Lębork",
+      "postal_code": "84-300",
+      "address": "ul. Jesionowa 56"
+    },
+    {
+      "id": 57,
+      "city": "Tarnobrzeg",
+      "postal_code": "39-400",
+      "address": "ul. Modrzewiowa 57"
+    },
+    {
+      "id": 58,
+      "city": "Wodzisław Śląski",
+      "postal_code": "44-300",
+      "address": "ul. Cedrowa 58"
+    },
+    {
+      "id": 59,
+      "city": "Kołobrzeg",
+      "postal_code": "78-100",
+      "address": "ul. Akacjowa 59"
+    },
+    {
+      "id": 60,
+      "city": "Kwidzyn",
+      "postal_code": "82-500",
+      "address": "ul. Topolowa 60"
+    },
+    {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    {
+      "id": 62,
+      "city": "Gostynin",
+      "postal_code": "09-500",
+      "address": "ul. Lipowa 62"
+    },
+    {
+      "id": 63,
+      "city": "Rawicz",
+      "postal_code": "63-100",
+      "address": "ul. Brzozowa 63"
+    },
+    {
+      "id": 64,
+      "city": "Głuchołazy",
+      "postal_code": "48-340",
+      "address": "ul. Dębowa 64"
+    },
+    {
+      "id": 65,
+      "city": "Łęczyca",
+      "postal_code": "99-100",
+      "address": "ul. Jesionowa 65"
+    },
+    {
+      "id": 66,
+      "city": "Lubin",
+      "postal_code": "59-300",
+      "address": "ul. Modrzewiowa 66"
+    },
+    {
+      "id": 67,
+      "city": "Żary",
+      "postal_code": "68-200",
+      "address": "ul. Cedrowa 67"
+    },
+    {
+      "id": 68,
+      "city": "Szczytno",
+      "postal_code": "12-100",
+      "address": "ul. Akacjowa 68"
+    },
+    {
+      "id": 69,
+      "city": "Inowrocław",
+      "postal_code": "88-100",
+      "address": "ul. Topolowa 69"
+    },
+    {
+      "id": 70,
+      "city": "Kościerzyna",
+      "postal_code": "83-400",
+      "address": "ul. Klonowa 70"
+    },
+    {
+      "id": 71,
+      "city": "Pszczyna",
+      "postal_code": "44-100",
+      "address": "ul. Lipowa 71"
+    },
+    {
+      "id": 72,
+      "city": "Trzebinia",
+      "postal_code": "32-540",
+      "address": "ul. Brzozowa 72"
+    },
+    {
+      "id": 73,
+      "city": "Ostróda",
+      "postal_code": "14-100",
+      "address": "ul. Dębowa 73"
+    },
+    {
+      "id": 74,
+      "city": "Nakło nad Notecią",
+      "postal_code": "89-100",
+      "address": "ul. Jesionowa 74"
+    },
+    {
+      "id": 75,
+      "city": "Dzierżoniów",
+      "postal_code": "58-200",
+      "address": "ul. Modrzewiowa 75"
+    },
+    {
+      "id": 76,
+      "city": "Kluczbork",
+      "postal_code": "46-200",
+      "address": "ul. Cedrowa 76"
+    },
+    {
+      "id": 77,
+      "city": "Mińsk Mazowiecki",
+      "postal_code": "05-300",
+      "address": "ul. Akacjowa 77"
+    },
+    {
+      "id": 78,
+      "city": "Mława",
+      "postal_code": "06-500",
+      "address": "ul. Topolowa 78"
+    },
+    {
+      "id": 79,
+      "city": "Oleśnica",
+      "postal_code": "56-400",
+      "address": "ul. Klonowa 79"
+    },
+    {
+      "id": 80,
+      "city": "Nowa Sól",
+      "postal_code": "67-100",
+      "address": "ul. Lipowa 80"
+    },
+    {
+      "id": 81,
+      "city": "Żagań",
+      "postal_code": "68-100",
+      "address": "ul. Brzozowa 81"
+    },
+    {
+      "id": 82,
+      "city": "Ostrów Mazowiecka",
+      "postal_code": "07-300",
+      "address": "ul. Dębowa 82"
+    },
+    {
+      "id": 83,
+      "city": "Sulechów",
+      "postal_code": "66-100",
+      "address": "ul. Jesionowa 83"
+    },
+    {
+      "id": 84,
+      "city": "Działdowo",
+      "postal_code": "13-200",
+      "address": "ul. Modrzewiowa 84"
+    },
+    {
+      "id": 85,
+      "city": "Będzin",
+      "postal_code": "42-500",
+      "address": "ul. Cedrowa 85"
+    },
+    {
+      "id": 86,
+      "city": "Mysłowice",
+      "postal_code": "41-400",
+      "address": "ul. Akacjowa 86"
+    },
+    {
+      "id": 87,
+      "city": "Chojnice",
+      "postal_code": "89-600",
+      "address": "ul. Topolowa 87"
+    },
+    {
+      "id": 88,
+      "city": "Tomaszów Mazowiecki",
+      "postal_code": "97-200",
+      "address": "ul. Klonowa 88"
+    },
+    {
+      "id": 89,
+      "city": "Łomża",
+      "postal_code": "18-400",
+      "address": "ul. Lipowa 89"
+    },
+    {
+      "id": 90,
+      "city": "Złotów",
+      "postal_code": "77-400",
+      "address": "ul. Brzozowa 90"
+    },
+    {
+      "id": 91,
+      "city": "Pruszcz Gdański",
+      "postal_code": "83-000",
+      "address": "ul. Dębowa 91"
+    },
+    {
+      "id": 92,
+      "city": "Krotoszyn",
+      "postal_code": "63-700",
+      "address": "ul. Jesionowa 92"
+    },
+    {
+      "id": 93,
+      "city": "Suwałki",
+      "postal_code": "16-400",
+      "address": "ul. Modrzewiowa 93"
+    },
+    {
+      "id": 94,
+      "city": "Koło",
+      "postal_code": "62-600",
+      "address": "ul. Cedrowa 94"
+    },
+    {
+      "id": 95,
+      "city": "Olkusz",
+      "postal_code": "32-300",
+      "address": "ul. Akacjowa 95"
+    },
+    {
+      "id": 96,
+      "city": "Słubice",
+      "postal_code": "69-100",
+      "address": "ul. Topolowa 96"
+    },
+    {
+      "id": 97,
+      "city": "Jarocin",
+      "postal_code": "63-200",
+      "address": "ul. Klonowa 97"
+    },
+    {
+      "id": 98,
+      "city": "Bochnia",
+      "postal_code": "32-700",
+      "address": "ul. Lipowa 98"
+    },
+    {
+      "id": 99,
+      "city": "Węgrów",
+      "postal_code": "07-100",
+      "address": "ul. Brzozowa 99"
+    },
+    {
+      "id": 100,
+      "city": "Bartoszyce",
+      "postal_code": "11-200",
+      "address": "ul. Dębowa 100"
+    }
+  ]
+}
