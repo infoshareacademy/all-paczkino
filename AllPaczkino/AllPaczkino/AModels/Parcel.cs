@@ -20,5 +20,9 @@ namespace AllPaczkino.Models
     public class Parcel
     {
         public ParcelStatus parcelStatus  { get; set; }
+        public Parcel() {
+            parcelStatus = ParcelStatus.Registered;
+
+        }
     }
 }
