@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/AllPaczkino/AllPaczkino/obj/AllPaczkino.csproj.nuget.dgspec.json
+/AllPaczkino/AllPaczkino/obj/project.nuget.cache
