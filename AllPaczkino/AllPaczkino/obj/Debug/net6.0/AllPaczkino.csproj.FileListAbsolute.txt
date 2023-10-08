@@ -1,0 +1,14 @@
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\bin\Debug\net6.0\AllPaczkino.exe
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\bin\Debug\net6.0\AllPaczkino.deps.json
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\bin\Debug\net6.0\AllPaczkino.runtimeconfig.json
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\bin\Debug\net6.0\AllPaczkino.dll
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\bin\Debug\net6.0\AllPaczkino.pdb
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.AssemblyInfoInputs.cache
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.AssemblyInfo.cs
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.csproj.CoreCompileInputs.cache
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.dll
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\refint\AllPaczkino.dll
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.pdb
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\AllPaczkino.genruntimeconfig.cache
+C:\Users\Adam\source\repos\AllPaczkino\AllPaczkino\obj\Debug\net6.0\ref\AllPaczkino.dll
