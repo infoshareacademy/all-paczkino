@@ -39,7 +39,6 @@ namespace AllPaczkino
             ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(jsonContent);
 
             Console.WriteLine("Press 'L' to display the list of parcel lockers.");
-            Console.WriteLine("Enter a parcel locker number (e.g., 20) and press Enter.");
             Console.WriteLine("Press 'M' to find a suggested parcel locker based on the recipient's city name.");
             Console.WriteLine("Press 'N' to select a parcel locker by number.");
             Console.WriteLine("Press 'Q' to exit the program.");
