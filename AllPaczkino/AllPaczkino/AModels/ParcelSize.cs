@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Parcels.Parcels
 {
-    internal class ParcelSize
+    public class ParcelSize
     {
         public string Name { get; private set; }
         public double Length { get; private set; }

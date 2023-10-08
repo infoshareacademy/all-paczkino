@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Parcels.Parcels;
+using AllPaczkino.Models;
 
 namespace AllPaczkino
 {
@@ -29,7 +30,13 @@ namespace AllPaczkino
             {
                 Console.WriteLine(parcelSize.Name + " max length: " + parcelSize.Length + " cm, max width: " + parcelSize.Width + " cm, max height: " + parcelSize.Height + " cm, max weight " + parcelSize.Weight + " kg, Price: " + parcelSize.Price);
             }
-            List<Parcel> parcels = new List<Parcel>();
+            List<Parcel> parcels2 = new List<Parcel>();
+            Parcel p1 = new Parcel();
+            p1.ParcelNumber = 1;
+            parcels2.Add(p1);
+            Parcel p2 = new Parcel();
+            p2.ParcelNumber = 2;
+            parcels2.Add(p2);
 
 
         }
