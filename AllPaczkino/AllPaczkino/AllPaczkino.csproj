@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <None Update="DAL\parcellockers.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
