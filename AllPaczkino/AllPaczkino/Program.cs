@@ -41,7 +41,6 @@ namespace AllPaczkino
             Console.WriteLine("Press 'L' to display the list of parcel lockers.");
             Console.WriteLine("Press 'M' to find a suggested parcel locker based on the recipient's city name.");
             Console.WriteLine("Press 'N' to select a parcel locker by number.");
-            Console.WriteLine("Press 'Q' to exit the program.");
 
             while (true)
             {
@@ -89,11 +88,6 @@ namespace AllPaczkino
                         Console.WriteLine("Invalid input. Please enter a valid number.");
                     }
                 }
-                else if (key.Key == ConsoleKey.Q)
-                {
-                    break;
-                }
-
             }
         }
     }
