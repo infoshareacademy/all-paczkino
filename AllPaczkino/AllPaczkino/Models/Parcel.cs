@@ -1,9 +1,4 @@
 ﻿using Parcels.Parcels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AllPaczkino.Models
 {
@@ -26,7 +21,7 @@ namespace AllPaczkino.Models
         public Parcel()
         {
             parcelStatus = ParcelStatus.Registered;
-            ParcelNumber = (new Random()).Next(100000);
+            ParcelNumber = (new Random()).Next(1000);
 
  
         }

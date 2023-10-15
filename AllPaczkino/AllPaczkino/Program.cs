@@ -1,13 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.Design;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Parcels.Parcels;
+﻿using Parcels.Parcels;
 using AllPaczkino.Models;
 using Newtonsoft.Json;
+using AllPaczkino.View;
 
 namespace AllPaczkino
 {
@@ -33,7 +27,7 @@ namespace AllPaczkino
                                   parcelSize.Width + " cm, max height: " + parcelSize.Height + " cm, max weight " +
                                   parcelSize.Weight + " kg, Price: " + parcelSize.Price);
             }
-
+            Console.WriteLine("=============================\n\n\n"  );
             string jsonPath = "DAL\\parcellockers.json";
             string jsonContent = File.ReadAllText(jsonPath);
             ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(jsonContent);
@@ -43,10 +37,14 @@ namespace AllPaczkino
             Console.WriteLine("Press 'C' to create a parcel locker by number.");
             Console.WriteLine("Press 'E' to edit a parcel locker by number.");
             Console.WriteLine("Press 'D' to delete a parcel locker by number.");
-
-            while (true)
+            Console.WriteLine("=============================\n\n\n");
+            Console.WriteLine("Press 'A' to open user menu.");
+            Console.WriteLine("Press 'Spacebar' to quit.");
+            Console.WriteLine("=============================\n\n\n");
+            ConsoleKeyInfo key;
+            do
             {
-                ConsoleKeyInfo key = Console.ReadKey(intercept: true);
+                key = Console.ReadKey(intercept: true);
 
                 switch (key.Key)
                 {
@@ -160,6 +158,14 @@ namespace AllPaczkino
                     case ConsoleKey.C:
                         CreateParcelLocker(parcelLockerList);
                         break;
+
+                    case ConsoleKey.Spacebar: break;
+                    case ConsoleKey.A:
+                        {
+                            MainMenu mainMenu = new MainMenu();
+                            mainMenu.ShowUserMenu();
+                            break;
+                        };
                 }
                 static void CreateParcelLocker(ParcelLockerList parcelLockerList)
                 {
@@ -199,7 +205,7 @@ namespace AllPaczkino
                     }
                     return newId;
                 }
-            }
+            } while (key.Key != ConsoleKey.Spacebar);
         }
     }
 }
