@@ -11,7 +11,8 @@ namespace AllPaczkino.Models
         ReadyToCollection,
         Received,
         Returned,
-        Lost
+        Lost,
+        None
     }
     public class Parcel
     {
