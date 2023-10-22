@@ -9,6 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="SharePointPnPCoreOnline" Version="3.28.2012" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DAL\parcellockers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
