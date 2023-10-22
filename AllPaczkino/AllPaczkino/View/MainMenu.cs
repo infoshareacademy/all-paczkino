@@ -27,10 +27,11 @@ namespace AllPaczkino.View
                             Console.WriteLine(" Podaj nr paczki: ");
                             if (decimal.TryParse(Console.ReadLine(), out decimal parcelNumberId))
                             {
-                                var searchedParcelState = parcelsFakeList.Where(p => p.ParcelNumber == parcelNumberId).FirstOrDefault().parcelStatus;
+                                var searchedParcelState = parcelsFakeList.FirstOrDefault(p => p.ParcelNumber == parcelNumberId);
+
                                 Console.WriteLine(
                                    searchedParcelState != null
-                                       ? $"For parcel with id {parcelNumberId} actual state is: {searchedParcelState}."
+                                       ? $"For parcel with id {parcelNumberId} actual state is: {searchedParcelState.parcelStatus}."
                                        : $"Parcel with id {parcelNumberId} not found, check the number!");
                             }
                             else
