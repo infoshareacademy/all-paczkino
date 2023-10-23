@@ -3,6 +3,7 @@ using AllPaczkino.Models;
 using AllPaczkino.Repositories;
 using Newtonsoft.Json;
 using AllPaczkino.View;
+using AllPaczkino.Clients.ContactInfo;
 
 namespace AllPaczkino
 {
@@ -11,6 +12,21 @@ namespace AllPaczkino
         static void Main(string[] args)
         {
             IParcelSizeRepository parcelSizeRepository = new InMemoryParcelSizeRepository();
+
+            // updatewanie listy kontaktow
+
+            IContactDataRepository contactDataRepository = new InMemoryContactDataRepository();
+
+            contactDataRepository.EditContact("kuba.nowak@op.pl", new("", "Wilska", "ola.wilska@op.pl", "607382175", new Adress("Marciniaka", 7, "Poznan", "Wlkp", "60-462", null, 7)));
+            var contacts = contactDataRepository.GetContactDataList();
+
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine(contact.Name);
+
+            }
+
+            //
 
             var parcels = parcelSizeRepository.GetParcelSizeList();
 
