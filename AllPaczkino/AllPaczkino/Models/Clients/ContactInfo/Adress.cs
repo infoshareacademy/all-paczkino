@@ -3,9 +3,6 @@
 namespace AllPaczkino.Clients.ContactInfo;
 internal class Adress
 {
-    private Adress()
-    {
-    }
 
     public Adress(string streetName, int houseNumber, string cityName,string voivodeship, string postalCode,string country = "Poland", int? flatNumber = null)
     {
