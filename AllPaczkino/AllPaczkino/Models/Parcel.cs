@@ -8,11 +8,9 @@ namespace AllPaczkino.Models
         Sent,
         CollectedByCourier,
         InDelivery,
-        ReadyToCollection,
+        ReadyToCollect,
         Received,
-        Returned,
-        Lost,
-        None
+        Returned
     }
     public class Parcel
     {
