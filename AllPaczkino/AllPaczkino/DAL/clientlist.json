@@ -1,0 +1,21 @@
+{
+  "client_list": [
+    {
+      "id": 1,
+      "Name": "Patryk",
+      "Surname": "Augusewicz",
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
+    }
+    ,
+    {
+      "id": 2,
+      "Name": "Stefan",
+      "Surname": "Klimiuk",
+      "city": "Bielsk-Podlaski",
+      "postal_code": "15-001",
+      "address": "ul. Białostocka 23"
+    }
+  ]
+}

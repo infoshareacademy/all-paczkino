@@ -20,6 +20,7 @@ namespace AllPaczkino.View
                     case ConsoleKey.A:
                         {
                             Console.WriteLine(" Wypełnij pola niezbędne do nadania paczki: ");
+                            
                             break;
                         };
                     case ConsoleKey.S:
