@@ -49,15 +49,15 @@ namespace AllPaczkino.View
         private List<Parcel> CreateFakeData()
         {
             //fake data
-            Console.WriteLine("Fake data for tests:"); ;
+            Console.WriteLine("Fake data for tests:"); 
             Parcel parcel1 = new Parcel();
-            Console.WriteLine($"ID parcel 1: {parcel1.ParcelNumber}"); ;
+            Console.WriteLine($"ID parcel 1: {parcel1.ParcelNumber}");
             Parcel parcel2 = new Parcel();
             parcel2.parcelStatus = ParcelStatus.ReadyToCollect;
-            Console.WriteLine($"ID parcel 2: {parcel2.ParcelNumber}"); ;
+            Console.WriteLine($"ID parcel 2: {parcel2.ParcelNumber}");
             Parcel parcel3 = new Parcel();
             parcel3.parcelStatus = ParcelStatus.InDelivery;
-            Console.WriteLine($"ID parcel 3: {parcel3.ParcelNumber}"); ;
+            Console.WriteLine($"ID parcel 3: {parcel3.ParcelNumber}");
             List<Parcel> parcelsFakeList = new List<Parcel>();
             parcelsFakeList.Add(parcel1);
             parcelsFakeList.Add(parcel2);
