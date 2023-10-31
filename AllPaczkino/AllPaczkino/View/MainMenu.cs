@@ -1,4 +1,6 @@
-﻿using AllPaczkino.Models;
+﻿using AllPaczkino.DAL;
+using AllPaczkino.Models;
+using AllPaczkino.Repositories;
 
 namespace AllPaczkino.View
 {
@@ -32,8 +34,34 @@ namespace AllPaczkino.View
 
                                 Console.WriteLine(
                                    searchedParcelState != null
-                                       ? $"For parcel with id {parcelNumberId} actual state is: {searchedParcelState.parcelStatus}."
+                                       ? $"For parcel with id {parcelNumberId} actual state is:     {searchedParcelState.parcelStatus}."
                                        : $"Parcel with id {parcelNumberId} not found, check the number!");
+
+
+                                //if parcel status is ready to collect print "are you ready to collect parcel
+                                if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollection)
+                                {
+                                    Console.WriteLine("Do you want to collect parcel? Y/N?");
+                                    var collect = Console.ReadLine();
+                                    if (collect == "Y" || collect == "y")
+                                    { 
+                                        Console.WriteLine("Enter collection code");
+                                        var confirmationCode = Console.ReadLine();
+                                        if (confirmationCode == "1234")
+                                        {
+                                            searchedParcelState.parcelStatus = ParcelStatus.Received;
+                                            var packageRepository = new PackageRepository();
+                                            packageRepository.SaveAll(new List<Package>{new Package{ParcelStatus = searchedParcelState.parcelStatus, PackageNumber = searchedParcelState.ParcelNumber}});
+                                            Console.WriteLine("Parcel collected");
+                                        }
+                                    }
+                                    else if (collect == "N" || collect == "n")
+                                    {
+                                        return;
+                                    }
+                                }
+                                
+
                             }
                             else
                             {

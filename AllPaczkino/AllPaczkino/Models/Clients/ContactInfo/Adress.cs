@@ -1,7 +1,7 @@
 ﻿
 
 namespace AllPaczkino.Clients.ContactInfo;
-internal class Adress
+public class Adress
 {
 
     public Adress(string streetName, int houseNumber, string cityName,string voivodeship, string postalCode,string country = "Poland", int? flatNumber = null)

@@ -175,25 +175,25 @@ namespace AllPaczkino
                         {
                             MainMenu mainMenu = new MainMenu();
                             mainMenu.ShowUserMenu();
-                            switch (key.Key)
-                            {
-                                case ConsoleKey.S:
-                                    Console.WriteLine("You selected Small Parcel.");
-                                    break;
-                                case ConsoleKey.M:
-                                    Console.WriteLine("You selected Medium Parcel.");
-                                    break;
-                                case ConsoleKey.L:
-                                    Console.WriteLine("You selected Large Parcel.");
-                                    break;
-                                case ConsoleKey.X:
-                                    Console.WriteLine("Hit X to go back to Main Menu");// Go back to the main menu
-                                    break;
-                                default:
-                                    Console.WriteLine("Invalid choice. Please try again.");
-                                    ShowParcelSizesSubMenu(); // Redisplay the parcel size submenu
-                                    break;
-                            }
+                            //switch (key.Key)
+                            //{
+                            //    case ConsoleKey.S:
+                            //        Console.WriteLine("You selected Small Parcel.");
+                            //        break;
+                            //    case ConsoleKey.M:
+                            //        Console.WriteLine("You selected Medium Parcel.");
+                            //        break;
+                            //    case ConsoleKey.L:
+                            //        Console.WriteLine("You selected Large Parcel.");
+                            //        break;
+                            //    case ConsoleKey.X:
+                            //        Console.WriteLine("Hit X to go back to Main Menu");// Go back to the main menu
+                            //        break;
+                            //    default:
+                            //        Console.WriteLine("Invalid choice. Please try again.");
+                            //        ShowParcelSizesSubMenu(); // Redisplay the parcel size submenu
+                            //        break;
+                            //}
                             break;
 
                         };
