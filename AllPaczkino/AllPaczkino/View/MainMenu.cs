@@ -53,7 +53,7 @@ namespace AllPaczkino.View
             Parcel parcel1 = new Parcel();
             Console.WriteLine($"ID parcel 1: {parcel1.ParcelNumber}"); ;
             Parcel parcel2 = new Parcel();
-            parcel2.parcelStatus = ParcelStatus.ReadyToCollection;
+            parcel2.parcelStatus = ParcelStatus.ReadyToCollect;
             Console.WriteLine($"ID parcel 2: {parcel2.ParcelNumber}"); ;
             Parcel parcel3 = new Parcel();
             parcel3.parcelStatus = ParcelStatus.InDelivery;

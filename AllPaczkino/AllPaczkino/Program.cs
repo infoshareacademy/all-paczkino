@@ -191,7 +191,7 @@ namespace AllPaczkino
                                     break;
                                 default:
                                     Console.WriteLine("Invalid choice. Please try again.");
-                                    ShowParcelSizesSubMenu(); // Redisplay the parcel size submenu
+                                    //ShowParcelSizesSubMenu(); // Redisplay the parcel size submenu
                                     break;
                             }
                             break;
