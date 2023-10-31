@@ -1,6 +1,7 @@
 ﻿using AllPaczkino.DAL;
 using AllPaczkino.Models;
 using AllPaczkino.Repositories;
+using AngleSharp.Css;
 
 namespace AllPaczkino.View
 {
@@ -38,36 +39,47 @@ namespace AllPaczkino.View
                                        : $"Parcel with id {parcelNumberId} not found, check the number!");
 
 
-                                //if parcel status is ready to collect print "are you ready to collect parcel
+                                //if parcel is ready for collection
                                 if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollection)
                                 {
-                                    Console.WriteLine("Do you want to collect parcel? Y/N?");
-                                    var collect = Console.ReadLine();
-                                    if (collect == "Y" || collect == "y")
-                                    { 
-                                        Console.WriteLine("Enter collection code");
-                                        var confirmationCode = Console.ReadLine();
-                                        if (confirmationCode == "1234")
-                                        {
-                                            searchedParcelState.parcelStatus = ParcelStatus.Received;
-                                            var packageRepository = new PackageRepository();
-                                            packageRepository.SaveAll(new List<Package>{new Package{ParcelStatus = searchedParcelState.parcelStatus, PackageNumber = searchedParcelState.ParcelNumber}});
-                                            Console.WriteLine("Parcel collected");
-                                        }
-                                    }
-                                    else if (collect == "N" || collect == "n")
+                                    do
                                     {
-                                        return;
-                                    }
+                                        Console.WriteLine("Do you want to collect parcel? Y/N?");
+                                        var collect = Console.ReadLine();
+                                        if (collect == "Y" || collect == "y")
+                                        {
+                                            Console.WriteLine("Enter collection code");
+                                            var confirmationCode = Console.ReadLine();
+                                            if (confirmationCode == "1234")
+                                            {
+                                                searchedParcelState.parcelStatus = ParcelStatus.Received;
+                                                var packageRepository = new PackageRepository();
+                                                packageRepository.SaveAll(new List<Package>
+                                                {
+                                                    new Package
+                                                    {
+                                                        ParcelStatus = searchedParcelState.parcelStatus,
+                                                        PackageNumber = searchedParcelState.ParcelNumber
+                                                    }
+                                                });
+                                                Console.WriteLine("Parcel collected");
+                                            }
+                                            else if (confirmationCode! == "1234")
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        if (collect == "N" || collect == "n")
+                                        {
+                                            Console.WriteLine("Quitting to main menu");
+                                        }
+                                    } while (true);
                                 }
-                                
-
                             }
                             else
                             {
                                 Console.WriteLine("Invalid input. Please enter a valid number.");
-                            }
-                            break;
+                            } break;
                         };
                     case ConsoleKey.Spacebar: break;
                 }
