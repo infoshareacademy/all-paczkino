@@ -1,10 +1,13 @@
-﻿using AllPaczkino.Models;
+﻿using AllPaczkino.DAL;
+using AllPaczkino.Models;
+using AllPaczkino.Repositories;
 
 namespace AllPaczkino.View
 {
     public class MainMenu
     {
         ConsoleKeyInfo key;
+        PackageRepository packageRepository = new PackageRepository();
         public void ShowUserMenu()
         {
             var parcelsFakeList = CreateFakeData();
@@ -20,7 +23,21 @@ namespace AllPaczkino.View
                     case ConsoleKey.A:
                         {
                             Console.WriteLine(" Wypełnij pola niezbędne do nadania paczki: ");
-                            
+                            Console.WriteLine( "aaddin fake package");
+                            Package package = new Package()
+                            {
+                                ID = "2",
+                                Name = "TestPackage2",
+                                Address = new Clients.ContactInfo.Adress("street Name ", 666, "City Name", "cos", "05-500"),
+                                SenderLocker = new ParcelLocker(),
+                                ReceiverLocker = new ParcelLocker(),
+                                SendTime = DateTime.Now,
+                                ReceiveTime = DateTime.Now.AddDays(30),
+                                ParcelStatus = ParcelStatus.Registered
+                            };
+                            var packages = packageRepository.GetAll() ;
+                            packageRepository.SaveAll(packages);
+                            Console.WriteLine("package saved!");
                             break;
                         };
                     case ConsoleKey.S:

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using AllPaczkino.Clients.ContactInfo;
+﻿using AllPaczkino.Clients.ContactInfo;
 using AllPaczkino.Models;
 
 namespace AllPaczkino.DAL

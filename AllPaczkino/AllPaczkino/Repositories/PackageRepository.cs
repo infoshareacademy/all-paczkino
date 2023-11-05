@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
-using AllPaczkino.DAL;
-using AllPaczkino.Models;
+﻿using AllPaczkino.DAL;
 using Newtonsoft.Json;
 
 namespace AllPaczkino.Repositories
@@ -14,7 +7,7 @@ namespace AllPaczkino.Repositories
     {
         public List<Package> GetAll()
         {
-            string jsonPath = "DAL\\pacgages.json";
+            string jsonPath = "DAL\\packages.json";
             string jsonContent = File.ReadAllText(jsonPath);
             List<Package> items = JsonConvert.DeserializeObject<List<Package>>(jsonContent);
             return items;
@@ -22,7 +15,7 @@ namespace AllPaczkino.Repositories
 
         public void SaveAll(List<Package> items)
         {
-            string jsonPath = "DAL\\pacgages.json";
+            string jsonPath = "DAL\\packages.json";
             string updatedJsonContent = JsonConvert.SerializeObject(items, Formatting.Indented);
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
