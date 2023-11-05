@@ -36,26 +36,25 @@ namespace AllPaczkino.View
                                 ParcelStatus = ParcelStatus.Registered
                             };
                             var packages = packageRepository.GetAll() ;
+                            packages.Add(package);
                             packageRepository.SaveAll(packages);
-                            Console.WriteLine("package saved!");
+                            Console.WriteLine($"Fake package with ID: {package.ID} and Name: {package.Name} saved!");
                             break;
                         };
                     case ConsoleKey.S:
                         {
-                            Console.WriteLine(" Podaj nr paczki: ");
-                            if (decimal.TryParse(Console.ReadLine(), out decimal parcelNumberId))
-                            {
-                                var searchedParcelState = parcelsFakeList.FirstOrDefault(p => p.ParcelNumber == parcelNumberId);
-
+                            Console.WriteLine(" Podaj nr paczki lub jej nazwę: ");
+                            string parcelNameOrId = null;
+                            do
+                            { parcelNameOrId = Console.ReadLine();
+                                var abc = packageRepository.GetAll() ;
+                                var searchedParcelState = packageRepository.GetAll().FirstOrDefault(p => p.ID == parcelNameOrId || p.Name == parcelNameOrId);
                                 Console.WriteLine(
                                    searchedParcelState != null
-                                       ? $"For parcel with id {parcelNumberId} actual state is: {searchedParcelState.parcelStatus}."
-                                       : $"Parcel with id {parcelNumberId} not found, check the number!");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid input. Please enter a valid number.");
-                            }
+                                       ? $"For parcel with id {parcelNameOrId} actual state is: {searchedParcelState.ParcelStatus}."
+                                       : $"Parcel with id {parcelNameOrId} not found, check the number!");
+                            } while (parcelNameOrId == null);
+                            
                             break;
                         };
                     case ConsoleKey.Spacebar: break;
