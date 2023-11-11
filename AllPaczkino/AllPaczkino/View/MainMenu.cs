@@ -73,7 +73,7 @@ namespace AllPaczkino.View
                                         {
                                             Console.WriteLine("Quitting to main menu");
                                         }
-                                    } while (true);
+                                    } while (true); 
                                 }
                             }
                             else
