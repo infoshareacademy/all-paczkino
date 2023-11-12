@@ -4,24 +4,28 @@ using AllPaczkino.Repositories;
 
 namespace AllPaczkino.View
 {
-    public class MainMenu
+    public class ClientMenu
     {
-        ConsoleKeyInfo key;
-        PackageRepository packageRepository = new PackageRepository();
-        public void ShowUserMenu()
+		ConsoleKeyInfo key;
+		PackageRepository packageRepository = new PackageRepository();
+
+		public void ShowClientMenu()
         {
-            var parcelsFakeList = CreateFakeData();
-            Console.WriteLine("###########################################");
-            Console.WriteLine("Press 'A' to create and send new parcel.");
-            Console.WriteLine("Press 'S' to get parcel actual status.");
-            Console.WriteLine("Press 'Spacebar' to quit.");
+			//var parcelsFakeList = CreateFakeData();
+            Console.WriteLine("CLIENT MAIN MENU:\n");
+            Console.WriteLine("Press A to create and send new parcel.");
+			Console.WriteLine("Press P to pickup parcel.");
+            Console.WriteLine("Press S to get parcel current status.");
+			Console.WriteLine("Press Spacebar to go back to login menu.");
+			Console.WriteLine("Press Esc to quit.\n");
             do
             {
                 key = Console.ReadKey(intercept: true);
                 switch (key.Key)
                 {
-                    case ConsoleKey.A:
+                    case ConsoleKey.A: // formularz nadania paczki
                         {
+
                             Console.WriteLine(" Wypełnij pola niezbędne do nadania paczki: ");
                             Console.WriteLine( "aaddin fake package");
                             Package package = new Package()
@@ -41,7 +45,15 @@ namespace AllPaczkino.View
                             Console.WriteLine($"Fake package with ID: {package.ID} and Name: {package.Name} saved!");
                             break;
                         };
-                    case ConsoleKey.S:
+
+					case ConsoleKey.P: // formularz odbioru paczki
+						{
+							// do uzupełnienia
+
+							break;
+						};
+
+					case ConsoleKey.S: // sprawdzenie statusu paczki
                         {
                             Console.WriteLine(" Podaj nr paczki lub jej nazwę: ");
                             string parcelNameOrId = null;
@@ -57,13 +69,22 @@ namespace AllPaczkino.View
                             
                             break;
                         };
-                    case ConsoleKey.Spacebar: break;
+
+					case ConsoleKey.Spacebar:
+						LoginMenu loginMenu = new LoginMenu();
+						loginMenu.ShowLoginMenu();
+
+						break;
                 }
 
-            } while (key.Key != ConsoleKey.Spacebar);
+            } while (key.Key != ConsoleKey.Escape);
         }
-        private List<Parcel> CreateFakeData()
+
+		// rozumiem że całość poniżej możemy usunąć:
+		/*
+		private List<Parcel> CreateFakeData()
         {
+                        
             //fake data
             Console.WriteLine("Fake data for tests:"); 
             Parcel parcel1 = new Parcel();
@@ -79,6 +100,8 @@ namespace AllPaczkino.View
             parcelsFakeList.Add(parcel2);
             parcelsFakeList.Add(parcel3);
             return parcelsFakeList;
-        }
-    }
+            
+	    }
+        */
+	}
 }
