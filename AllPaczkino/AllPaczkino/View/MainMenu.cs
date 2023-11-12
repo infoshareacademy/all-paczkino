@@ -62,24 +62,18 @@ namespace AllPaczkino.View
                                                     }
                                                 });
                                                 Console.WriteLine("Parcel collected");
-                                            } else break;
-                                            if (confirmationCode! == "1234")
+                                            }
+                                            else if (confirmationCode! == "1234")
                                             {
                                                 Console.WriteLine("Wrong code. Please enter correct collection code.");
                                                 continue;
-                                            }
-                                        }
-                                        if (collect == "N" || collect == "n")
+                                            } break;
+                                        } 
+                                        else if (collect == "N" || collect == "n")
                                         {
                                             Console.WriteLine("Quitting to main menu");
-                                        break;
-                                        }
-                                        else break;
+                                        } break;
                                 }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid input. Please enter a valid number.");
                             } break;
                         };
                     case ConsoleKey.Spacebar: break;
