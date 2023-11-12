@@ -8,5 +8,6 @@ namespace AllPaczkino.Tracking
 {
     internal class ParcelTracking
     {
+        
     }
 }

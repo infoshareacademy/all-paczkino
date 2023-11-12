@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <None Update="DAL\packages.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="DAL\parcellockers.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

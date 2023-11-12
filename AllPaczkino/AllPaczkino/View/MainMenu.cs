@@ -23,7 +23,7 @@ namespace AllPaczkino.View
                     case ConsoleKey.A:
                         {
                             Console.WriteLine(" Wypełnij pola niezbędne do nadania paczki: ");
-                            
+
                             break;
                         };
                     case ConsoleKey.S:
@@ -42,41 +42,44 @@ namespace AllPaczkino.View
                                 //if parcel is ready for collection
                                 if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollection)
                                 {
-                                    
-                                        Console.WriteLine("Do you want to collect parcel? Y/N?");
-                                        var collect = Console.ReadLine();
-                                        if (collect == "Y" || collect == "y")
+
+                                    Console.WriteLine("Do you want to collect parcel? Y/N?");
+                                    var collect = Console.ReadLine();
+                                    if (collect == "Y" || collect == "y")
+                                    {
+                                        Console.WriteLine("Enter collection code");
+                                        var confirmationCode = Console.ReadLine();
+                                        if (confirmationCode == "1234")
                                         {
-                                            Console.WriteLine("Enter collection code");
-                                            var confirmationCode = Console.ReadLine();
-                                            if (confirmationCode == "1234")
-                                            {
-                                                searchedParcelState.parcelStatus = ParcelStatus.Received;
-                                                var packageRepository = new PackageRepository();
-                                                packageRepository.SaveAll(new List<Package>
+                                            searchedParcelState.parcelStatus = ParcelStatus.Received;
+                                            var packageRepository = new PackageRepository();
+
+                                            packageRepository.SaveAll(new List<Package>
                                                 {
                                                     new Package
                                                     {
                                                         ParcelStatus = searchedParcelState.parcelStatus,
-                                                        PackageNumber = searchedParcelState.ParcelNumber
-                                                    }
+                                                        PackageNumber = searchedParcelState.ParcelNumber,
+                                        }
                                                 });
-                                                Console.WriteLine("Parcel collected");
-                                            
-                                            }
-                                            else if (confirmationCode! == "1234")
-                                            {
-                                                Console.WriteLine("Wrong code. Please enter correct collection code.");
-                                            } continue;
+                                            Console.WriteLine("Parcel collected");
+                                            continue;
                                         }
-                                        else if (collect == "N" || collect == "n")
+                                        else if (confirmationCode! == "1234")
                                         {
-                                            Console.WriteLine("Quitting to main menu");
+                                            Console.WriteLine("Wrong code. Please enter correct collection code.");
                                         }
+                                        continue;
+                                    }
+                                    else if (collect == "N" || collect == "n")
+                                    {
+                                        Console.WriteLine("Quitting to main menu");
+                                    }
                                 }
-                            } break;
+                            }
+                            continue;
                         }
-                    case ConsoleKey.Spacebar: break;
+                    case ConsoleKey.Spacebar: continue;
                 }
 
             } while (key.Key != ConsoleKey.Spacebar);
