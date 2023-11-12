@@ -42,8 +42,7 @@ namespace AllPaczkino.View
                                 //if parcel is ready for collection
                                 if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollection)
                                 {
-                                    do
-                                    {
+                                    
                                         Console.WriteLine("Do you want to collect parcel? Y/N?");
                                         var collect = Console.ReadLine();
                                         if (collect == "Y" || collect == "y")
@@ -63,17 +62,19 @@ namespace AllPaczkino.View
                                                     }
                                                 });
                                                 Console.WriteLine("Parcel collected");
-                                            }
-                                            else if (confirmationCode! == "1234")
+                                            } else break;
+                                            if (confirmationCode! == "1234")
                                             {
-                                                break;
+                                                Console.WriteLine("Wrong code. Please enter correct collection code.");
+                                                continue;
                                             }
                                         }
                                         if (collect == "N" || collect == "n")
                                         {
                                             Console.WriteLine("Quitting to main menu");
+                                        break;
                                         }
-                                    } while (true); 
+                                        else break;
                                 }
                             }
                             else
