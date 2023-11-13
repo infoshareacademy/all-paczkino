@@ -6,8 +6,8 @@
     "Address": null,
     "SenderLocker": null,
     "ReceiverLocker": null,
-    "SendTime": null,
-    "ReceiveTime": null,
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": "0001-01-01T00:00:00",
     "ParcelStatus": 5
   }
 ]
