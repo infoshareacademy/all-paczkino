@@ -10,9 +10,14 @@
 			Console.WriteLine("LOGIN MAIN MENU:\n");
     		Console.WriteLine("Press A to login as admin");
 			Console.WriteLine("Press B to login as client");
-			Console.WriteLine("Press C to register new user.");
+			
+            //to na przyszłość
+            /*
+            Console.WriteLine("Press C to register new user.");
             Console.WriteLine("Press D to reset password.");
-            Console.WriteLine("Press Esc to quit.sporo eleme");
+            */
+
+            Console.WriteLine("Press Esc to quit");
             do
             {
                 key = Console.ReadKey(intercept: true);
@@ -37,7 +42,7 @@
 
 							break;
 						};
-
+/*
 					case ConsoleKey.C:
                         {
                             Console.WriteLine("Write login and press enter: ");
@@ -55,6 +60,7 @@
                             Console.WriteLine(" To be implemented ....");
                             break;
                         };
+*/
 
                     case ConsoleKey.Escape: break;
                 }
