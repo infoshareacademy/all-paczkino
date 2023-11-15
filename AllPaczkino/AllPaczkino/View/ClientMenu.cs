@@ -65,6 +65,22 @@ namespace AllPaczkino.View
                                    searchedParcelState != null
                                        ? $"For parcel with id {parcelNameOrId} actual state is: {searchedParcelState.ParcelStatus}."
                                        : $"Parcel with id {parcelNameOrId} not found, check the number!");
+                                while (searchedParcelState.ParcelStatus != ParcelStatus.ReadyToCollect)
+                                {
+                                    int currentStatusIndex = (int)searchedParcelState.ParcelStatus;
+                                    if (currentStatusIndex < 5)
+                                    {
+                                        searchedParcelState.ParcelStatus = (ParcelStatus)(currentStatusIndex + 1);
+                                        packageRepository.SaveAll(abc);
+                                        Console.WriteLine($"For parcel with id {parcelNameOrId} actual state is: {searchedParcelState.ParcelStatus}");
+                                        System.Threading.Thread.Sleep(2000);
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
                             } while (parcelNameOrId == null);
                             
                             break;
