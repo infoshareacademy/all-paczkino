@@ -2,17 +2,21 @@
 
 namespace AllPaczkino.Models.Forms
 {
-    internal class ReceiverForm
+    public class ReceiverForm
     {
         public ReceiverForm(string name, string surname, string email, string phoneNumber)
         {
+            if (NameValidator.Validate(name, surname, 2, 30))
+                throw new Exception();
+            if (EmailValidator.Validate(email, 3, 100))
+                throw new Exception();
             Name = name;
             Surname = surname;
             Email = email;
             PhoneNumber = phoneNumber;
         }
 
-        public ReceiverForm() { }
+        private ReceiverForm() { }
 
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -21,71 +25,29 @@ namespace AllPaczkino.Models.Forms
     }
 }
 
-public class ValidateNameAndSurName
+public static class NameValidator
 {
-    static void ReceiverForm()
+    public static bool Validate(string Name, string SurName, int minLength, int maxLength)
     {
-        string Name = "Jan";
-        string SurName = "Kowalski";
-
-        if (ValidateName(Name, SurName, 2, 20))
-        {
-            Console.WriteLine("Imię i nazwisko są poprawne.");
-        }
-        else
-        {
-            Console.WriteLine("Imię i nazwisko dodane niepoprawnie.");
-        }
-    }
-
-    static bool ValidateName(string Name, string SurName, int minLength, int maxLength)
-    {
-        bool isNameValid = Name.Length >= minLength && Name.Length <= maxLength;
-        bool isSurNameValid = SurName.Length >= minLength && SurName.Length <= maxLength;
+        var isNameValid = Name.Length >= minLength && Name.Length <= maxLength;
+        var isSurNameValid = SurName.Length >= minLength && SurName.Length <= maxLength;
 
         return isNameValid && isSurNameValid;
     }
 }
 
-class ValidateEmailAdress
+public class EmailValidator
 {
-    static void ReceiverForm()
+    public static bool Validate(string email, int minLength, int maxLength)
     {
-        string email = "jan.kowalski@example.com";
-
-        if (IsValidEmail(email))
-        {
-            Console.WriteLine("Adres email jest prawidłowy");
-        }
-        else
-        {
-            Console.WriteLine("Adres email jest nieprawidłowy.");
-        }
-    }
-
-    static bool IsValidEmail(string email)
-    {
-        return email.Contains("@") && email.Split('@')[1].Contains(".");
+        return email.Length >= minLength && email.Length <= maxLength && email.Contains("@") && email.Split('@')[1].Contains(".");
     }
 }
 
-class ValidatePhoneNumber
+
+internal class PhoneNuberValidator
 {
-    static void ReciverForm()
-    {
-        string phoneNumber = "+48 123-456-789";
-
-        if (IsValidPhoneNumber(phoneNumber))
-        {
-            Console.WriteLine("Numer telefonu jest prawidłowy.");
-        }
-        else
-        {
-            Console.WriteLine("Numer telefonu jest nieprawidłowy.");
-        }
-    }
-
-    static bool IsValidPhoneNumber(string phoneNumber)
+    private static bool IsValidPhoneNumber(string phoneNumber)
     {
         foreach (char c in phoneNumber)
         {

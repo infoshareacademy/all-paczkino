@@ -45,6 +45,8 @@ namespace AllPaczkino.Models.Forms
 
         return isNameValid && isSurNameValid;
     }
+
+ 
 }
 
 class ValidateEmailAdress
@@ -69,9 +71,9 @@ class ValidateEmailAdress
     }
 }
 
-class ValidatePhoneNumber
+internal class ValidatePhoneNumber
 {
-    static void SenderForm()
+    private static void SenderForm()
     {
         string phoneNumber = "+48 123-456-789";
 
@@ -85,7 +87,7 @@ class ValidatePhoneNumber
         }
     }
 
-    static bool IsValidPhoneNumber(string phoneNumber)
+    private static bool IsValidPhoneNumber(string phoneNumber)
     {
         foreach (char c in phoneNumber)
         {

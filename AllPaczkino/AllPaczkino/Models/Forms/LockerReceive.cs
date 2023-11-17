@@ -12,7 +12,7 @@ namespace AllPaczkino.Models.Forms
 
             if (int.TryParse(Console.ReadLine(), out int response))
             {
-                ReceiverLocker receiverLocker = GetReceiverLocker(response);
+                LockerReceive receiverLocker = GetReceiverLocker(response);
 
                 if (receiverLocker != null)
                 {
@@ -30,23 +30,23 @@ namespace AllPaczkino.Models.Forms
                 }
             }
 
-            static ReceiverLocker GetReceiverLocker(int choice)
+            static LockerReceive GetReceiverLocker(int choice)
             {
                 return choice switch
                 {
-                    1 => new ReceiverLocker("Paczkomat A"),
-                    2 => new ReceiverLocker("Paczkomat B"),
+                    1 => new LockerReceive("Paczkomat A"),
+                    2 => new LockerReceive("Paczkomat B"),
                     _ => null
                 };
             }
         }
 
-        public class ReceiverLocker
+        public class LockerReceive
         {
             public string Name { get; set; }
             public string PostalCode { get; set; }
 
-            public ReceiverLocker(string name)
+            public LockerReceive(string name)
             {
                 Name = name;
                 PostalCode = "00-000";
