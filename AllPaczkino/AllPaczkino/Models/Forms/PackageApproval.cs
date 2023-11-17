@@ -28,13 +28,4 @@ namespace AllPaczkino.Models.Forms
 }
 
 
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Wygenerowano kod wysyłki.");
-        Console.WriteLine("Potwierdzenie nadania paczki.");
 
-        Console.ReadLine(); 
-    }
-}
