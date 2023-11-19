@@ -13,5 +13,6 @@ namespace AllPaczkino.DAL
         public DateTime SendTime { get; set; }
         public DateTime ReceiveTime { get; set; }
         public ParcelStatus ParcelStatus { get; set; }
+        public decimal PackageNumber { get; set; }
     }
 }
