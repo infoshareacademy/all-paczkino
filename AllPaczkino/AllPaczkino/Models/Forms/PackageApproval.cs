@@ -5,24 +5,24 @@ namespace AllPaczkino.Models.Forms
     public class PackageApproval
     
     {
-        static void Main()
-        {
-            Console.WriteLine("Czy paczka została nadana? (TAK/NIE)");
+        //static void Main()
+        //{
+        //    Console.WriteLine("Czy paczka została nadana? (TAK/NIE)");
 
-            string answer= Console.ReadLine();
+        //    string answer= Console.ReadLine();
 
-            if (answer.ToUpper() == "TAK")
-            {
-                Console.WriteLine("Paczka została nadana. Kod etykiety i numer nadania wysłane na wskazany adres email.");
-            }
-            else if (answer.ToUpper() == "NIE")
-            {
-                Console.WriteLine("Rozpocznij proces nadawania paczki od początku.");
-            }
+        //    if (answer.ToUpper() == "TAK")
+        //    {
+        //        Console.WriteLine("Paczka została nadana. Kod etykiety i numer nadania wysłane na wskazany adres email.");
+        //    }
+        //    else if (answer.ToUpper() == "NIE")
+        //    {
+        //        Console.WriteLine("Rozpocznij proces nadawania paczki od początku.");
+        //    }
             
 
-            Console.ReadLine(); 
-        }
+        //    Console.ReadLine(); 
+        //}
     }
 
 }

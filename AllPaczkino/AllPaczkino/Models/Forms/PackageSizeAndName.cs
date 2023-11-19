@@ -6,40 +6,40 @@ namespace AllPaczkino.Models.Forms
 {
     public class PackageSizeAndName
     {
-        static void Main()
-        {
-            Console.WriteLine("Wybierz rozmiar paczki:");
-            Console.WriteLine("Y - Mała paczka");
-            Console.WriteLine("X - Średnia paczka");
-            Console.WriteLine("Z - Duża paczka");
+        //static void Main()
+        //{
+        //    Console.WriteLine("Wybierz rozmiar paczki:");
+        //    Console.WriteLine("Y - Mała paczka");
+        //    Console.WriteLine("X - Średnia paczka");
+        //    Console.WriteLine("Z - Duża paczka");
 
 
-            var response = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
+        //    var response = char.ToUpper(Console.ReadKey().KeyChar);
+        //    Console.WriteLine();
 
-            var packageSize = GetPackageSize(response);
+        //    var packageSize = GetPackageSize(response);
 
-            if (!string.IsNullOrEmpty(packageSize))
-            {
-                Console.WriteLine("Podaj nazwę paczki:");
-                var packageName = Console.ReadLine();
-                while (!string.IsNullOrEmpty(packageName))
-                {
-                    Console.WriteLine("Pusta nazwa niedozwolona. Popraw:");
-                    packageName = Console.ReadLine();
-                }
+        //    if (!string.IsNullOrEmpty(packageSize))
+        //    {
+        //        Console.WriteLine("Podaj nazwę paczki:");
+        //        var packageName = Console.ReadLine();
+        //        while (!string.IsNullOrEmpty(packageName))
+        //        {
+        //            Console.WriteLine("Pusta nazwa niedozwolona. Popraw:");
+        //            packageName = Console.ReadLine();
+        //        }
 
-                var package = new Package(packageName, packageSize);
+        //        var package = new Package(packageName, packageSize);
 
-                Console.WriteLine($"Nazwa paczki: {package.Name}");
-                Console.WriteLine($"Data nadania: {package.ShippingDate}");
-                Console.WriteLine($"ID paczki: {package.Id}");
-            }
-            else 
-            {
-                Console.WriteLine("Nieprawidłowy wybór.");
-            }
-        }
+        //        Console.WriteLine($"Nazwa paczki: {package.Name}");
+        //        Console.WriteLine($"Data nadania: {package.ShippingDate}");
+        //        Console.WriteLine($"ID paczki: {package.Id}");
+        //    }
+        //    else 
+        //    {
+        //        Console.WriteLine("Nieprawidłowy wybór.");
+        //    }
+        //}
 
         static string? GetPackageSize(char response)
         {
@@ -84,28 +84,28 @@ namespace AllPaczkino.Models.Forms
 
 class PackageList
 {
-    static void Main()
-    {
+    //static void Main()
+    //{
 
-        List<object> packageList = new List<object>();
+    //    List<object> packageList = new List<object>();
 
-        var myPackage = new
-        {
-            Name = "PrzykładowaNazwaPackage"
+    //    var myPackage = new
+    //    {
+    //        Name = "PrzykładowaNazwaPackage"
 
-        };
+    //    };
 
-        packageList.Add(myPackage);
+    //    packageList.Add(myPackage);
 
 
-        foreach (var package in packageList)
-        {
+    //    foreach (var package in packageList)
+    //    {
 
-            var packageName = ((dynamic)package).Name;
+    //        var packageName = ((dynamic)package).Name;
 
-            Console.WriteLine($"Name: {packageName}");
-        }
-    }
+    //        Console.WriteLine($"Name: {packageName}");
+    //    }
+    //}
 }
 
 
