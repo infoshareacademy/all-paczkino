@@ -32,33 +32,40 @@ namespace AllPaczkino.Parcels
                         if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollect)
                         {
 
-                            Console.WriteLine("Do you want to collect parcel? Y/N?");
-                            var collect = Console.ReadLine();
+                            Console.WriteLine("Do you want to collect the parcel? Y/N?");
+                            var collect = Console.ReadLine()?.Trim(); // Trim to remove leading/trailing spaces
+
                             if (collect == "Y" || collect == "y")
                             {
-                                Console.WriteLine("Enter collection code");
+                                Console.WriteLine("Enter the collection code");
                                 var confirmationCode = Console.ReadLine();
-                                if (confirmationCode == "1234")
-                                {
-                                    searchedParcelState.parcelStatus = ParcelStatus.Received;
-                                    var packageRepository = new PackageRepository();
 
-                                    packageRepository.SaveAll(new List<Package>
-                                                {
-                                                    new Package
-                                                    {
-                                                        ParcelStatus = searchedParcelState.parcelStatus,
-                                                        PackageNumber = searchedParcelState.ParcelNumber,
-                                        }
-                                                });
-                                    Console.WriteLine("Parcel collected");
-                                    continue;
-                                }
-                                else if (confirmationCode! == "1234")
+                                try
                                 {
-                                    Console.WriteLine("Wrong code. Please enter correct collection code.");
+                                    if (confirmationCode == "1234")
+                                    {
+                                        searchedParcelState.parcelStatus = ParcelStatus.Received;
+                                        var packageRepository = new PackageRepository();
+
+                                        packageRepository.SaveAll(new List<Package>
+            {
+                new Package
+                {
+                    ParcelStatus = searchedParcelState.parcelStatus,
+                    PackageNumber = searchedParcelState.ParcelNumber,
+                }
+            });
+                                        Console.WriteLine("Parcel collected");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Wrong code. Please enter the correct collection code.");
+                                    }
                                 }
-                                continue;
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine($"An error occurred: {ex.Message}");
+                                }
                             }
                             else if (collect == "N" || collect == "n")
                             {
