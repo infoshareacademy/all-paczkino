@@ -48,9 +48,65 @@ namespace AllPaczkino.View
 
 					case ConsoleKey.P: // formularz odbioru paczki
 						{
-							// do uzupełnienia
+                            // do uzupełnienia
+                            var parcelsFakeList = CreateFakeData();
+                            {
+                                do
+                                {
+                                    Console.WriteLine(" Podaj nr paczki: ");
+                                    if (decimal.TryParse(Console.ReadLine(), out decimal parcelNumberId))
+                                    {
+                                        var searchedParcelState = parcelsFakeList.FirstOrDefault(p => p.ParcelNumber == parcelNumberId);
 
-							break;
+                                        Console.WriteLine(
+                                           searchedParcelState != null
+                                               ? $"For parcel with id {parcelNumberId} actual state is:     {searchedParcelState.parcelStatus}."
+                                               : $"Parcel with id {parcelNumberId} not found, check the number!");
+
+
+                                        //if parcel is ready for collection
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollect)
+                                        {
+
+                                            Console.WriteLine("Do you want to collect parcel? Y/N?");
+                                            var collect = Console.ReadLine();
+                                            if (collect == "Y" || collect == "y")
+                                            {
+                                                Console.WriteLine("Enter collection code");
+                                                var confirmationCode = Console.ReadLine();
+                                                if (confirmationCode == "1234")
+                                                {
+                                                    searchedParcelState.parcelStatus = ParcelStatus.Received;
+                                                    var packageRepository = new PackageRepository();
+
+                                                    packageRepository.SaveAll(new List<Package>
+                                                {
+                                                    new Package
+                                                    {
+                                                        ParcelStatus = searchedParcelState.parcelStatus,
+                                                        PackageNumber = searchedParcelState.ParcelNumber,
+                                        }
+                                                });
+                                                    Console.WriteLine("Parcel collected");
+                                                    continue;
+                                                }
+                                                else if (confirmationCode! == "1234")
+                                                {
+                                                    Console.WriteLine("Wrong code. Please enter correct collection code.");
+                                                }
+                                                continue;
+                                            }
+                                            else if (collect == "N" || collect == "n")
+                                            {
+                                                Console.WriteLine("Quitting to main menu");
+                                            }
+                                        }
+                                    }
+                                    continue;
+
+                                } while (true);
+                            }
+                            break;
 						};
 
 					case ConsoleKey.S: // sprawdzenie statusu paczki
@@ -81,7 +137,7 @@ namespace AllPaczkino.View
         }
 
 		// rozumiem że całość poniżej możemy usunąć:
-		/*
+		
 		private List<Parcel> CreateFakeData()
         {
                         
@@ -102,6 +158,6 @@ namespace AllPaczkino.View
             return parcelsFakeList;
             
 	    }
-        */
+        
 	}
 }
