@@ -1,6 +1,7 @@
 ﻿using AllPaczkino.DAL;
 using AllPaczkino.Models;
 using AllPaczkino.Repositories;
+using AllPaczkino.Models.Forms;
 
 namespace AllPaczkino.View
 {
@@ -27,22 +28,25 @@ namespace AllPaczkino.View
                         {
 
                             Console.WriteLine(" Wypełnij pola niezbędne do nadania paczki: ");
-                            Console.WriteLine( "aaddin fake package");
-                            Package package = new Package()
-                            {
-                                ID = "2",
-                                Name = "TestPackage2",
-                                Address = new Clients.ContactInfo.Adress("street Name ", 666, "City Name", "cos", "05-500"),
-                                SenderLocker = new ParcelLocker(),
-                                ReceiverLocker = new ParcelLocker(),
-                                SendTime = DateTime.Now,
-                                ReceiveTime = DateTime.Now.AddDays(30),
-                                ParcelStatus = ParcelStatus.Registered
-                            };
-                            var packages = packageRepository.GetAll() ;
-                            packages.Add(package);
-                            packageRepository.SaveAll(packages);
-                            Console.WriteLine($"Fake package with ID: {package.ID} and Name: {package.Name} saved!");
+                            SenderForm senderForm = new SenderForm();
+                           
+
+                            //Console.WriteLine( "aaddin fake package");
+                            //Package package = new Package()
+                            //{
+                            //    ID = "2",
+                            //    Name = "TestPackage2",
+                            //    Address = new Clients.ContactInfo.Adress("street Name ", 666, "City Name", "cos", "05-500"),
+                            //    SenderLocker = new ParcelLocker(),
+                            //    ReceiverLocker = new ParcelLocker(),
+                            //    SendTime = DateTime.Now,
+                            //    ReceiveTime = DateTime.Now.AddDays(30),
+                            //    ParcelStatus = ParcelStatus.Registered
+                            //};
+                            //var packages = packageRepository.GetAll() ;
+                            //packages.Add(package);
+                            //packageRepository.SaveAll(packages);
+                            //Console.WriteLine($"Fake package with ID: {package.ID} and Name: {package.Name} saved!");
                             break;
                         };
 

@@ -35,7 +35,7 @@ namespace AllPaczkino.Models.Forms
         //        Console.WriteLine($"Data nadania: {package.ShippingDate}");
         //        Console.WriteLine($"ID paczki: {package.Id}");
         //    }
-        //    else 
+        //    else
         //    {
         //        Console.WriteLine("Nieprawidłowy wybór.");
         //    }

@@ -1,7 +1,7 @@
 ﻿
 
 namespace AllPaczkino.Models.Forms
-{ }
+{ 
 
 
 //class Programm
@@ -54,5 +54,5 @@ namespace AllPaczkino.Models.Forms
                 PostalCode = "00-000";
             }
         }
-//}
+}
 

@@ -19,83 +19,84 @@ namespace AllPaczkino.Models.Forms
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
     }
-}
 
- public class ValidateNameAndSurName
-{
-    static void SenderForm()
+
+    public class ValidateNameAndSurName
     {
-        string Name = "Jan";
-        string SurName = "Kowalski";
-
-        if (ValidateName(Name, SurName, 2, 20))
+        static void SenderForm()
         {
-            Console.WriteLine("Imię i nazwisko są poprawne.");
-        }
-        else
-        {
-            Console.WriteLine("Imię i nazwisko dodane niepoprawnie.");
-        }
-    }
+            string Name = "Jan";
+            string SurName = "Kowalski";
 
-    static bool ValidateName(string Name, string SurName, int minLength, int maxLength)
-    {
-        bool isNameValid = Name.Length >= minLength && Name.Length <= maxLength;
-        bool isSurNameValid = SurName.Length >= minLength && SurName.Length <= maxLength;
-
-        return isNameValid && isSurNameValid;
-    }
-
- 
-}
-
-class ValidateEmailAdress
-{
-    static void SenderForm()
-    {
-        string email = "jan.kowalski@example.com";
-
-        if (IsValidEmail(email))
-        {
-            Console.WriteLine("Adres email jest prawidłowy");
-        }
-        else
-        {
-            Console.WriteLine("Adres email jest nieprawidłowy.");
-        }
-    }
-
-    static bool IsValidEmail(string email)
-    {
-        return email.Contains("@") && email.Split('@')[1].Contains(".");
-    }
-}
-
-internal class ValidatePhoneNumber
-{
-    private static void SenderForm()
-    {
-        string phoneNumber = "+48 123-456-789";
-
-        if (IsValidPhoneNumber(phoneNumber))
-        {
-            Console.WriteLine("Numer telefonu jest prawidłowy.");
-        }
-        else
-        {
-            Console.WriteLine("Numer telefonu jest nieprawidłowy.");
-        }
-    }
-
-    private static bool IsValidPhoneNumber(string phoneNumber)
-    {
-        foreach (char c in phoneNumber)
-        {
-            if (!Char.IsDigit(c) && c != ' ' && c != '-' && c != '+' && c != '(' && c != ')')
+            if (ValidateName(Name, SurName, 2, 20))
             {
-                return false;
+                Console.WriteLine("Imię i nazwisko są poprawne.");
+            }
+            else
+            {
+                Console.WriteLine("Imię i nazwisko dodane niepoprawnie.");
             }
         }
-        return true;
+
+        static bool ValidateName(string Name, string SurName, int minLength, int maxLength)
+        {
+            bool isNameValid = Name.Length >= minLength && Name.Length <= maxLength;
+            bool isSurNameValid = SurName.Length >= minLength && SurName.Length <= maxLength;
+
+            return isNameValid && isSurNameValid;
+        }
+
+
+    }
+
+    class ValidateEmailAdress
+    {
+        static void SenderForm()
+        {
+            string email = "jan.kowalski@example.com";
+
+            if (IsValidEmail(email))
+            {
+                Console.WriteLine("Adres email jest prawidłowy");
+            }
+            else
+            {
+                Console.WriteLine("Adres email jest nieprawidłowy.");
+            }
+        }
+
+        static bool IsValidEmail(string email)
+        {
+            return email.Contains("@") && email.Split('@')[1].Contains(".");
+        }
+    }
+
+    internal class ValidatePhoneNumber
+    {
+        private static void SenderForm()
+        {
+            string phoneNumber = "+48 123-456-789";
+
+            if (IsValidPhoneNumber(phoneNumber))
+            {
+                Console.WriteLine("Numer telefonu jest prawidłowy.");
+            }
+            else
+            {
+                Console.WriteLine("Numer telefonu jest nieprawidłowy.");
+            }
+        }
+
+        private static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            foreach (char c in phoneNumber)
+            {
+                if (!Char.IsDigit(c) && c != ' ' && c != '-' && c != '+' && c != '(' && c != ')')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
