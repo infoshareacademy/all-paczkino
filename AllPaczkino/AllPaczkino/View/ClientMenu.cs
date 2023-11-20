@@ -84,7 +84,7 @@ namespace AllPaczkino.View
                                         { continue; };
 
                                         if (searchedParcelState.parcelStatus == ParcelStatus.InDelivery)
-                                        {  continue; };
+                                        { continue; };
 
                                         if (searchedParcelState.parcelStatus == ParcelStatus.Returned)
                                         { continue; };
@@ -132,15 +132,7 @@ namespace AllPaczkino.View
                                                         {
                                                             break;
                                                         }
-                                                        else if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
-                                                        {
-                                                            LoginMenu exitToMenu = new LoginMenu();
-                                                            exitToMenu.ShowLoginMenu();
-                                                            Console.WriteLine("                      ");
-                                                            Console.WriteLine("Exitting to Main Menu.");
-                                                            Console.WriteLine("                      ");
-                                                        }
-                                                        break;
+                                                        
                                                     }
                                                     else
                                                     {
@@ -158,25 +150,9 @@ namespace AllPaczkino.View
                                                 {
                                                     break;
                                                 }
-                                                else if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
-                                                {
-                                                    LoginMenu exitToMenu = new LoginMenu();
-                                                    exitToMenu.ShowLoginMenu();
-                                                    Console.WriteLine("                      ");
-                                                    Console.WriteLine("Exitting to Main Menu.");
-                                                    Console.WriteLine("                      ");
-                                                }
-                                                break;
+                                                
                                             }
-                                            if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
-                                            {
-                                                Console.WriteLine("                      ");
-                                                Console.WriteLine("Exitting to Main Menu.");
-                                                Console.WriteLine("                      ");
-                                                LoginMenu exitToMenu = new LoginMenu();
-                                                exitToMenu.ShowLoginMenu();
-                                            }
-                                            break;
+                                            
                                         }
                                         
                                         if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
