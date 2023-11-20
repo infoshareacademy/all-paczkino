@@ -1,4 +1,5 @@
-﻿using AllPaczkino.DAL;
+﻿using AllPaczkino.Clients;
+using AllPaczkino.DAL;
 using AllPaczkino.Models;
 using AllPaczkino.Repositories;
 using AngleSharp.Css;
@@ -57,21 +58,46 @@ namespace AllPaczkino.View
                                 {
                                     Console.WriteLine("                                        ");
                                     Console.WriteLine("Enter parcel number you want to collect: ");
-                                    Console.WriteLine("                                                                                        ");
+                                    if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                                    {
+                                        Console.WriteLine("                      ");
+                                        Console.WriteLine("Exitting to Main Menu.");
+                                        Console.WriteLine("                      ");
+                                        LoginMenu exitToMenu = new LoginMenu();
+                                        exitToMenu.ShowLoginMenu();
+                                    }
                                     if (decimal.TryParse(Console.ReadLine(), out decimal parcelNumberId))
                                     {
                                         var searchedParcelState = parcelsFakeList.FirstOrDefault(p => p.ParcelNumber == parcelNumberId);
 
                                         if (searchedParcelState != null)
                                         {
-                                            Console.WriteLine(
-                                       searchedParcelState != null
+                                            Console.WriteLine( searchedParcelState != null
                                         ? $"For parcel with id {parcelNumberId} actual state is: {searchedParcelState.parcelStatus}."
                                         : $"Parcel with id {parcelNumberId} not found, check the number!"
                                            );
                                         }
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.CollectedByCourier)
+                                        { continue; };
 
-                                        //if parcel is ready for collection
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.Registered)
+                                        { continue; };
+
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.InDelivery)
+                                        {  continue; };
+
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.Returned)
+                                        { continue; };
+                                        
+                                        if (searchedParcelState.parcelStatus == ParcelStatus.Received)
+                                        { continue; };
+
+                                        //CollectedByCourier,
+                                        //InDelivery,
+                                        //Registered,
+                                        //Returned,
+                                        //Received,
+                                        //if parcel is //ReadyToCollect
                                         if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollect)
                                         {
                                             Console.WriteLine("                                        ");
@@ -92,19 +118,27 @@ namespace AllPaczkino.View
                                                         var packageRepository = new PackageRepository();
 
                                                         packageRepository.SaveAll(new List<Package>
-                                                {
-                                                    new Package
                                                     {
-                                                        ParcelStatus = searchedParcelState.parcelStatus,
-                                                        PackageNumber = searchedParcelState.ParcelNumber,
-                                                    }
-                                                });
+                                                        new Package
+                                                        {
+                                                            ParcelStatus = searchedParcelState.parcelStatus,
+                                                            PackageNumber = searchedParcelState.ParcelNumber,
+                                                        }
+                                                    });
                                                         Console.WriteLine("Parcel collected!");
                                                         Console.WriteLine("                 ");
-                                                        Console.WriteLine(" Press X to collect another parcel or SPACEBAR to exit to Main Menu. ");
+                                                        Console.WriteLine("Press X to collect another parcel or SPACEBAR to exit to Main Menu.");
                                                         if (Console.ReadKey(true).Key == ConsoleKey.X)
                                                         {
                                                             break;
+                                                        }
+                                                        else if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                                                        {
+                                                            LoginMenu exitToMenu = new LoginMenu();
+                                                            exitToMenu.ShowLoginMenu();
+                                                            Console.WriteLine("                      ");
+                                                            Console.WriteLine("Exitting to Main Menu.");
+                                                            Console.WriteLine("                      ");
                                                         }
                                                         break;
                                                     }
@@ -117,20 +151,28 @@ namespace AllPaczkino.View
                                             }
                                             else if (collect == "N" || collect == "n")
                                             {
-                                                Console.WriteLine("                                    ");
-                                                Console.WriteLine(" Press X to collect another parcel or SPACEBAR to exit to Main Menu. ");
+                                                Console.WriteLine("                                   ");
+                                                Console.WriteLine("Press X to collect another parcel or SPACEBAR to exit to Main Menu.");
                                                 
                                                 if (Console.ReadKey(true).Key == ConsoleKey.X)
                                                 {
                                                     break;
                                                 }
-                                                
+                                                else if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                                                {
+                                                    LoginMenu exitToMenu = new LoginMenu();
+                                                    exitToMenu.ShowLoginMenu();
+                                                    Console.WriteLine("                      ");
+                                                    Console.WriteLine("Exitting to Main Menu.");
+                                                    Console.WriteLine("                      ");
+                                                }
+                                                break;
                                             }
                                             if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
                                             {
-                                                Console.WriteLine("                        ");
-                                                Console.WriteLine(" Exitting to Main Menu. ");
-                                                Console.WriteLine("                        ");
+                                                Console.WriteLine("                      ");
+                                                Console.WriteLine("Exitting to Main Menu.");
+                                                Console.WriteLine("                      ");
                                                 LoginMenu exitToMenu = new LoginMenu();
                                                 exitToMenu.ShowLoginMenu();
                                             }
@@ -139,9 +181,9 @@ namespace AllPaczkino.View
                                         
                                         if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
                                         {
-                                            Console.WriteLine("                        ");
-                                            Console.WriteLine(" Exitting to Main Menu. ");
-                                            Console.WriteLine("                        ");
+                                            Console.WriteLine("                      ");
+                                            Console.WriteLine("Exitting to Main Menu.");
+                                            Console.WriteLine("                      ");
                                             LoginMenu exitToMenu = new LoginMenu();
                                             exitToMenu.ShowLoginMenu();
                                         }
