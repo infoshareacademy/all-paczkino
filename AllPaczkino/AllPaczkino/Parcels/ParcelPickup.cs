@@ -48,13 +48,13 @@ namespace AllPaczkino.Parcels
                                         var packageRepository = new PackageRepository();
 
                                         packageRepository.SaveAll(new List<Package>
-            {
-                new Package
-                {
-                    ParcelStatus = searchedParcelState.parcelStatus,
-                    PackageNumber = searchedParcelState.ParcelNumber,
-                }
-            });
+                                        {
+                                            new Package
+                                            {
+                                                ParcelStatus = searchedParcelState.parcelStatus,
+                                                PackageNumber = searchedParcelState.ParcelNumber,
+                                            }
+                                        });
                                         Console.WriteLine("Parcel collected");
                                     }
                                     else

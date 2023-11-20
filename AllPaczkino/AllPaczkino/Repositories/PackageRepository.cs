@@ -15,7 +15,7 @@ namespace AllPaczkino.Repositories
 
         public void SaveAll(List<Package> items)
         {
-            string jsonPath = "DAL\\packages.json";
+            string jsonPath = "DAL\\collectedparcels.json";
             string updatedJsonContent = JsonConvert.SerializeObject(items, Formatting.Indented);
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
