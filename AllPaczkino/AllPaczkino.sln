@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllPaczkino", "AllPaczkino\AllPaczkino.csproj", "{439EF9EB-CA09-4016-B266-92FE01B3A01F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllPaczkino", "AllPaczkino\AllPaczkino.csproj", "{439EF9EB-CA09-4016-B266-92FE01B3A01F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllPaczkinoLogic", "AllPaczkinoLogic\AllPaczkinoLogic.csproj", "{DE0E8230-6ED4-4FAC-92D3-3DFD4541946D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllPaczkinoMVC", "AllPaczkinoMVC\AllPaczkinoMVC.csproj", "{518E82A2-D2C5-4E18-A972-23395A5BA484}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{439EF9EB-CA09-4016-B266-92FE01B3A01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{439EF9EB-CA09-4016-B266-92FE01B3A01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{439EF9EB-CA09-4016-B266-92FE01B3A01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0E8230-6ED4-4FAC-92D3-3DFD4541946D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0E8230-6ED4-4FAC-92D3-3DFD4541946D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0E8230-6ED4-4FAC-92D3-3DFD4541946D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0E8230-6ED4-4FAC-92D3-3DFD4541946D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518E82A2-D2C5-4E18-A972-23395A5BA484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518E82A2-D2C5-4E18-A972-23395A5BA484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518E82A2-D2C5-4E18-A972-23395A5BA484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518E82A2-D2C5-4E18-A972-23395A5BA484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

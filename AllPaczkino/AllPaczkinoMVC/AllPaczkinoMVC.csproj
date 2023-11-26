@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="DAL\clientlist.json" />
+    <Content Remove="DAL\packages.json" />
+    <Content Remove="DAL\parcellockers.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="DAL\clientlist.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Include="DAL\packages.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Include="DAL\parcellockers.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AllPaczkinoLogic\AllPaczkinoLogic.csproj" />
+  </ItemGroup>
+
+</Project>
