@@ -1,4 +1,5 @@
-﻿using Parcels.Parcels;
+﻿using AllPaczkino.Clients.ContactInfo;
+using Parcels.Parcels;
 
 namespace AllPaczkino.Models
 {
@@ -14,12 +15,18 @@ namespace AllPaczkino.Models
     }
     public class Parcel
     {
-        public ParcelStatus parcelStatus { get; set; }
-        public ParcelSize parcelSize { get; set; }
         public decimal ParcelNumber { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public Adress Address { get; set; }
+        public ParcelLocker SenderLocker { get; set; }
+        public ParcelLocker ReceiverLocker { get; set; }
+        public DateTime SendTime { get; set; }
+        public DateTime ReceiveTime { get; set; }
+        public ParcelStatus ParcelStatus { get; set; }
         public Parcel()
         {
-            parcelStatus = ParcelStatus.Registered;
+            ParcelStatus = ParcelStatus.Registered;
             ParcelNumber = (new Random()).Next(1000);
 
  

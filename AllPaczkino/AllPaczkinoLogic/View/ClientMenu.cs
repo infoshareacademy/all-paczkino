@@ -8,7 +8,7 @@ namespace AllPaczkino.View
     public class ClientMenu
     {
 		ConsoleKeyInfo key;
-		PackageRepository packageRepository = new PackageRepository();
+		ParcelsRepository packageRepository = new ParcelsRepository();
 
 		public void ShowClientMenu()
         {

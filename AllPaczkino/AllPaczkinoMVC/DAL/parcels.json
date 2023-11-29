@@ -1,0 +1,56 @@
+[
+  {
+    "ID": "123456789",
+    "Name": "TestPackage",
+    "Address": {
+      "StreetName": "street Name ",
+      "HouseNumber": 666,
+      "CityName": "City Name",
+      "PostalCode": "05-500",
+      "Country": "Poland",
+      "FlatNumber": 1
+    },
+    "SenderLocker": {
+      "id": 2,
+      "city": "Kraków",
+      "postal_code": "30-001",
+      "address": "ul. Lipowa 2"
+    },
+    "ReceiverLocker": {
+      "id": 1,
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
+    },
+    "SendTime": "2023-11-05T14:26:20.5875223+01:00",
+    "ReceiveTime": "2023-12-05T14:26:20.5975038+01:00",
+    "ParcelStatus": 0
+  },
+  {
+    "ID": "1",
+    "Name": "TestPackage2",
+    "Address": {
+      "StreetName": "street Name ",
+      "HouseNumber": 666,
+      "CityName": "City Name",
+      "PostalCode": "05-500",
+      "Country": "Poland",
+      "FlatNumber": 2
+    },
+    "SenderLocker": {
+      "id": 1,
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 2,
+      "city": "Kraków",
+      "postal_code": "30-001",
+      "address": "ul. Lipowa 2"
+    },
+    "SendTime": "2023-11-05T14:26:20.5875223+01:00",
+    "ReceiveTime": "2023-12-05T14:26:20.5975038+01:00",
+    "ParcelStatus": 1
+  }
+]

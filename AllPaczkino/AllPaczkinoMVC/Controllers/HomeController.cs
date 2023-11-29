@@ -18,7 +18,7 @@ namespace AllPaczkinoMVC.Controllers
 
         public IActionResult Index()
         {
-            var a = new PackageRepository();
+            var a = new ParcelsRepository();
            
             var b = a.GetAll();
 

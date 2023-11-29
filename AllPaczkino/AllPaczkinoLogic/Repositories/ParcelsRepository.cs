@@ -1,21 +1,22 @@
 ﻿using AllPaczkino.DAL;
+using AllPaczkino.Models;
 using Newtonsoft.Json;
 
 namespace AllPaczkino.Repositories
 {
-    public class PackageRepository
+    public class ParcelsRepository
     {
-        public List<Package> GetAll()
+        public List<Parcel> GetAll()
         {
-            string jsonPath = "DAL\\packages.json";
+            string jsonPath = "DAL\\parcels.json";
             string jsonContent = File.ReadAllText(jsonPath);
-            List<Package> items = JsonConvert.DeserializeObject<List<Package>>(jsonContent);
+            List<Parcel> items = JsonConvert.DeserializeObject<List<Parcel>>(jsonContent);
             return items;
         }
 
-        public void SaveAll(List<Package> items)
+        public void SaveAll(List<Parcel> items)
         {
-            string jsonPath = "DAL\\packages.json";
+            string jsonPath = "DAL\\parcels.json";
             string updatedJsonContent = JsonConvert.SerializeObject(items, Formatting.Indented);
             File.WriteAllText(jsonPath, updatedJsonContent);
         }

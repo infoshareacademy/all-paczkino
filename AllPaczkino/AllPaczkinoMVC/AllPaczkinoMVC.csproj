@@ -8,15 +8,15 @@
 
   <ItemGroup>
     <Content Remove="DAL\clientlist.json" />
-    <Content Remove="DAL\packages.json" />
     <Content Remove="DAL\parcellockers.json" />
+    <Content Remove="DAL\parcels.json" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="DAL\clientlist.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Include="DAL\packages.json">
+    <None Include="DAL\parcels.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Include="DAL\parcellockers.json">
