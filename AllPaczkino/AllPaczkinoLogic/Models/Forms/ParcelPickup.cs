@@ -42,19 +42,19 @@ namespace AllPaczkino.Parcels
                             //: $"Parcel with id {parcelNumberId} not found, check the number!"
                             //   );
                             //}
-                            if (searchedParcelState.parcelStatus == ParcelStatus.CollectedByCourier)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.CollectedByCourier)
                             { continue; };
 
-                            if (searchedParcelState.parcelStatus == ParcelStatus.Registered)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.Registered)
                             { continue; };
 
-                            if (searchedParcelState.parcelStatus == ParcelStatus.InDelivery)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.InDelivery)
                             { continue; };
 
-                            if (searchedParcelState.parcelStatus == ParcelStatus.Returned)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.Returned)
                             { continue; };
 
-                            if (searchedParcelState.parcelStatus == ParcelStatus.Received)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.Received)
                             { continue; };
 
                             //CollectedByCourier,
@@ -63,7 +63,7 @@ namespace AllPaczkino.Parcels
                             //Returned,
                             //Received,
                             //if parcel is //ReadyToCollect
-                            if (searchedParcelState.parcelStatus == ParcelStatus.ReadyToCollect)
+                            if (searchedParcelState.ParcelStatus == ParcelStatus.ReadyToCollect)
                             {
                                 //Console.WriteLine("                                        ");
                                 //Console.WriteLine("Do you want to collect this parcel? Y/N?");
@@ -79,15 +79,15 @@ namespace AllPaczkino.Parcels
 
                                         if (confirmationCode == "1234")
                                         {
-                                            searchedParcelState.parcelStatus = ParcelStatus.Received;
-                                            var packageRepository = new PackageRepository();
+                                            searchedParcelState.ParcelStatus = ParcelStatus.Received;
+                                            var packageRepository = new ParcelsRepository();
 
-                                            packageRepository.SaveAll(new List<Package>
+                                            packageRepository.SaveAll(new List<Parcel>
                                                     {
-                                                        new Package
+                                                        new Parcel
                                                         {
-                                                            ParcelStatus = searchedParcelState.parcelStatus,
-                                                            PackageNumber = searchedParcelState.ParcelNumber,
+                                                            ParcelStatus = searchedParcelState.ParcelStatus,
+                                                            ParcelNumber = searchedParcelState.ParcelNumber,
                                                         }
                                                     });
                                             //Console.WriteLine("Parcel collected!");
@@ -145,10 +145,10 @@ namespace AllPaczkino.Parcels
             Parcel parcel1 = new Parcel();
             Console.WriteLine($"ID parcel 1: {parcel1.ParcelNumber}");
             Parcel parcel2 = new Parcel();
-            parcel2.parcelStatus = ParcelStatus.ReadyToCollect;
+            parcel2.ParcelStatus = ParcelStatus.ReadyToCollect;
             Console.WriteLine($"ID parcel 2: {parcel2.ParcelNumber}");
             Parcel parcel3 = new Parcel();
-            parcel3.parcelStatus = ParcelStatus.InDelivery;
+            parcel3.ParcelStatus = ParcelStatus.InDelivery;
             Console.WriteLine($"ID parcel 3: {parcel3.ParcelNumber}");
             List<Parcel> parcelsFakeList = new List<Parcel>();
             parcelsFakeList.Add(parcel1);
