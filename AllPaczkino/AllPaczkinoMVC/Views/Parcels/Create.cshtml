@@ -1,0 +1,70 @@
+﻿@model AllPaczkino.Models.Parcel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Parcel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+         
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <h4>SenderLocker</h4>
+            <div class="form-group">
+                <label asp-for="SenderLocker.address" class="control-label"></label>
+                <input asp-for="SenderLocker.address" class="form-control" />
+                <span asp-validation-for="SenderLocker.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SenderLocker.city" class="control-label"></label>
+                <input asp-for="SenderLocker.city" class="form-control" />
+                <span asp-validation-for="SenderLocker.city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SenderLocker.postal_code" class="control-label"></label>
+                <input asp-for="SenderLocker.postal_code" class="form-control" />
+                <span asp-validation-for="SenderLocker.postal_code" class="text-danger"></span>
+            </div>
+            </div>
+            <div>
+                <h4>ReceiverLocker</h4>
+                <div class="form-group">
+                    <label asp-for="ReceiverLocker.address" class="control-label"></label>
+                    <input asp-for="ReceiverLocker.address" class="form-control" />
+                    <span asp-validation-for="ReceiverLocker.address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReceiverLocker.city" class="control-label"></label>
+                    <input asp-for="ReceiverLocker.city" class="form-control" />
+                    <span asp-validation-for="ReceiverLocker.city" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReceiverLocker.postal_code" class="control-label"></label>
+                    <input asp-for="ReceiverLocker.postal_code" class="form-control" />
+                    <span asp-validation-for="ReceiverLocker.postal_code" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -2,6 +2,7 @@
 using AllPaczkino.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace AllPaczkinoMVC.Controllers
 {
@@ -34,10 +35,15 @@ namespace AllPaczkinoMVC.Controllers
         // POST: ParcelsControler/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Parcel parcel)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(parcel);
+                }
+                parcelRepository.Create(parcel);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -49,7 +55,8 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var parcelDetails = parcelRepository.GetById(id);
+            return View(parcelDetails);
         }
 
         // POST: ParcelsControler/Edit/5
@@ -70,7 +77,8 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var parcelToDelete = parcelRepository.GetById(id);
+            return View(parcelToDelete);
         }
 
         // POST: ParcelsControler/Delete/5
@@ -80,6 +88,7 @@ namespace AllPaczkinoMVC.Controllers
         {
             try
             {
+                parcelRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -21,11 +21,25 @@ namespace AllPaczkino.Repositories
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
         public Parcel GetById(int id)
-        {
-            string jsonPath = "DAL\\parcels.json";
-            string jsonContent = File.ReadAllText(jsonPath);
-            List<Parcel> items = JsonConvert.DeserializeObject<List<Parcel>>(jsonContent);             
+        {        
+            List<Parcel> items = GetAll();
             return items.FirstOrDefault(x => x.ID == id);
+        }
+        public void Create(Parcel newParcel)
+        {
+            List<Parcel> items = GetAll();
+            items.Add(newParcel);
+            SaveAll(items);
+        }
+        public void Delete(int id)
+        {
+            List<Parcel> items = GetAll();
+            var parcelToDelete = GetById(id);
+            if (parcelToDelete != null)
+            {
+                List<Parcel> updatedParcelList = items.Where(parcel => parcel.ID != parcelToDelete.ID).ToList();
+                SaveAll(updatedParcelList);
+            }
         }
     }
 }
