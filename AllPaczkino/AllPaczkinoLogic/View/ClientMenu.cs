@@ -57,23 +57,23 @@ namespace AllPaczkino.View
                             break;
                         };
 
-                    case ConsoleKey.S: // sprawdzenie statusu paczki
-                        {
-                            Console.WriteLine(" Podaj nr paczki lub jej nazwę: ");
-                            string parcelNameOrId = null;
-                            do
-                            {
-                                parcelNameOrId = Console.ReadLine();
-                                var abc = packageRepository.GetAll();
-                                var searchedParcelState = packageRepository.GetAll().FirstOrDefault(p => p.ID == parcelNameOrId || p.Name == parcelNameOrId);
-                                Console.WriteLine(
-                                   searchedParcelState != null
-                                       ? $"For parcel with id {parcelNameOrId} actual state is: {searchedParcelState.ParcelStatus}."
-                                       : $"Parcel with id {parcelNameOrId} not found, check the number!");
-                            } while (parcelNameOrId == null);
+                    //case ConsoleKey.S: // sprawdzenie statusu paczki
+                    //    {
+                    //        Console.WriteLine(" Podaj nr paczki lub jej nazwę: ");
+                    //        string parcelNameOrId = null;
+                    //        do
+                    //        {
+                    //            parcelNameOrId = Console.ReadLine();
+                    //            var abc = packageRepository.GetAll();
+                    //        //    var searchedParcelState = packageRepository.GetAll().FirstOrDefault(p => p.ID == parcelNameOrId || p.Name == parcelNameOrId);
+                    //        //    Console.WriteLine(
+                    //        //       searchedParcelState != null
+                    //        //           ? $"For parcel with id {parcelNameOrId} actual state is: {searchedParcelState.ParcelStatus}."
+                    //        //           : $"Parcel with id {parcelNameOrId} not found, check the number!");
+                    //        //} while (parcelNameOrId == null);
 
-                            break;
-                        };
+                    //        break;
+                    //    };
 
                     case ConsoleKey.Spacebar:
                         LoginMenu loginMenu = new LoginMenu();

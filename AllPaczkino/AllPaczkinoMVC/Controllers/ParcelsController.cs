@@ -21,7 +21,8 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var parcelData = parcelRepository.GetById(id);
+            return View(parcelData);
         }
 
         // GET: ParcelsControler/Create

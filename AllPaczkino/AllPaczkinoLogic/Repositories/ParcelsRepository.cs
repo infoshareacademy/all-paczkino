@@ -20,5 +20,12 @@ namespace AllPaczkino.Repositories
             string updatedJsonContent = JsonConvert.SerializeObject(items, Formatting.Indented);
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
+        public Parcel GetById(int id)
+        {
+            string jsonPath = "DAL\\parcels.json";
+            string jsonContent = File.ReadAllText(jsonPath);
+            List<Parcel> items = JsonConvert.DeserializeObject<List<Parcel>>(jsonContent);             
+            return items.FirstOrDefault(x => x.ID == id);
+        }
     }
 }
