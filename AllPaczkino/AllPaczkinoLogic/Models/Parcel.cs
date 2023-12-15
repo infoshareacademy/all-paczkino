@@ -19,7 +19,7 @@ namespace AllPaczkino.Models
         public decimal ParcelNumber { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
-        public Adress Address { get; set; }
+    //    public Adress Address { get; set; }
         public ParcelLocker SenderLocker { get; set; }
         public ParcelLocker ReceiverLocker { get; set; }
         public DateTime SendTime { get; set; }
@@ -28,7 +28,7 @@ namespace AllPaczkino.Models
 
         public Sender Sender { get; set; }
         public Receiver Receiver { get; set; }
-        public ParcelSize Size { get; set; }
+        public ParcelSize ParcelSize { get; set; }
         public Parcel()
         {
             ParcelStatus = ParcelStatus.Registered;

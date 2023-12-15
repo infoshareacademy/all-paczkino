@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllPaczkino.Clients.ContactInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace AllPaczkino.Models
 {
     public class Client
     {
+        public ContactData ContactData { get; set; }
     }
 }

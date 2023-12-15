@@ -2,7 +2,7 @@
 @model IEnumerable<AllPaczkino.Models.Parcel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista paczek";
 }
 
 <h1>Index</h1>
@@ -32,10 +32,19 @@
                 @Html.DisplayNameFor(model => model.ParcelStatus)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Sender)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.SenderLocker)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Receiver)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ReceiverLocker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParcelSize)
             </th>
             <th></th>
         </tr>
@@ -64,16 +73,30 @@
                     @Html.DisplayFor(modelItem => item.ParcelStatus)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.Name)
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.Email)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.SenderLocker.postal_code)
                     @Html.DisplayFor(modelItem => item.SenderLocker.city)
                     @Html.DisplayFor(modelItem => item.SenderLocker.address)
 
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.Name)
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.Email)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.postal_code)
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.city)
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.address)
 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParcelSize.Name)
+                    @Html.DisplayFor(modelItem => item.ParcelSize.Height)
+                    @Html.DisplayFor(modelItem => item.ParcelSize.Price)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id=item.ID  }) |

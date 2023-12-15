@@ -1,7 +1,7 @@
 ﻿
 namespace AllPaczkino.Clients.ContactInfo
 {
-    internal class ContactData
+    public class ContactData
     {
         public ContactData(string name, string surname, string email, string phoneNumber, Adress adress)
         {

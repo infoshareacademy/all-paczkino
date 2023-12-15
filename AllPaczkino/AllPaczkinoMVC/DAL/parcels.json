@@ -1,20 +1,29 @@
 [
+
   {
     "ID": "123456789",
     "Name": "TestPackage",
-    "Address": {
-      "StreetName": "street Name ",
-      "HouseNumber": 666,
-      "CityName": "City Name",
-      "PostalCode": "05-500",
-      "Country": "Poland",
-      "FlatNumber": 1
+    "Sender": {
+      "ContactData": {
+        "Name": "SenderName",
+        "Surname": "Sendersurname",
+        "Email": "Senderemail",
+        "PhoneNumber": "SenderphoneNumber"
+      }
     },
     "SenderLocker": {
       "id": 2,
       "city": "Kraków",
       "postal_code": "30-001",
       "address": "ul. Lipowa 2"
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "ReceiverName",
+        "Surname": "Receiversurname",
+        "Email": "Receiveremail",
+        "PhoneNumber": "ReceiverphoneNumber"
+      }
     },
     "ReceiverLocker": {
       "id": 1,
@@ -24,33 +33,130 @@
     },
     "SendTime": "2023-11-05T14:26:20.5875223+01:00",
     "ReceiveTime": "2023-12-05T14:26:20.5975038+01:00",
-    "ParcelStatus": 0
+    "ParcelStatus": 0,
+    "ParcelSize": {
+      "Name": "BIG",
+      "Price": "20"
+    }
   },
   {
-    "ID": "1",
-    "Name": "TestPackage2",
-    "Address": {
-      "StreetName": "street Name ",
-      "HouseNumber": 666,
-      "CityName": "City Name",
-      "PostalCode": "05-500",
-      "Country": "Poland",
-      "FlatNumber": 2
+    "ID": "987654321",
+    "Name": "AnotherPackage",
+    "Sender": {
+      "ContactData": {
+        "Name": "AnotherSenderName",
+        "Surname": "AnotherSendersurname",
+        "Email": "AnotherSenderemail",
+        "PhoneNumber": "AnotherSenderphoneNumber"
+      }
     },
     "SenderLocker": {
-      "id": 1,
-      "city": "Warszawa",
-      "postal_code": "00-001",
-      "address": "ul. Klonowa 1"
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "AnotherReceiverName",
+        "Surname": "AnotherReceiversurname",
+        "Email": "AnotherReceiveremail",
+        "PhoneNumber": "AnotherReceiverphoneNumber"
+      }
     },
     "ReceiverLocker": {
-      "id": 2,
-      "city": "Kraków",
-      "postal_code": "30-001",
-      "address": "ul. Lipowa 2"
+      "id": 4,
+      "city": "Poznań",
+      "postal_code": "60-001",
+      "address": "ul. Dębowa 4"
     },
-    "SendTime": "2023-11-05T14:26:20.5875223+01:00",
-    "ReceiveTime": "2023-12-05T14:26:20.5975038+01:00",
-    "ParcelStatus": 1
+    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "ParcelStatus": 1,
+    "ParcelSize": {
+      "Name": "MEDIUM",
+      "Price": "15"
+    }
+  },
+  {
+    "ID": "3",
+    "Name": "AnotherPackage",
+    "Sender": {
+      "ContactData": {
+        "Name": "AnotherSenderName",
+        "Surname": "AnotherSendersurname",
+        "Email": "AnotherSenderemail",
+        "PhoneNumber": "AnotherSenderphoneNumber"
+      }
+    },
+    "SenderLocker": {
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "AnotherReceiverName",
+        "Surname": "AnotherReceiversurname",
+        "Email": "AnotherReceiveremail",
+        "PhoneNumber": "AnotherReceiverphoneNumber"
+      }
+    },
+    "ReceiverLocker": {
+      "id": 4,
+      "city": "Poznań",
+      "postal_code": "60-001",
+      "address": "ul. Dębowa 4"
+    },
+    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "ParcelStatus": 1,
+    "ParcelSize": {
+      "Name": "MEDIUM",
+      "Price": "15"
+    }
+  },
+
+  {
+    "ID": "5",
+    "Name": "AnotherPackage",
+    "Sender": {
+      "ContactData": {
+        "Name": "AnotherSenderName",
+        "Surname": "AnotherSendersurname",
+        "Email": "AnotherSenderemail",
+        "PhoneNumber": "AnotherSenderphoneNumber"
+      }
+    },
+    "SenderLocker": {
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "AnotherReceiverName",
+        "Surname": "AnotherReceiversurname",
+        "Email": "AnotherReceiveremail",
+        "PhoneNumber": "AnotherReceiverphoneNumber"
+      }
+    },
+    "ReceiverLocker": {
+      "id": 4,
+      "city": "Poznań",
+      "postal_code": "60-001",
+      "address": "ul. Dębowa 4"
+    },
+    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "ParcelStatus": 1,
+    "ParcelSize": {
+      "Name": "MEDIUM",
+      "Price": "15"
+    }
   }
+
+
 ]
