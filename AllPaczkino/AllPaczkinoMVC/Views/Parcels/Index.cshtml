@@ -75,22 +75,26 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Sender.ContactData.Name)
                     @Html.DisplayFor(modelItem => item.Sender.ContactData.Email)
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.PhoneNumber)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SenderLocker.postal_code)
                     @Html.DisplayFor(modelItem => item.SenderLocker.city)
                     @Html.DisplayFor(modelItem => item.SenderLocker.address)
+                    @Html.DisplayFor(modelItem => item.SenderLocker.id)
 
 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Receiver.ContactData.Name)
                     @Html.DisplayFor(modelItem => item.Receiver.ContactData.Email)
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.PhoneNumber)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.postal_code)
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.city)
                     @Html.DisplayFor(modelItem => item.ReceiverLocker.address)
+                    @Html.DisplayFor(modelItem => item.ReceiverLocker.id)
 
                 </td>
                 <td>
