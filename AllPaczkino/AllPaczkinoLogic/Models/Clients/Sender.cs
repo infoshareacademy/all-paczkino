@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AllPaczkino.Clients
 {
-    internal class Sender : Client
+    public class Sender : Client
     {
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AllPaczkino.Clients
 {
-    internal class Receiver : Client
+    public class Receiver : Client
     {
         public ContactData ContactData { get; set; }
     }

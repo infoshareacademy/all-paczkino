@@ -62,10 +62,11 @@ namespace AllPaczkinoMVC.Controllers
         // POST: ParcelsControler/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Parcel editedParcel)
         {
             try
             {
+                parcelRepository.Update(id, editedParcel);
                 return RedirectToAction(nameof(Index));
             }
             catch

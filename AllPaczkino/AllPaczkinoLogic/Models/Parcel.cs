@@ -1,4 +1,5 @@
-﻿using AllPaczkino.Clients.ContactInfo;
+﻿using AllPaczkino.Clients;
+using AllPaczkino.Clients.ContactInfo;
 using Parcels.Parcels;
 
 namespace AllPaczkino.Models
@@ -24,6 +25,10 @@ namespace AllPaczkino.Models
         public DateTime SendTime { get; set; }
         public DateTime ReceiveTime { get; set; }
         public ParcelStatus ParcelStatus { get; set; }
+
+        public Sender Sender { get; set; }
+        public Receiver Receiver { get; set; }
+        public ParcelSize Size { get; set; }
         public Parcel()
         {
             ParcelStatus = ParcelStatus.Registered;

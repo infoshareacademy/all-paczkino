@@ -41,5 +41,15 @@ namespace AllPaczkino.Repositories
                 SaveAll(updatedParcelList);
             }
         }
+        public void Update(int id, Parcel editedParcel)
+        {
+            List<Parcel> items = GetAll();
+            var parcelToUpdate = GetById(id);
+            if (parcelToUpdate != null)
+            {
+                //parcelToUpdate.
+                SaveAll(items);
+            }
+        }
     }
 }
