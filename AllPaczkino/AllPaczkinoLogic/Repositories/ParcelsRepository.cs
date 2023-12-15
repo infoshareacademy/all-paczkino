@@ -47,7 +47,8 @@ namespace AllPaczkino.Repositories
             var parcelToUpdate = GetById(id);
             if (parcelToUpdate != null)
             {
-                //parcelToUpdate.
+                parcelToUpdate.Name = editedParcel.Name;
+                //TODO update rest of fields
                 SaveAll(items);
             }
         }
