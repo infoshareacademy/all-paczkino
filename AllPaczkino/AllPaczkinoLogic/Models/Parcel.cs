@@ -1,6 +1,5 @@
 ﻿using AllPaczkino.Clients;
-using AllPaczkino.Clients.ContactInfo;
-using Parcels.Parcels;
+update columne using Parcels.Parcels;
 
 namespace AllPaczkino.Models
 {
@@ -19,13 +18,11 @@ namespace AllPaczkino.Models
         public decimal ParcelNumber { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
-    //    public Adress Address { get; set; }
         public ParcelLocker SenderLocker { get; set; }
         public ParcelLocker ReceiverLocker { get; set; }
         public DateTime SendTime { get; set; }
         public DateTime ReceiveTime { get; set; }
         public ParcelStatus ParcelStatus { get; set; }
-
         public Sender Sender { get; set; }
         public Receiver Receiver { get; set; }
         public ParcelSize ParcelSize { get; set; }
@@ -33,8 +30,6 @@ namespace AllPaczkino.Models
         {
             ParcelStatus = ParcelStatus.Registered;
             ParcelNumber = (new Random()).Next(1000);
-
- 
         }
     }
 }

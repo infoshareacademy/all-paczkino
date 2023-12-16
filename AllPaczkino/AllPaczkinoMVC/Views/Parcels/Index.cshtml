@@ -14,14 +14,17 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ParcelNumber)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.ID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ParcelNumber)
+            </th>
+
+      
             <th>
                 @Html.DisplayNameFor(model => model.SendTime)
             </th>
@@ -99,7 +102,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ParcelSize.Name)
-                    @Html.DisplayFor(modelItem => item.ParcelSize.Height)
                     @Html.DisplayFor(modelItem => item.ParcelSize.Price)
                 </td>
                 <td>
