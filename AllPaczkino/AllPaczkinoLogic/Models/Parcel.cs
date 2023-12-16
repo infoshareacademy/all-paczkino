@@ -1,5 +1,5 @@
 ﻿using AllPaczkino.Clients;
-update columne using Parcels.Parcels;
+using Parcels.Parcels;
 
 namespace AllPaczkino.Models
 {
