@@ -9,13 +9,22 @@ namespace AllPaczkinoMVC.Controllers
     public class ParcelsController : Controller
     {
         ParcelsRepository parcelRepository = new();
-        List<Parcel> parcelsData ;
 
         // GET: ParcelsControler
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            parcelsData = parcelRepository.GetAll();
-            
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            List<Parcel> parcelsData = parcelRepository.GetAll();
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.Name).ToList();
+                    break;
+                default:
+                    parcelsData = parcelsData.OrderBy(s => s.Name).ToList();
+                    break;
+            }
             return View(parcelsData);
         }
 

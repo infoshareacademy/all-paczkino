@@ -17,7 +17,8 @@
                 @Html.DisplayNameFor(model => model.ID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @* @Html.DisplayNameFor(model => model.Name) *@
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm})
             </th>
 
             <th>
