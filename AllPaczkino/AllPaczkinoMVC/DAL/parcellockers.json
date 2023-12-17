@@ -605,6 +605,12 @@
       "city": "Gdańsk",
       "postal_code": "80-500",
       "address": "Łakowa 3"
+    },
+    {
+      "id": 102,
+      "city": "Gdańsk",
+      "postal_code": "80-500",
+      "address": "piotrkowska 1"
     }
   ]
 }
