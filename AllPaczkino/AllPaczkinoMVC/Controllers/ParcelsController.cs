@@ -11,20 +11,40 @@ namespace AllPaczkinoMVC.Controllers
         ParcelsRepository parcelRepository = new();
 
         // GET: ParcelsControler
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            List<Parcel> parcelsData = parcelRepository.GetAll();
+            //ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "name";
+            ViewBag.IdSortParam = sortOrder == "id" ? "id_desc" : "";
+            ViewBag.SendTimeSortParam = sortOrder == "SendTime" ? "sendTimeDesc" : "sendTime";
 
+            List<Parcel> parcelsData = parcelRepository.GetAll();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                parcelsData = parcelsData.Where(s => s.Name.Contains(searchString)).ToList();
+            }
             switch (sortOrder)
             {
                 case "name_desc":
                     parcelsData = parcelsData.OrderByDescending(s => s.Name).ToList();
                     break;
-                default:
+                case "id_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ID).ToList();
+                    break;
+                case "name":
                     parcelsData = parcelsData.OrderBy(s => s.Name).ToList();
                     break;
+                case "sendTimeDesc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.SendTime).ToList();
+                    break;
+                case "sendTime":
+                    parcelsData = parcelsData.OrderBy(s => s.SendTime).ToList();
+                    break;
+                default:
+                    sortOrder = "name";
+                    parcelsData = parcelsData.OrderBy(s => s.ID).ToList();
+                    break;
             }
+            ViewBag.NameSortParam = sortOrder;
             return View(parcelsData);
         }
 

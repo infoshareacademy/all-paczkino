@@ -3,22 +3,31 @@
 
 @{
     ViewData["Title"] = "Lista paczek";
+    string nameSortOrder = ViewBag.NameSortParam == "name" ? "name_desc" : "name";
 }
 
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+    }
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
+             @*    @Html.DisplayNameFor(model => model.ID) *@
+                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParam})
             </th>
             <th>
                 @* @Html.DisplayNameFor(model => model.Name) *@
-                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm})
+                @Html.ActionLink("Name", "Index", new { sortOrder = nameSortOrder})
             </th>
 
             <th>
@@ -27,7 +36,8 @@
 
       
             <th>
-                @Html.DisplayNameFor(model => model.SendTime)
+                @* @Html.DisplayNameFor(model => model.SendTime) *@
+                @Html.ActionLink("Send Time", "Index", new { sortOrder = ViewBag.SendTimeSortParam})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ReceiveTime)

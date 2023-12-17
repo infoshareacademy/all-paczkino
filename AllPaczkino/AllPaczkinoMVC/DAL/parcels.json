@@ -1,29 +1,13 @@
 [
-
   {
-    "ID": "123456789",
+    "ParcelNumber": 592.0,
+    "ID": 123456789,
     "Name": "TestPackage",
-    "Sender": {
-      "ContactData": {
-        "Name": "SenderName",
-        "Surname": "Sendersurname",
-        "Email": "Senderemail",
-        "PhoneNumber": "SenderphoneNumber"
-      }
-    },
     "SenderLocker": {
       "id": 2,
       "city": "Kraków",
       "postal_code": "30-001",
       "address": "ul. Lipowa 2"
-    },
-    "Receiver": {
-      "ContactData": {
-        "Name": "ReceiverName",
-        "Surname": "Receiversurname",
-        "Email": "Receiveremail",
-        "PhoneNumber": "ReceiverphoneNumber"
-      }
     },
     "ReceiverLocker": {
       "id": 1,
@@ -34,35 +18,42 @@
     "SendTime": "2023-11-05T14:26:20.5875223+01:00",
     "ReceiveTime": "2023-12-05T14:26:20.5975038+01:00",
     "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "SenderName",
+        "Surname": "Sendersurname",
+        "Email": "Senderemail",
+        "PhoneNumber": "SenderphoneNumber",
+        "Adress": null
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "ReceiverName",
+        "Surname": "Receiversurname",
+        "Email": "Receiveremail",
+        "PhoneNumber": "ReceiverphoneNumber",
+        "Adress": null
+      }
+    },
     "ParcelSize": {
       "Name": "BIG",
-      "Price": "20"
+      "Length": 0.0,
+      "Width": 0.0,
+      "Height": 0.0,
+      "Weight": 0.0,
+      "Price": 20.0
     }
   },
   {
-    "ID": "987654321",
+    "ParcelNumber": 589.0,
+    "ID": 987654321,
     "Name": "AnotherPackage",
-    "Sender": {
-      "ContactData": {
-        "Name": "AnotherSenderName",
-        "Surname": "AnotherSendersurname",
-        "Email": "AnotherSenderemail",
-        "PhoneNumber": "AnotherSenderphoneNumber"
-      }
-    },
     "SenderLocker": {
       "id": 3,
       "city": "Gdańsk",
       "postal_code": "80-001",
       "address": "ul. Brzozowa 3"
-    },
-    "Receiver": {
-      "ContactData": {
-        "Name": "AnotherReceiverName",
-        "Surname": "AnotherReceiversurname",
-        "Email": "AnotherReceiveremail",
-        "PhoneNumber": "AnotherReceiverphoneNumber"
-      }
     },
     "ReceiverLocker": {
       "id": 4,
@@ -70,38 +61,45 @@
       "postal_code": "60-001",
       "address": "ul. Dębowa 4"
     },
-    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
-    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "SendTime": "2023-11-10T09:15:00+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00+01:00",
     "ParcelStatus": 1,
-    "ParcelSize": {
-      "Name": "MEDIUM",
-      "Price": "15"
-    }
-  },
-  {
-    "ID": "3",
-    "Name": "AnotherPackage",
     "Sender": {
       "ContactData": {
         "Name": "AnotherSenderName",
         "Surname": "AnotherSendersurname",
         "Email": "AnotherSenderemail",
-        "PhoneNumber": "AnotherSenderphoneNumber"
+        "PhoneNumber": "AnotherSenderphoneNumber",
+        "Adress": null
       }
-    },
-    "SenderLocker": {
-      "id": 3,
-      "city": "Gdańsk",
-      "postal_code": "80-001",
-      "address": "ul. Brzozowa 3"
     },
     "Receiver": {
       "ContactData": {
         "Name": "AnotherReceiverName",
         "Surname": "AnotherReceiversurname",
         "Email": "AnotherReceiveremail",
-        "PhoneNumber": "AnotherReceiverphoneNumber"
+        "PhoneNumber": "AnotherReceiverphoneNumber",
+        "Adress": null
       }
+    },
+    "ParcelSize": {
+      "Name": "MEDIUM",
+      "Length": 0.0,
+      "Width": 0.0,
+      "Height": 0.0,
+      "Weight": 0.0,
+      "Price": 15.0
+    }
+  },
+  {
+    "ParcelNumber": 69.0,
+    "ID": 3,
+    "Name": "Inna paka",
+    "SenderLocker": {
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
     },
     "ReceiverLocker": {
       "id": 4,
@@ -109,39 +107,45 @@
       "postal_code": "60-001",
       "address": "ul. Dębowa 4"
     },
-    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
-    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "SendTime": "2023-11-10T09:15:00+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00+01:00",
     "ParcelStatus": 1,
-    "ParcelSize": {
-      "Name": "MEDIUM",
-      "Price": "15"
-    }
-  },
-
-  {
-    "ID": "5",
-    "Name": "AnotherPackage",
     "Sender": {
       "ContactData": {
         "Name": "AnotherSenderName",
         "Surname": "AnotherSendersurname",
         "Email": "AnotherSenderemail",
-        "PhoneNumber": "AnotherSenderphoneNumber"
+        "PhoneNumber": "AnotherSenderphoneNumber",
+        "Adress": null
       }
-    },
-    "SenderLocker": {
-      "id": 3,
-      "city": "Gdańsk",
-      "postal_code": "80-001",
-      "address": "ul. Brzozowa 3"
     },
     "Receiver": {
       "ContactData": {
         "Name": "AnotherReceiverName",
         "Surname": "AnotherReceiversurname",
         "Email": "AnotherReceiveremail",
-        "PhoneNumber": "AnotherReceiverphoneNumber"
+        "PhoneNumber": "AnotherReceiverphoneNumber",
+        "Adress": null
       }
+    },
+    "ParcelSize": {
+      "Name": "MEDIUM",
+      "Length": 0.0,
+      "Width": 0.0,
+      "Height": 0.0,
+      "Weight": 0.0,
+      "Price": 15.0
+    }
+  },
+  {
+    "ParcelNumber": 554.0,
+    "ID": 5,
+    "Name": "Jeszcze inna paka",
+    "SenderLocker": {
+      "id": 3,
+      "city": "Gdańsk",
+      "postal_code": "80-001",
+      "address": "ul. Brzozowa 3"
     },
     "ReceiverLocker": {
       "id": 4,
@@ -149,14 +153,34 @@
       "postal_code": "60-001",
       "address": "ul. Dębowa 4"
     },
-    "SendTime": "2023-11-10T09:15:00.0000000+01:00",
-    "ReceiveTime": "2023-12-10T09:15:00.0000000+01:00",
+    "SendTime": "2023-11-10T09:15:00+01:00",
+    "ReceiveTime": "2023-12-10T09:15:00+01:00",
     "ParcelStatus": 1,
+    "Sender": {
+      "ContactData": {
+        "Name": "AnotherSenderName",
+        "Surname": "AnotherSendersurname",
+        "Email": "AnotherSenderemail",
+        "PhoneNumber": "AnotherSenderphoneNumber",
+        "Adress": null
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "AnotherReceiverName",
+        "Surname": "AnotherReceiversurname",
+        "Email": "AnotherReceiveremail",
+        "PhoneNumber": "AnotherReceiverphoneNumber",
+        "Adress": null
+      }
+    },
     "ParcelSize": {
       "Name": "MEDIUM",
-      "Price": "15"
+      "Length": 0.0,
+      "Width": 0.0,
+      "Height": 0.0,
+      "Weight": 0.0,
+      "Price": 15.0
     }
   }
-
-
 ]
