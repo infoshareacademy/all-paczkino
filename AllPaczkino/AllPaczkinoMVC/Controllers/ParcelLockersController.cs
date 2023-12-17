@@ -23,7 +23,8 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelLockers/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var parcelLocker = parcelLockersRepository.GetById(id);
+            return View(parcelLocker);
         }
 
         // GET: ParcelLockers/Create
@@ -35,10 +36,15 @@ namespace AllPaczkinoMVC.Controllers
         // POST: ParcelLockers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ParcelLocker parcelLocker)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(parcelLocker);
+                }
+                parcelLockersRepository.Create(parcelLocker);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,16 +56,18 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelLockers/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var lockerToEdit = parcelLockersRepository.GetById(id);
+            return View(lockerToEdit);
         }
 
         // POST: ParcelLockers/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, ParcelLocker lockerToEdit)
         {
             try
             {
+              parcelLockersRepository.Update(id, lockerToEdit);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -71,16 +79,18 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelLockers/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var lockerToDelete = parcelLockersRepository.GetById(id);
+            return View(lockerToDelete);
         }
 
         // POST: ParcelLockers/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ParcelLocker lockerToDelete)
         {
             try
             {
+                parcelLockersRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
