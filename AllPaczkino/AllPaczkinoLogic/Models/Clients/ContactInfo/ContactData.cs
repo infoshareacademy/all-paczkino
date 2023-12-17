@@ -12,7 +12,7 @@ namespace AllPaczkino.Clients.ContactInfo
             Adress = adress;
         }
 
-        private ContactData() { }
+        public ContactData() { }
 
         public string Name { get; set; }
         public string Surname { get; set; }

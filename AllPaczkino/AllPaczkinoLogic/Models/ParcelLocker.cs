@@ -1,4 +1,6 @@
-﻿namespace AllPaczkino.Models
+﻿using Newtonsoft.Json;
+
+namespace AllPaczkino.Models
 {
     public class ParcelLocker
     {
@@ -6,6 +8,7 @@
         public string city { get; set; }
         public string postal_code { get; set; }
         public string address { get; set; }
+
     }
 
     public class ParcelLockerList
