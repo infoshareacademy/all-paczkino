@@ -8,7 +8,13 @@
 
 <h4>uzupełnij dane</h4>
 <hr />
+
+
+<button class="btn btn-sm btn-dark details" data-toggle="modal" data-target="#details-modal">Details</button>
+
 <div class="row">
+
+
 	<form asp-action="Create">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -35,6 +41,7 @@
 		</div>
 
 		<h6> </h6>
+		
 
 		<table border="1">
 			<tr>
@@ -221,6 +228,20 @@
 		<a asp-action="Index">Back to List</a>
 	</div>
 
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="details-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Product Details</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body"></div>
+		</div>
+	</div>
 </div>
 
 @section Scripts {
