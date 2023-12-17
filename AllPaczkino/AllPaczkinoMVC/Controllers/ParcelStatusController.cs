@@ -1,16 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AllPaczkino.Models;
+using AllPaczkino.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers
 {
     public class ParcelStatusController : Controller
     {
-        // GET: ParcelStatusController
+        ParcelsRepository parcelRepository = new();
+        List<Parcel> parcelsData;
+
+        // GET: ParcelsControler
         public ActionResult Index()
         {
-            return View();
-        }
+            parcelsData = parcelRepository.GetAll();
 
+            return View(parcelsData);
+        }
         // GET: ParcelStatusController/Details/5
         public ActionResult Details(int id)
         {
