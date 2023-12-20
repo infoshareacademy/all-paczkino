@@ -3,7 +3,6 @@
 
 @{
     ViewData["Title"] = "Lista paczek";
-    string nameSortOrder = ViewBag.NameSortParam == "name" ? "name_desc" : "name";
 }
 
 <h1>Index</h1>
@@ -13,7 +12,7 @@
     @using (Html.BeginForm())
     {
     <p>
-        Find by name: @Html.TextBox("SearchString")
+        Find: @Html.TextBox("SearchString")
         <input type="submit" value="Search" />
     </p>
     }
@@ -22,12 +21,10 @@
     <thead>
         <tr>
             <th>
-             @*    @Html.DisplayNameFor(model => model.ID) *@
-                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParam})
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.ID), "Index", new { sortOrder = ViewBag.IdSortParam})
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Name) *@
-                @Html.ActionLink("Name", "Index", new { sortOrder = nameSortOrder})
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.Name) , "Index", new { sortOrder = ViewBag.NameSortParam})
             </th>
 
             <th>
@@ -37,13 +34,14 @@
       
             <th>
                 @* @Html.DisplayNameFor(model => model.SendTime) *@
-                @Html.ActionLink("Send Time", "Index", new { sortOrder = ViewBag.SendTimeSortParam})
+                @Html.ActionLink("SendTime", "Index", new { sortOrder = ViewBag.SendTimeSortParam})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ReceiveTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ParcelStatus)
+               
+                @Html.ActionLink("ParcelStatus" , "Index", new { sortOrder = ViewBag.ParcelStatusParm})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Sender)

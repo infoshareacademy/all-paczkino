@@ -13,14 +13,34 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler
         public ActionResult Index(string sortOrder, string searchString)
         {
-            //ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "name";
+            //ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "name_desc";
             ViewBag.IdSortParam = sortOrder == "id" ? "id_desc" : "";
-            ViewBag.SendTimeSortParam = sortOrder == "SendTime" ? "sendTimeDesc" : "sendTime";
+            ViewBag.SendTimeSortParam = sortOrder == "SendTime" ? "sendTimeDesc" : "";
+            ViewBag.ParcelStatusParm = sortOrder == "ParcelStatus" ? "ParcelStatusDesc" : "";
 
             List<Parcel> parcelsData = parcelRepository.GetAll();
             if (!String.IsNullOrEmpty(searchString))
             {
-                parcelsData = parcelsData.Where(s => s.Name.Contains(searchString)).ToList();
+                searchString = searchString.ToLower();
+                parcelsData = parcelsData.Where(s => s.Name.ToLower().Contains(searchString) ||
+                s.ID.ToString().Contains(searchString) ||
+                s.ParcelNumber.ToString().Contains(searchString) ||
+                s.ReceiveTime.ToString().Contains(searchString) ||
+                s.SendTime.ToString().Contains(searchString) ||
+                s.Sender.ContactData.Name.ToLower().Contains(searchString) ||
+                s.Sender.ContactData.Email.ToLower().Contains(searchString) ||
+                s.Sender.ContactData.PhoneNumber.Contains(searchString) ||
+                s.SenderLocker.postal_code.Contains(searchString) ||
+                s.SenderLocker.city.ToLower().Contains(searchString) ||
+                s.SenderLocker.address.ToLower().Contains(searchString) ||
+                s.Receiver.ContactData.Name.ToLower().Contains(searchString) ||
+                s.Receiver.ContactData.Email.ToLower().Contains(searchString) ||
+                s.Receiver.ContactData.PhoneNumber.Contains(searchString) ||
+                s.ReceiverLocker.postal_code.Contains(searchString) ||
+                s.ReceiverLocker.city.ToLower().Contains(searchString) ||
+                s.ReceiverLocker.address.ToLower().Contains(searchString) ||
+                s.ParcelSize.Name.ToLower().Contains(searchString) 
+                ).ToList();
             }
             switch (sortOrder)
             {
@@ -36,8 +56,8 @@ namespace AllPaczkinoMVC.Controllers
                 case "sendTimeDesc":
                     parcelsData = parcelsData.OrderByDescending(s => s.SendTime).ToList();
                     break;
-                case "sendTime":
-                    parcelsData = parcelsData.OrderBy(s => s.SendTime).ToList();
+                case "ParcelStatusDesc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ParcelStatus).ToList();
                     break;
                 default:
                     sortOrder = "name";
