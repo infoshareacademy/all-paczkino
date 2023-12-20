@@ -5,15 +5,15 @@
     ViewData["Title"] = "Lista paczek";
 }
 
-<h1>Index</h1>
+<h1>Lista paczuch</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Utwórz nową paczkę</a>
     @using (Html.BeginForm())
     {
     <p>
-        Find: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
+        Przefiltruj listę: @Html.TextBox("SearchString")
+        <input type="submit" value="Filtruj" />
     </p>
     }
 </p>

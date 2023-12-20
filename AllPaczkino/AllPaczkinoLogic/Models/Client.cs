@@ -10,5 +10,7 @@ namespace AllPaczkino.Models
     public class Client
     {
         public ContactData ContactData { get; set; }
+
+        public string Password { get; set; }
     }
 }
