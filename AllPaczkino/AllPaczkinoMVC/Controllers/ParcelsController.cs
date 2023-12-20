@@ -2,6 +2,7 @@
 using AllPaczkino.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Parcels.Parcels;
 using System.Reflection;
 
 namespace AllPaczkinoMVC.Controllers
@@ -13,11 +14,6 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler
         public ActionResult Index(string sortOrder, string searchString)
         {
-            //ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "name_desc";
-            ViewBag.IdSortParam = sortOrder == "id" ? "id_desc" : "";
-            ViewBag.SendTimeSortParam = sortOrder == "SendTime" ? "sendTimeDesc" : "";
-            ViewBag.ParcelStatusParm = sortOrder == "ParcelStatus" ? "ParcelStatusDesc" : "";
-
             List<Parcel> parcelsData = parcelRepository.GetAll();
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -42,29 +38,87 @@ namespace AllPaczkinoMVC.Controllers
                 s.ParcelSize.Name.ToLower().Contains(searchString) 
                 ).ToList();
             }
+            ViewBag.IdSortParam = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+            ViewBag.NameSortParam = sortOrder == "Name" ? "Name_desc" : "Name";
+            ViewBag.ParcelNumberParam = sortOrder == "parcelnumber" ? "parcelnumber_desc" : "parcelnumber";
+            ViewBag.SendTimeParam = sortOrder == "SendTime" ? "SendTime_desc" : "SendTime";
+            ViewBag.ReceiveTimeParam = sortOrder == "ReceiveTime" ? "ReceiveTime_desc" : "ReceiveTime";
+            ViewBag.ParcelStatusParam = sortOrder == "ParcelStatus" ? "ParcelStatus_desc" : "ParcelStatus";
+            ViewBag.SenderParam = sortOrder == "Sender" ? "Sender_desc" : "Sender";
+            ViewBag.SenderLockerParam = sortOrder == "SenderLocker" ? "SenderLocker_desc" : "SenderLocker";
+            ViewBag.ReceiverParam = sortOrder == "Receiver" ? "Receiver_desc" : "Receiver";
+            ViewBag.ReceiverLockerParam = sortOrder == "ReceiverLocker" ? "ReceiverLocker_desc" : "ReceiverLocker";
+            ViewBag.ParcelSizeParam = sortOrder == "ParcelSize" ? "ParcelSize_desc" : "ParcelSize";
             switch (sortOrder)
             {
-                case "name_desc":
-                    parcelsData = parcelsData.OrderByDescending(s => s.Name).ToList();
-                    break;
                 case "id_desc":
                     parcelsData = parcelsData.OrderByDescending(s => s.ID).ToList();
                     break;
-                case "name":
+                case "Name_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.Name).ToList();
+                    break;
+                case "Name":
                     parcelsData = parcelsData.OrderBy(s => s.Name).ToList();
                     break;
-                case "sendTimeDesc":
+                case "parcelnumber_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ParcelNumber).ToList();
+                    break;
+                case "parcelnumber":
+                    parcelsData = parcelsData.OrderBy(s => s.ParcelNumber).ToList();
+                    break;
+                case "SendTime_desc":
                     parcelsData = parcelsData.OrderByDescending(s => s.SendTime).ToList();
                     break;
-                case "ParcelStatusDesc":
+                case "SendTime":
+                    parcelsData = parcelsData.OrderBy(s => s.SendTime).ToList();
+                    break;
+                case "ReceiveTime_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ReceiveTime).ToList();
+                    break;
+                case "ReceiveTime":
+                    parcelsData = parcelsData.OrderBy(s => s.ReceiveTime).ToList();
+                    break;
+                case "ParcelStatus_desc":
                     parcelsData = parcelsData.OrderByDescending(s => s.ParcelStatus).ToList();
                     break;
+                case "ParcelStatus":
+                    parcelsData = parcelsData.OrderBy(s => s.ParcelStatus).ToList();
+                    break;
+                case "Sender_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.Sender.ContactData.Name).ToList();
+                    break;
+                case "Sender":
+                    parcelsData = parcelsData.OrderBy(s => s.Sender.ContactData.Name).ToList();
+                    break;
+                case "SenderLocker_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.SenderLocker.postal_code).ToList();
+                    break;
+                case "SenderLocker":
+                    parcelsData = parcelsData.OrderBy(s => s.SenderLocker.postal_code).ToList();
+                    break;
+                case "Receiver_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.Receiver.ContactData.Name).ToList();
+                    break;
+                case "Receiver":
+                    parcelsData = parcelsData.OrderBy(s => s.Receiver.ContactData.Name).ToList();
+                    break;
+                case "ReceiverLocker_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ReceiverLocker.postal_code).ToList();
+                    break;
+                case "ReceiverLocker":
+                    parcelsData = parcelsData.OrderBy(s => s.ReceiverLocker.postal_code).ToList();
+                    break;
+                case "ParcelSize_desc":
+                    parcelsData = parcelsData.OrderByDescending(s => s.ParcelSize.Name).ToList();
+                    break;
+                case "ParcelSize":
+                    parcelsData = parcelsData.OrderBy(s => s.ParcelSize.Name).ToList();
+                    break;
                 default:
-                    sortOrder = "name";
                     parcelsData = parcelsData.OrderBy(s => s.ID).ToList();
                     break;
             }
-            ViewBag.NameSortParam = sortOrder;
+            
             return View(parcelsData);
         }
 
