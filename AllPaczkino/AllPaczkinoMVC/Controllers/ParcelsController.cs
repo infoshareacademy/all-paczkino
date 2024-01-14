@@ -1,5 +1,6 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
+using AllPaczkinoLogic.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
@@ -37,20 +38,20 @@ namespace AllPaczkinoMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Parcel parcel)
         {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return View(parcel);
-                }
-                parcelRepository.Create(parcel);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			try
+			{
+				if (!ModelState.IsValid)
+				{
+					return View(parcel);
+				}
+				parcelRepository.Create(parcel);
+				return RedirectToAction(nameof(Index));
+			}
+			catch
+			{
+				return View();
+			}
+		}
 
         // GET: ParcelsControler/Edit/5
         public ActionResult Edit(int id)

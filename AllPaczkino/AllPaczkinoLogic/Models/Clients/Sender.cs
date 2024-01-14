@@ -10,6 +10,13 @@ namespace AllPaczkino.Clients
 {
     public class Sender : Client
     {
-  
+        public Sender(ContactData contactData) : base(contactData)
+        {
+        }
+
+        public Sender() : base(null)
+        {
+            
+        }
     }
 }
