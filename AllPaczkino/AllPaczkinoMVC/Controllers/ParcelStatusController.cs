@@ -29,115 +29,35 @@ namespace AllPaczkinoMVC.Controllers
 
             // POST: ParcelStatus/Details
             [HttpPost]
-            public IActionResult Details(Parcel parcel)
+            public ActionResult Details(int? id, string name)
             {
-                if (ModelState.IsValid)
+                if (id.HasValue)
                 {
-                    // Valid input, process the parcel status check
-                    // You can use parcelRepository or other logic here
-                    return RedirectToAction("Index");
+                    // If ID has a value, use it as ID
+                    var parcelData = parcelRepository.GetById(id.Value);
+                    return View(parcelData);
                 }
-
-                // Invalid input, return to the form with validation errors
-                return View("Index", parcel);
+                if (!string.IsNullOrEmpty(name))
+                {
+                    // If Name is not empty, treat it as a name
+                    var parcelData = parcelRepository.GetByName(name);
+                    return View(parcelData);
+                }
+                //else if (!string.IsNullOrEmpty(name))
+                //{
+                //    // If Name is not empty, treat it as a name
+                //    var parcelsWithSameName = parcelRepository.GetAllByName(name);
+                //    return View(parcelsWithSameName);
+                //}
+                
+                {
+                    // Handle other cases or provide an error response
+                    return View();
+                }
             }
+
+            
         }
     }
-
-    //public class ParcelStatusController : Controller
-    //{
-    //    ParcelsRepository parcelRepository = new();
-    //List<Parcel> parcelsData;
-
-    //    //GET: ParcelsControler
-    //    public ActionResult Index()
-    //    {
-    //        parcelsData = parcelRepository.GetAll();
-
-    //        return View(parcelsData);
-    //    }
-
-
-    // GET: ProductsController/Details/5
-    //public ActionResult Details(int id)
-    //{
-    //    parcelsData = parcelRepository.GetAll();
-
-
-    //    if (parcelsData is null)
-    //    {
-    //        TempData["NotFound"] = "Product not found!";
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    return View(parcelsData);
-    //}
-    //// GET: ParcelStatusController/Details/5
-    //public ActionResult Details(int id)
-    //{
-    //    return View();
-    //}
-
-    //// GET: ParcelStatusController/Create
-    //public ActionResult Create()
-    //{
-    //    return View();
-    //}
-
-    //// POST: ParcelStatusController/Create
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Create(IFormCollection collection)
-    //{
-    //    try
-    //    {
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    catch
-    //    {
-    //        return View();
-    //    }
-    //}
-
-    //// GET: ParcelStatusController/Edit/5
-    //public ActionResult Edit(int id)
-    //{
-    //    return View();
-    //}
-
-    //// POST: ParcelStatusController/Edit/5
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Edit(int id, IFormCollection collection)
-    //{
-    //    try
-    //    {
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    catch
-    //    {
-    //        return View();
-    //    }
-    //}
-
-    //// GET: ParcelStatusController/Delete/5
-    //public ActionResult Delete(int id)
-    //{
-    //    return View();
-    //}
-
-    //// POST: ParcelStatusController/Delete/5
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Delete(int id, IFormCollection collection)
-    //{
-    //    try
-    //    {
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    catch
-    //    {
-    //        return View();
-    //    }
-    //}
 }
 

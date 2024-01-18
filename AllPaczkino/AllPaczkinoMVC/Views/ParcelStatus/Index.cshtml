@@ -11,9 +11,9 @@
    
    <h1 class="display-4 text-center">Sprawdz Status Paczki</h1>
    <div class="text-center" style="display: flex; justify-content: space-evenly">
-       <div class="card" style="width: 18rem;">
+       @* <div class="card" style="width: 18rem;">
            <div class="card-body">
-            <h5 class="card-title">Wpisz nazwę lub ID paczki</h5>
+               <h5 class="card-title">Wpisz nazwę lub ID paczki</h5>
                <div class="card-body">
                    <form asp-controller="ParcelStatus" asp-action="Details" method="post">
                        <div class="form-group">
@@ -24,68 +24,25 @@
                    </form>
                </div>
            </div>
+       </div> *@
+       <div class="card" style="width: 18rem;">
+           <div class="card-body">
+               <h5 class="card-title">Wpisz nazwę lub ID paczki</h5>
+               <div class="card-body">
+                   <form asp-controller="ParcelStatus" asp-action="Details" method="post">
+                       <div class="form-group">
+                           <label asp-for="ID" class="control-label"></label>
+                           <input asp-for="ID" class="form-control input-validation-error" required />
+                           <span asp-validation-for="ID" class="text-danger"></span>
+                       </div>
+                       @* <div class="form-group">
+                           <label asp-for="Name" class="control-label"></label>
+                           <input asp-for="Name" class="form-control input-validation-error" required/>
+                           <span asp-validation-for="Name" class="text-danger field-validation-error" data-valmsg-replace="true"></span>
+                       </div> *@
+                       <button type="submit" class="btn btn-primary">Sprawdz status paczki</button>
+                   </form>
+               </div>
+           </div>
        </div>
-   </div>
-   
 
-@* <h1 class="display-4 text-center">Sprawdz Status Paczki</h1>
-<div class="text-center" style="display: flex ; justify-content: space-evenly">
-
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Wpisz nazwę lub ID paczki</h5>
-
-            @* <p class="card-text">Wybierz opcję by nadać nową paczkę</p> <-- ZASTAPIC POLEM DO WALIDACJI*@
-            @* <div class="card-body">
-                <input class="form-control" type="text" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="">
-                <span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
-            </div>
-
-            <a href="Details" class="btn btn-primary">Sprawdz status paczki</a>
-        </div>
-    </div> *@
-
-
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ParcelNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>l.ParcelStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => mode
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParcelNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParcelStatus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new {id=item.ID  })
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@

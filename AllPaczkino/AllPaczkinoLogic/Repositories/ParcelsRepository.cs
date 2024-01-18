@@ -52,5 +52,15 @@ namespace AllPaczkino.Repositories
                 SaveAll(items);
             }
         }
+        public Parcel GetByName(string name)
+        {
+            List<Parcel> items = GetAll();
+            return items.FirstOrDefault(x => x.Name == name);
+        }
+        //public List<Parcel> GetAllByName(string name)
+        //{
+        //    List<Parcel> items = GetAll();
+        //    return items.Where(x => x.Name == name).ToList();
+        //}
     }
 }

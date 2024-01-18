@@ -1,46 +1,54 @@
-﻿@using AllPaczkino.Repositories;
-@model IEnumerable<AllPaczkino.Models.Parcel>
+﻿@model AllPaczkino.Models.Parcel
+
 @{
-    ViewData["Title"] = "ParcelStatus";
+    ViewData["Title"] = "Details";
 }
-<table class="table">
-    <thead>
-    <tr>
-        <th>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Parcel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ParcelNumber)
-        </th>
-        <th>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ParcelNumber)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SendTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SendTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiveTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReceiveTime)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ParcelStatus)
-        </th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParcelNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParcelStatus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ParcelStatus)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index">Back</a>
+</div>
