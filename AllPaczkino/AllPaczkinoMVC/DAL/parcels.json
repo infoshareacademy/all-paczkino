@@ -904,5 +904,46 @@
     "ParcelSize": {
       "Name": "L"
     }
+  },
+  {
+    "ParcelNumber": 726.0,
+    "ID": 339,
+    "Name": "laptop",
+    "SenderLocker": {
+      "id": 10,
+      "city": "Lublin",
+      "postal_code": "20-001",
+      "address": "ul. Cedrowa 10"
+    },
+    "ReceiverLocker": {
+      "id": 12,
+      "city": "Gdynia",
+      "postal_code": "81-100",
+      "address": "ul. Jesionowa 12"
+    },
+    "SendTime": "2024-01-21T12:49:25.7452999+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Zuza",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Patryk",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
   }
 ]
