@@ -1,5 +1,6 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +11,12 @@ namespace AllPaczkinoMVC.Controllers
         ParcelsRepository parcelRepository = new();
         List<Parcel> parcelsData;
 
-        // GET: SendParcel
+        // GET: SendParcelControler
         public ActionResult Index()
         {
-            return View();
+            parcelsData = parcelRepository.GetAll();
+
+            return View(parcelsData);
         }
 
         // GET: SendParcel/Details/5
@@ -31,10 +34,15 @@ namespace AllPaczkinoMVC.Controllers
         // POST: SendParcel/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Parcel parcel)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(parcel);
+                }
+                parcelRepository.Create(parcel);
                 return RedirectToAction(nameof(Index));
             }
             catch

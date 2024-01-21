@@ -217,5 +217,610 @@
     "ParcelSize": {
       "Name": "paczka swiateczna"
     }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "bukowa 3",
+          "HouseNumber": 0,
+          "CityName": "Szczebrzeszyn",
+          "PostalCode": "11-555",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "Trzcin",
+          "PostalCode": "55-111",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczka",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczka swiateczna",
+        "Surname": "paczka swiateczna",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 7
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna 3",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "gdansk",
+      "postal_code": "10-500",
+      "address": "lipowa 2"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "bukowa 3",
+          "HouseNumber": 0,
+          "CityName": "Szczebrzeszyn",
+          "PostalCode": "11-555",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "Trzcin",
+          "PostalCode": "55-111",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "gdansk",
+      "postal_code": "80-500",
+      "address": "lipowa 2"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "bukowa 3",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "gdansk",
+          "PostalCode": "80-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka wielkanocna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "gdansk",
+      "postal_code": "80-500",
+      "address": "lipowa 2"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "buykowa 3",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "gdansk",
+          "PostalCode": "80-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "M"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka urodzinowa ",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "gdansk",
+      "postal_code": "80-500",
+      "address": "lipowa 2"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "bukowa 3",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "gdansk",
+          "PostalCode": "80-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "żwirek dla kota",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "gdansk",
+      "postal_code": "80-500",
+      "address": "lipowa 2"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "bukowa 3",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "debowa 4",
+          "HouseNumber": 0,
+          "CityName": "gdanks",
+          "PostalCode": "80-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna 500",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "M"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "kwietna"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczkobiorca",
+        "Surname": "rty",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczka swiateczna",
+        "Surname": "paczka swiateczna",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": 0.0,
+    "ID": 0,
+    "Name": "paczka swiateczna",
+    "SenderLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 0,
+      "city": "wroclaw",
+      "postal_code": "10-500",
+      "address": "paczka swiateczna"
+    },
+    "SendTime": "0001-01-01T00:00:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "paczkodawca",
+        "Surname": "qwe",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "555",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "paczka swiateczna",
+        "Surname": "paczka swiateczna",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "666",
+        "Adress": {
+          "StreetName": "klonowa 1",
+          "HouseNumber": 0,
+          "CityName": "wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      }
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
   }
 ]

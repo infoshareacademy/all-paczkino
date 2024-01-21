@@ -1,251 +1,112 @@
-﻿@model AllPaczkino.Models.Parcel
+﻿@using AllPaczkino.Repositories;
+@model IEnumerable<AllPaczkino.Models.Parcel>
 
 @{
-	ViewData["Title"] = "Nadawanie paczki";
+    ViewData["Title"] = "Lista paczek";
 }
 
-<h1>Nadawanie paczki</h1>
+<h1>Lista paczek</h1>
 
-<h4>uzupełnij dane</h4>
-<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ParcelNumber)
+            </th>
 
 
-<button class="btn btn-sm btn-dark details" data-toggle="modal" data-target="#details-modal">Details</button>
+            <th>
+                @Html.DisplayNameFor(model => model.SendTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiveTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParcelStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenderLocker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Receiver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiverLocker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParcelSize)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-<div class="row">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParcelNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SendTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiveTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParcelStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.Name)
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.Email)
+                    @Html.DisplayFor(modelItem => item.Sender.ContactData.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SenderLocker.postal_code)
+                    @Html.DisplayFor(modelItem => item.SenderLocker.city)
+                    @Html.DisplayFor(modelItem => item.SenderLocker.address)
+                    @Html.DisplayFor(modelItem => item.SenderLocker.id)
 
 
-	<form asp-action="Create">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.Name)
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.Email)
+                    @Html.DisplayFor(modelItem => item.Receiver.ContactData.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiverLocker.postal_code)
+                    @Html.DisplayFor(modelItem => item.ReceiverLocker.city)
+                    @Html.DisplayFor(modelItem => item.ReceiverLocker.address)
+                    @Html.DisplayFor(modelItem => item.ReceiverLocker.id)
 
-
-		@*      <div class="form-group">
-		<label asp-for="ParcelNumber" class="control-label"></label>
-		<input asp-for="ParcelNumber" class="form-control" />
-		<span asp-validation-for="ParcelNumber" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-		<label asp-for="ID" class="control-label"></label>
-		<input asp-for="ID" class="form-control" />
-		<span asp-validation-for="ID" class="text-danger"></span>
-		</div> *@
-
-		<h5>Nazwa paczki</h5>
-		<h8>(opcjonalnie)</h8>
-		<div class="card" style="width: 18rem;">
-			<!--<img src="..." class="card-img-top" alt="...">-->
-			<div class="card-body">
-				<input asp-for="Name" class="form-control" />
-				<span asp-validation-for="Name" class="text-danger"></span>
-			</div>
-		</div>
-
-		<h6> </h6>
-		
-
-		<table border="1">
-			<tr>
-				<td>
-
-					<h5>Paczkomat nadawcy</h5>
-					<div class="card" style="width: 18rem;">
-						<!--<img src="..." class="card-img-top" alt="...">-->
-						<h8>* Kod paczkomatu:</h8>
-						<div class="card-body">
-							<input asp-for="SenderLocker.id" class="form-control" />
-							<span asp-validation-for="SenderLocker.id" class="text-danger"></span>
-						</div>
-						<h7>* Miasto:</h7>
-						<div class="card-body">
-							<input asp-for="SenderLocker.city" class="form-control" />
-							<span asp-validation-for="SenderLocker.city" class="text-danger"></span>
-						</div>
-						<h7>* Kod-pocztowy:</h7>
-						<div class="card-body">
-							<input asp-for="SenderLocker.postal_code" class="form-control" />
-							<span asp-validation-for="SenderLocker.postal_code" class="text-danger"></span>
-						</div>
-						<h7>* Adres:</h7>
-						<div class="card-body">
-							<input asp-for="SenderLocker.address" class="form-control" />
-							<span asp-validation-for="SenderLocker.address" class="text-danger"></span>
-						</div>
-					</div>
-
-				</td>
-
-				<td>
-
-					<h5>Paczkomat odbiorcy</h5>
-					<div class="card" style="width: 18rem;">
-						<!--<img src="..." class="card-img-top" alt="...">-->
-						<h8>* Kod paczkomatu:</h8>
-						<div class="card-body">
-							<input asp-for="ReceiverLocker.id" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.id" class="text-danger"></span>
-						</div>
-						<h7>* Miasto:</h7>
-						<div class="card-body">
-							<input asp-for="ReceiverLocker.city" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.city" class="text-danger"></span>
-						</div>
-						<h7>* Kod-pocztowy:</h7>
-						<div class="card-body">
-							<input asp-for="ReceiverLocker.postal_code" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.postal_code" class="text-danger"></span>
-						</div>
-						<h7>* Adres:</h7>
-						<div class="card-body">
-							<input asp-for="ReceiverLocker.address" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.address" class="text-danger"></span>
-						</div>
-					</div>
-
-				</td>
-			</tr>
-		</table>
-
-		<h6> </h6>
-
-		@*  <div class="form-group">
-		<label asp-for="SendTime" class="control-label"></label>
-		<input asp-for="SendTime" class="form-control" />
-		<span asp-validation-for="SendTime" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-		<label asp-for="ReceiveTime" class="control-label"></label>
-		<input asp-for="ReceiveTime" class="form-control" />
-		<span asp-validation-for="ReceiveTime" class="text-danger"></span>
-		</div> *@
-		@*   <div class="form-group">
-		<label asp-for="ParcelStatus" class="control-label"></label>
-		<input asp-for="ParcelStatus" class="form-control" />
-		<span asp-validation-for="ParcelStatus" class="text-danger"></span>
-		</div> *@
-
-		<table border="1">
-			<tr>
-				<td>
-
-					<h5>Nadawca</h5>
-					<div class="card" style="width: 18rem;">
-						<!--<img src="..." class="card-img-top" alt="...">-->
-						<h8>* Imię:</h8>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Name" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Name" class="text-danger"></span>
-						</div>
-						<h7>* Nazwisko:</h7>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Surname" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Surname" class="text-danger"></span>
-						</div>
-						<h7>* E-mail:</h7>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Email" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Email" class="text-danger"></span>
-						</div>
-						<h7>* Adres - miasto:</h7>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Adress" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Adress.CityName" class="text-danger"></span>
-						</div>
-						<h7>* Adres - kod pocztowy:</h7>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Adress.PostalCode" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Adress.PostalCode" class="text-danger"></span>
-						</div>
-						<h7>* Adres - ulica i nr:</h7>
-						<div class="card-body">
-							<input asp-for="Sender.ContactData.Adress.StreetName" class="form-control" />
-							<span asp-validation-for="Sender.ContactData.Adress.StreetName" class="text-danger"></span>
-						</div>
-					</div>
-
-				</td>
-
-				<td>
-
-					<h5>Odbiorca</h5>
-					<div class="card" style="width: 18rem;">
-						<!--<img src="..." class="card-img-top" alt="...">-->
-						<h8>* Imię:</h8>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Name" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Name" class="text-danger"></span>
-						</div>
-						<h7>* Nazwisko:</h7>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Surname" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Surname" class="text-danger"></span>
-						</div>
-						<h7>* E-mail:</h7>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Email" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Email" class="text-danger"></span>
-						</div>
-						<h7>* Adres - miasto:</h7>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Adress" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Adress.CityName" class="text-danger"></span>
-						</div>
-						<h7>* Adres - kod pocztowy:</h7>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Adress.PostalCode" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Adress.PostalCode" class="text-danger"></span>
-						</div>
-						<h7>* Adres - ulica i nr:</h7>
-						<div class="card-body">
-							<input asp-for="Receiver.ContactData.Adress.StreetName" class="form-control" />
-							<span asp-validation-for="Receiver.ContactData.Adress.StreetName" class="text-danger"></span>
-						</div>
-					</div>
-
-				</td>
-			</tr>
-		</table>
-
-		<h6> </h6>
-
-		<h5>Rozmiar paczki</h5>
-		<div class="form-group">
-			@* <input asp-for="ParcelSize" class="form-control" />
-			<span asp-validation-for="ParcelSize" class="text-danger"></span> *@
-			<div class="card-body">
-				<a href="#" class="btn btn-primary">Rozmiar S</a>
-				<a href="#" class="btn btn-primary">Rozmiar M</a>
-				<a href="#" class="btn btn-primary">Rozmiar L</a>
-			</div>
-		</div>
-
-		<h6> </h6>
-		<div class="form-group">
-			<input type="submit" value="Nadaj paczkę" class="btn btn-primary btn-lg" />
-		</div>
-
-	</form>
-	<div>
-		<a asp-action="Index">Back to List</a>
-	</div>
-
-</div>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="details-modal">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Product Details</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body"></div>
-		</div>
-	</div>
-</div>
-
-@section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParcelSize.Name)
+                    @* @//@Html.DisplayFor(modelItem => item.ParcelSize.Price) *@
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
