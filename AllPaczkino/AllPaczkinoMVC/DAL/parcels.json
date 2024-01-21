@@ -863,5 +863,46 @@
     "ParcelSize": {
       "Name": "M"
     }
+  },
+  {
+    "ParcelNumber": 90.0,
+    "ID": 237,
+    "Name": "żwirek dla kota n 2",
+    "SenderLocker": {
+      "id": 2,
+      "city": "Kraków",
+      "postal_code": "30-001",
+      "address": "ul. Lipowa 2"
+    },
+    "ReceiverLocker": {
+      "id": 5,
+      "city": "Poznań",
+      "postal_code": "60-001",
+      "address": "ul. Kasztanowa 5"
+    },
+    "SendTime": "2024-01-21T12:44:39.9136197+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
   }
 ]
