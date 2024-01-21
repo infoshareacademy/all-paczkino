@@ -822,5 +822,46 @@
     "ParcelSize": {
       "Name": "L"
     }
+  },
+  {
+    "ParcelNumber": 619.0,
+    "ID": 492,
+    "Name": "Tajne rzeczy",
+    "SenderLocker": {
+      "id": 1,
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
+    },
+    "ReceiverLocker": {
+      "id": 2,
+      "city": "Kraków",
+      "postal_code": "30-001",
+      "address": "ul. Lipowa 2"
+    },
+    "SendTime": "2024-01-21T12:10:55.2390614+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Maciej",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Jurek",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      }
+    },
+    "ParcelSize": {
+      "Name": "M"
+    }
   }
 ]
