@@ -4,7 +4,7 @@ namespace AllPaczkino.Clients.ContactInfo;
 public class Adress
 {
 
-    public Adress(string streetName, int houseNumber, string cityName,string voivodeship, string postalCode,string country = "Poland", int? flatNumber = null)
+    public Adress(string streetName, int houseNumber, string cityName, string postalCode,string country = "Poland", int? flatNumber = null)
     {
         StreetName = streetName;
         HouseNumber = houseNumber;
@@ -12,9 +12,10 @@ public class Adress
         PostalCode = postalCode;
         Country = country;
         FlatNumber = flatNumber;
-        voivodeship = voivodeship;
+       
     }
 
+    public Adress() { }
 
     public string StreetName { get; set; }
     public int HouseNumber { get; set; }

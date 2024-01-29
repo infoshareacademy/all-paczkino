@@ -23,7 +23,7 @@ namespace AllPaczkino.View
 			IParcelSizeRepository parcelSizeRepository = new InMemoryParcelSizeRepository();
 
 			// updatowanie listy kontaktow
-			IContactDataRepository contactDataRepository = new InMemoryContactDataRepository();
+			//IContactDataRepository contactDataRepository = new InMemoryContactDataRepository();
 
 
 

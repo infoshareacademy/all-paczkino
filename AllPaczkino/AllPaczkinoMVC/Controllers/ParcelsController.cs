@@ -1,5 +1,8 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
+using AllPaczkinoLogic.Repositories;
+using AllPaczkinoMVC.DTO;
+using AllPaczkinoMVC.Mappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
@@ -9,7 +12,14 @@ namespace AllPaczkinoMVC.Controllers
     public class ParcelsController : Controller
     {
         ParcelsRepository parcelRepository = new();
+        ParcelLockersRepository parcelLockersRepository = new();
         List<Parcel> parcelsData ;
+		private ParcelMapper parcelMapper;
+
+		public ParcelsController()
+        {
+            parcelMapper = new ParcelMapper(parcelLockersRepository);
+		}
 
         // GET: ParcelsControler
         public ActionResult Index()
@@ -35,22 +45,25 @@ namespace AllPaczkinoMVC.Controllers
         // POST: ParcelsControler/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Parcel parcel)
+        public ActionResult Create(ParcelCreationRequest parcelRequest)
         {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return View(parcel);
-                }
-                parcelRepository.Create(parcel);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			try
+			{
+				if (!ModelState.IsValid)
+				{
+					return View(parcelRequest);
+				}
+
+				var parcel = parcelMapper.MapToParcel(parcelRequest);
+				parcelRepository.Create(parcel);
+                
+				return RedirectToAction(nameof(Index));
+			}
+			catch
+			{
+				return View();
+			}
+		}
 
         // GET: ParcelsControler/Edit/5
         public ActionResult Edit(int id)
