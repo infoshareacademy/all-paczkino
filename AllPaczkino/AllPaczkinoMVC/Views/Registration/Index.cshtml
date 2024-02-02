@@ -1,0 +1,55 @@
+﻿@model AllPaczkino.Models.Client
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<h1>Rejestracja</h1>
+
+<h4>Utwórz konto nowego użytkownika</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ContactData.Name" class="control-label"></label>
+                <input asp-for="ContactData.Name" class="form-control" />
+                <span asp-validation-for="ContactData.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactData.Surname" class="control-label"></label>
+                <input asp-for="ContactData.Surname" class="form-control" />
+                <span asp-validation-for="ContactData.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactData.Email" class="control-label"></label>
+                <input asp-for="ContactData.Email" class="form-control" />
+                <span asp-validation-for="ContactData.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactData.PhoneNumber" class="control-label"></label>
+                <input asp-for="ContactData.PhoneNumber" class="form-control" />
+                <span asp-validation-for="ContactData.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
