@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AllPaczkinoMVC.styles.css" asp-append-version="true" />
+
+    @* <style>
+     @font-face {
+            font-family: 'corleonedue';
+            src: url('fonts/corleonedue.ttf') format('truetype');
+        }
+    </style> *@
 </head>
 
     
@@ -73,12 +80,11 @@
     </nav>
 </header>
     <div class="container">
-        @* <main role="main" class="pb-3"> *@
+        <main role="main" class="pb-3">
             @RenderBody()
-        @* </main> *@
+        </main>
     </div>
 <body>
-        
         <img src="~/images/background-main.jpg" class="background-main" alt="background" />
 </body>
     <footer class="border-0 footer text-muted">
