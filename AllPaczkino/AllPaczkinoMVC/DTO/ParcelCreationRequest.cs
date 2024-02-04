@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace AllPaczkinoMVC.DTO
 {
@@ -16,5 +17,12 @@ namespace AllPaczkinoMVC.DTO
 		public string ReceiverName { get; set; }
 		[Required]
 		public string ParcelSize { get; set; }
-    }
+
+		public string SelectedCity { get; set; }
+		public string SelectedParcelLocker { get; set; }
+		public SelectList Cities { get; set; }
+		public SelectList ParcelLockersInSelectedCity { get; set; }
+
+	}
+
 }

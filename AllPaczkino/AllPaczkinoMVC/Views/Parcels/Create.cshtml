@@ -1,10 +1,12 @@
 ﻿@model AllPaczkinoMVC.DTO.ParcelCreationRequest
 
+<head>
+	<!-- Include jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
 
 <h4>Parcel</h4>
 <hr />
@@ -12,18 +14,6 @@
     <div class="col-md-4">
 		<form asp-action="Create">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
-			@*      <div class="form-group">
-			<label asp-for="ParcelNumber" class="control-label"></label>
-			<input asp-for="ParcelNumber" class="form-control" />
-			<span asp-validation-for="ParcelNumber" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-			<label asp-for="ID" class="control-label"></label>
-			<input asp-for="ID" class="form-control" />
-			<span asp-validation-for="ID" class="text-danger"></span>
-			</div> *@
 
 			<h5>Nazwa paczki</h5>
 			<h8>(opcjonalnie)</h8>
@@ -37,22 +27,62 @@
 
 			<h6> </h6>
 
-
 			<table border="1">
 				<tr>
 					<td>
 
 						<h5>Paczkomat nadawcy</h5>
 						<div class="card" style="width: 18rem;">
-							<!--<img src="..." class="card-img-top" alt="...">-->
-							@* <h8>* Kod paczkomatu:</h8>
+
+								<!-- City dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.SelectedCity, "Select City")
+									@Html.DropDownListFor(model => model.SelectedCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "cityDropdown" })
+								</div>
+
+								<!-- Parcellockers  dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.ParcelLockersInSelectedCity, "Select parcel locker in selected city")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedCity, Model.ParcelLockersInSelectedCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "parcelLockersDropdown" })
+								</div>
+
+							<script>
+									// jQuery script for cascading dropdowns
+									$(document).ready(function () {
+										$("#cityDropdown").change(function () {
+											var selectedCity = $(this).val();
+											$.ajax({
+												url: '@Url.Action("GetParcelLockersInSelectedCity", "Parcels")',
+												type: 'GET',
+												data: { city: selectedCity },
+												success: function (data) {
+													$("#parcelLockersDropdown").empty();
+													$.each(data, function (i, item) {
+														$("#parcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+													});
+
+													// Update the value of SenderLockerId based on the first item in the data
+													if (data.length > 0) {
+														var firstItemId = data[0].id;
+														$("#SenderLockerId").val(firstItemId);
+													}
+												},
+												error: function (error) {
+													console.log(error);
+												}
+											});
+										});
+
+										// Add change event for the second dropdown to update ReceiverLockerId
+										$("#parcelLockersDropdown").change(function () {
+											var selectedLockerId = $(this).val();
+											$("#SenderLockerId").val(selectedLockerId);
+										});
+									});
+								</script>
+
 							<div class="card-body">
-							<input asp-for="SenderLocker.id" class="form-control" />
-							<span asp-validation-for="SenderLocker.id" class="text-danger"></span>
-							</div> *@
-							<h7>* Id paczkomatu nadawcy:</h7>
-							<div class="card-body">
-								<input asp-for="SenderLockerId" class="form-control" />
+								<input asp-for="SenderLockerId" class="form-control" /> 
 								<span asp-validation-for="SenderLockerId" class="text-danger"></span>
 							</div>
 						</div>
@@ -62,18 +92,59 @@
 					<td>
 
 						<h5>Paczkomat odbiorcy</h5>
-						<div class="card" style="width: 18rem;">
-							<!--<img src="..." class="card-img-top" alt="...">-->
-							@* <h8>* Kod paczkomatu:</h8>
-							<div class="card-body">
-							<input asp-for="ReceiverLocker.id" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.id" class="text-danger"></span>
-							</div> *@
-							<h7>* Id paczkomatu odbiorcy:</h7>
-							<div class="card-body">
-								<input asp-for="ReceiverLockerId" class="form-control" />
-								<span asp-validation-for="SenderLockerId" class="text-danger"></span>
-							</div>
+							<div class="card" style="width: 18rem;">
+
+								<!-- City dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.SelectedCity, "Select City")
+									@Html.DropDownListFor(model => model.SelectedCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "cityDropdown" })
+								</div>
+
+								<!-- Parcellockers  dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.ParcelLockersInSelectedCity, "Select parcel locker in selected city")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedCity, Model.ParcelLockersInSelectedCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "parcelLockersDropdown" })
+								</div>
+
+								<script>
+									// jQuery script for cascading dropdowns
+									$(document).ready(function () {
+										$("#cityDropdown").change(function () {
+											var selectedCity = $(this).val();
+											$.ajax({
+												url: '@Url.Action("GetParcelLockersInSelectedCity", "Parcels")',
+												type: 'GET',
+												data: { city: selectedCity },
+												success: function (data) {
+													$("#parcelLockersDropdown").empty();
+													$.each(data, function (i, item) {
+														$("#parcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+													});
+
+													// Update the value of SenderLockerId based on the first item in the data
+													if (data.length > 0) {
+														var firstItemId = data[0].id;
+														$("#ReceiverLockerId").val(firstItemId);
+													}
+												},
+												error: function (error) {
+													console.log(error);
+												}
+											});
+										});
+
+										// Add change event for the second dropdown to update ReceiverLockerId
+										$("#parcelLockersDropdown").change(function () {
+											var selectedLockerId = $(this).val();
+											$("#ReceiverLockerId").val(selectedLockerId);
+										});
+									});
+								</script>
+
+								<div class="card-body">
+									<input asp-for="ReceiverLockerId" class="form-control" /> 
+									<span asp-validation-for="ReceiverLockerId" class="text-danger"></span>
+								</div>
 						</div>
 
 					</td>
@@ -162,6 +233,8 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+</head>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

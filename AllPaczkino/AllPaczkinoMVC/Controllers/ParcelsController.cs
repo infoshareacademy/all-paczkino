@@ -5,6 +5,8 @@ using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 using Parcels.Parcels;
 using System.Reflection;
 
@@ -132,9 +134,10 @@ namespace AllPaczkinoMVC.Controllers
             
             return View(parcelsData);
         }
+        		
 
-        // GET: ParcelsControler/Details/5
-        public ActionResult Details(int id)
+		// GET: ParcelsControler/Details/5
+		public ActionResult Details(int id)
         {
             var parcelData = parcelRepository.GetById(id);
             return View(parcelData);
@@ -143,7 +146,30 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Create
         public ActionResult Create()
         {
-            return View();
+				string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
+
+				ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
+	
+				List<string> cities = parcelLockerList?.parcel_lockers?.Select(x => x.city).Distinct().OrderBy(x => x).ToList();
+
+				var viewModel = new ParcelCreationRequest
+				{
+					Cities = new SelectList(cities),
+					ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
+				};
+
+				return View(viewModel);
+		}
+
+        public JsonResult GetParcelLockersInSelectedCity(string city)
+        {
+            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
+
+            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
+
+            List<ParcelLocker> parcelLockersInSelectedCity = parcelLockerList?.parcel_lockers?.Where(x => x.city == city).ToList();
+
+            return Json(parcelLockersInSelectedCity);
         }
 
         // POST: ParcelsControler/Create
