@@ -4,7 +4,8 @@ html {
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 20px;
+    text-shadow: revert-layer;
   }
 }
 
@@ -23,8 +24,11 @@ html {
 
 body {
     margin-bottom: 0px;
-    font-family: 'corleonedue', truetype;
+    font-family: 'Comic Sans MS';
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
+
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
@@ -52,27 +56,25 @@ body {
 }
 
 .table.table-striped.table-dark {
-    font-size: 14px; /* Adjust the font size as needed */
-    background-color: rgba(0, 0, 0, 0.8); /* Set the background color with transparency */
-    color: #fff; /* Set text color */
-}
+    font-size: 14px; 
+    background-color: rgba(0, 0, 0, 0.8); /
+    color: #fff; 
 
 .table.table-striped.table-dark th,
 .table.table-striped.table-dark td {
-    border-color: rgba(255, 255, 255, 0.5); /* Set border color with transparency */
+    border-color: rgba(255, 255, 255, 0.5); 
 }
 
 .table.table-striped.table-dark a {
-    color: #fff; /* Set link color */
+    color: #fff;
 }
 
 .table.table-striped.table-dark a:hover {
-    color: #ccc; /* Set link color on hover */
-}
+    color: #ccc;
 
-.navbar {
-    font-family: 'corleonedue', truetype; /* Replace 'YourDesiredFont' with the actual font you want to use */
-}
+/*.navbar {
+    
+}*/
 
 @font-face {
     font-family: 'corleonedue';
@@ -84,4 +86,3 @@ body {
     background-attachment: fixed;
 }
 
-/* Add this to prevent the background image from repeating */
