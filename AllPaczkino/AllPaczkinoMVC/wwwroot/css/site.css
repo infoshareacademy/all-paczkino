@@ -25,8 +25,11 @@ html {
 body {
     margin-bottom: 0px;
     font-family: 'Comic Sans MS';
-    font-weight: 500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.create-button{
+
 }
 
 .dropdown:hover .dropdown-menu {
@@ -35,7 +38,6 @@ body {
     background: transparent;
     position: absolute;
     border: none;
-    
 }
 
 
@@ -50,15 +52,21 @@ body {
     z-index: -1;
 }
 
+.logo-main{
+    opacity: 0.8;
+}
+
 .table-responsive {
     margin-top: 100px;
     padding: 0;
 }
 
 .table.table-striped.table-dark {
-    font-size: 14px; 
-    background-color: rgba(0, 0, 0, 0.8); /
-    color: #fff; 
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    opacity: 0.7;
+}
 
 .table.table-striped.table-dark th,
 .table.table-striped.table-dark td {
@@ -70,19 +78,23 @@ body {
 }
 
 .table.table-striped.table-dark a:hover {
-    color: #ccc;
+    color: #ccc; 
+}
 
-/*.navbar {
-    
-}*/
+.navbar {
+    margin: auto;
+   /* background-color: lightgray;
+    opacity: 0.3;*/
 
-@font-face {
+}
+
+/*@font-face {
     font-family: 'corleonedue';
     src: url('fonts/corleonedue.ttf') format('truetype');
-}
-.table-responsive {
+}*/
+/*.table-responsive {
     background-image: url('~/images/background-main.jpg');
     background-size: cover;
     background-attachment: fixed;
-}
+}*/
 
