@@ -56,6 +56,9 @@ namespace AllPaczkino.Repositories
         {
             List<Parcel> items = GetAll();
             return items.FirstOrDefault(x => x.Name == name);
+
+            // lub do rozważenia: 
+               //return items.FirstOrDefault(x => x.Name.ToLower().Contains(name.ToLower()));
         }
         //public List<Parcel> GetAllByName(string name)
         //{

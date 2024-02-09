@@ -30,11 +30,12 @@
                <h5 class="card-title">Wpisz nazwę lub ID paczki</h5>
                <div class="card-body">
                    <form asp-controller="ParcelStatus" asp-action="Details" method="post">
-                       <div class="form-group">
+                    <input type="text" class="form-control"data-val-required="To pole jest wymagane." name="nameOrId" />
+                    @* <div class="form-group">
                            <label asp-for="ID" class="control-label"></label>
                            <input asp-for="ID" class="form-control input-validation-error" required />
                            <span asp-validation-for="ID" class="text-danger"></span>
-                       </div>
+                    </div>*@
                        @* <div class="form-group">
                            <label asp-for="Name" class="control-label"></label>
                            <input asp-for="Name" class="form-control input-validation-error" required/>

@@ -29,20 +29,27 @@ namespace AllPaczkinoMVC.Controllers
 
             // POST: ParcelStatus/Details
             [HttpPost]
-            public ActionResult Details(int? id, string name)
+            public ActionResult Details(string nameOrId)
             {
-                if (id.HasValue)
-                {
-                    // If ID has a value, use it as ID
-                    var parcelData = parcelRepository.GetById(id.Value);
-                    return View(parcelData);
-                }
-                if (!string.IsNullOrEmpty(name))
-                {
-                    // If Name is not empty, treat it as a name
-                    var parcelData = parcelRepository.GetByName(name);
-                    return View(parcelData);
-                }
+                var parcel = parcelRepository.GetByName(nameOrId);
+
+                if (parcel == null && int.TryParse(nameOrId, out var parsedId))
+                    parcel = parcelRepository.GetById(parsedId);
+
+				return parcel == null ? NotFound() : View(parcel);
+
+                //if (id.HasValue)
+                //{
+                //    // If ID has a value, use it as ID
+                //    var parcelData = parcelRepository.GetById(id.Value);
+                //    return View(parcelData);
+                //}
+                //if (!string.IsNullOrEmpty(name))
+                //{
+                //    // If Name is not empty, treat it as a name
+                //    var parcelData = parcelRepository.GetByName(name);
+                //    return View(parcelData);
+                //}
                 //else if (!string.IsNullOrEmpty(name))
                 //{
                 //    // If Name is not empty, treat it as a name
@@ -50,10 +57,10 @@ namespace AllPaczkinoMVC.Controllers
                 //    return View(parcelsWithSameName);
                 //}
                 
-                {
-                    // Handle other cases or provide an error response
-                    return View();
-                }
+                //{
+                //    // Handle other cases or provide an error response
+                //    return View();
+                //}
             }
 
             
