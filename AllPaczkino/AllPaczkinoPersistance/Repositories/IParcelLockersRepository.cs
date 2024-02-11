@@ -10,5 +10,13 @@ namespace AllPaczkinoPersistance.Repositories
     public interface IParcelLockersRepository
     {
         List<ParcelLockerDb> GetAll();
+
+        ParcelLockerDb GetById(int id);
+
+        Task Create(ParcelLockerDb newParcelLocker);
+
+        Task Delete(int id);
+
+        Task Update(int id, ParcelLockerDb editedParcelLocker);
     }
 }
