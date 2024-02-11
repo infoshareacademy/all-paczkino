@@ -1,4 +1,5 @@
 using AllPaczkinoPersistance;
+using AllPaczkinoPersistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPaczkinoMVC
@@ -14,6 +15,7 @@ namespace AllPaczkinoMVC
                             .AddRazorRuntimeCompilation();
 
             builder.Services.AddDbContext<PaczkinoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AllPaczkino"))); 
+            builder.Services.AddTransient<IParcelLockersRepository, ParcelLockersEFRepository>();
 
             var app = builder.Build();
 
