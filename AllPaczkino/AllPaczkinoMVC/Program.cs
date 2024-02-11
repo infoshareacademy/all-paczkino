@@ -1,3 +1,6 @@
+using AllPaczkinoPersistance;
+using Microsoft.EntityFrameworkCore;
+
 namespace AllPaczkinoMVC
 {
     public class Program
@@ -10,7 +13,11 @@ namespace AllPaczkinoMVC
             builder.Services.AddControllersWithViews()
                             .AddRazorRuntimeCompilation();
 
+            builder.Services.AddDbContext<PaczkinoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AllPaczkino"))); 
+
             var app = builder.Build();
+
+            
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

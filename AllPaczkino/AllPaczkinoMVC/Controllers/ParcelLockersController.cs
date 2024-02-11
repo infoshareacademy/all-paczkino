@@ -1,6 +1,7 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
+using AllPaczkinoPersistance.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,12 +12,17 @@ namespace AllPaczkinoMVC.Controllers
     {
 
         ParcelLockersRepository parcelLockersRepository = new();
-        List<ParcelLocker> parcelLockerList;
+        List<ParcelLockerDb> parcelLockerList;
+        private readonly IParcelLockersRepository _parcelLockersRepository;
 
+        public ParcelLockersController(IParcelLockersRepository parcelLockersRepository)
+        {
+            _parcelLockersRepository = parcelLockersRepository;
+        }
         // GET: ParcelLockers
         public ActionResult Index()
         {
-            parcelLockerList = parcelLockersRepository.GetAll();
+            parcelLockerList = _parcelLockersRepository.GetAll();
             return View(parcelLockerList);
         }
 
