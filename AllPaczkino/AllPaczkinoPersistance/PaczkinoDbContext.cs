@@ -1,9 +1,10 @@
 ﻿using AllPaczkino.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPaczkinoPersistance
 {
-    public class PaczkinoDbContext : DbContext
+    public class PaczkinoDbContext : IdentityDbContext
     {
         public PaczkinoDbContext(DbContextOptions<PaczkinoDbContext> dbContextOptions) : base(dbContextOptions)
         {
