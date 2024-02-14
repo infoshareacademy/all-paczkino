@@ -1,4 +1,5 @@
-﻿using AllPaczkinoPersistance;
+﻿using AllPaczkinoMVC.Models;
+using AllPaczkinoPersistance;
 using Microsoft.AspNetCore.Identity;
 
 namespace AllPaczkinoMVC
@@ -15,7 +16,18 @@ namespace AllPaczkinoMVC
                 option.AccessDeniedPath = "/Identity/AccessDenied";
                 option.ExpireTimeSpan = TimeSpan.FromHours(10);
             });
-            services.AddAuthorization();
+            services.AddAuthorization(option => {
+
+                option.AddPolicy("Member", p => {
+
+                    p.RequireRole(Roles.Member.ToString());
+                });
+
+                option.AddPolicy("Admin", p => {
+
+                    p.RequireRole(Roles.Admin.ToString());
+                });
+            });
 
             services.AddControllersWithViews();
 

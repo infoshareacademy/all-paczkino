@@ -30,13 +30,13 @@ namespace AllPaczkinoMVC.Controllers
         {
             return View();
         }
-        [Authorize(Policy = "MemberDep")]
+        [Authorize(Policy = "Member")]
         public IActionResult UserMenu()
         {
             return View();
         }
 
-        [Authorize(Policy = "AdminDep")]
+        [Authorize(Policy = "Admin")]
         public IActionResult AdminMenu()
         {
             return View();
