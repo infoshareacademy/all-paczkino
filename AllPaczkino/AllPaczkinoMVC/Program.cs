@@ -1,6 +1,7 @@
 using AllPaczkinoPersistance;
 using AllPaczkinoPersistance.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace AllPaczkinoMVC
 {
@@ -11,10 +12,13 @@ namespace AllPaczkinoMVC
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews()
-                            .AddRazorRuntimeCompilation();
+            builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<PaczkinoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AllPaczkino"))); 
+            builder.Services.AddDbContext<PaczkinoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AllPaczkino")));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                            .AddEntityFrameworkStores<PaczkinoDbContext>();
+
             builder.Services.AddTransient<IParcelLockersRepository, ParcelLockersEFRepository>();
 
             var app = builder.Build();
@@ -39,6 +43,7 @@ namespace AllPaczkinoMVC
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapRazorPages();
 
             app.Run();
         }
