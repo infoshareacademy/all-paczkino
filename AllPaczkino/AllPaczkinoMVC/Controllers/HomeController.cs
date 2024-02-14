@@ -7,6 +7,7 @@ using AllPaczkino.Repositories;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AllPaczkinoLogic.Repositories;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AllPaczkinoMVC.Controllers
 {
@@ -29,7 +30,17 @@ namespace AllPaczkinoMVC.Controllers
         {
             return View();
         }
+        [Authorize(Policy = "MemberDep")]
+        public IActionResult UserMenu()
+        {
+            return View();
+        }
 
+        [Authorize(Policy = "AdminDep")]
+        public IActionResult AdminMenu()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
