@@ -41,4 +41,8 @@
     <ProjectReference Include="..\AllPaczkinoPersistance\AllPaczkinoPersistance.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Identity\" />
+  </ItemGroup>
+
 </Project>

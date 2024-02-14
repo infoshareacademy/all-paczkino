@@ -1,65 +1,10 @@
-﻿@* <head>
-    <!-- Include jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
- *@
-
-
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
 
 @model AllPaczkinoMVC.Models.ParcelLockerViewModel
 
-@* <!-- Your existing dropdown -->
-<div class="form-group">
-    @Html.LabelFor(model => model.SelectedCity, "Select City")
-    @Html.DropDownListFor(model => model.SelectedCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "cityDropdown" })
-</div>
-
-<!-- New dropdown for parcelLockers -->
-<div class="form-group">
-    @Html.LabelFor(model => model.ParcelLockersInSelectedCity, "Select parcel locker in selected city")
-    @Html.DropDownListFor(model => model.ParcelLockersInSelectedCity, Model.ParcelLockersInSelectedCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "parcelLockersDropdown" })
-</div>
-
-    <script>
-        // jQuery script for handling cascading dropdowns
-        $(document).ready(function () {
-            $("#cityDropdown").change(function () {
-                var selectedCity = $(this).val();
-                $.ajax({
-                    url: '@Url.Action("GetParcelLockersInSelectedCity", "Home")',
-                    type: 'GET',
-                    data: { city: selectedCity },
-                    success: function (data) {
-                        $("#parcelLockersDropdown").empty();
-                        $.each(data, function (i, item) {
-                            $("#parcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
-                        });
-
-                        // Update the value of ReceiverLockerId based on the first item in the data
-                        if (data.length > 0) {
-                            var firstItemId = data[0].id;
-                            $("#ReceiverLockerId").val(firstItemId);
-                        }
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-            });
-
-            // Add change event for the second dropdown to update ReceiverLockerId
-            $("#parcelLockersDropdown").change(function () {
-                var selectedLockerId = $(this).val();
-                $("#ReceiverLockerId").val(selectedLockerId);
-            });
-        });
-    </script>
-
-</head>
-
- *@
 
 
 <h1 class="display-4 text-center">Welcome</h1>

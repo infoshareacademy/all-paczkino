@@ -21,35 +21,8 @@ namespace AllPaczkinoMVC.Controllers
 
         public IActionResult Index()
         {
-            // Read JSON data from the file
-            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
 
-            // Deserialize JSON data into ParcelLockerData
-            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
-            // Create a new list with only the "city" parameter
-            List<string> cities = parcelLockerList?.parcel_lockers?.Select(x => x.city).Distinct().OrderBy(x=>x).ToList();
-
-            var viewModel = new ParcelLockerViewModel
-            {
-                Cities = new SelectList(cities),
-                ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
-            };
-
-            return View(viewModel);
-        }
-
-        public JsonResult GetParcelLockersInSelectedCity(string city)
-        {
-            // Read JSON data from the file
-            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
-
-            // Deserialize JSON data into ParcelLockerData
-            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
-
-            // Assuming parcelLockerData is the instance of ParcelLockerList and viewModel is the instance of ParcelLockerViewModel
-            List<ParcelLocker> parcelLockersInSelectedCity = parcelLockerList?.parcel_lockers?.Where(x => x.city == city).ToList();
-
-            return Json(parcelLockersInSelectedCity);
+            return View();
         }
 
         public IActionResult Privacy()
