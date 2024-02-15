@@ -30,17 +30,7 @@ namespace AllPaczkinoMVC.Controllers
         {
             return View();
         }
-        [Authorize(Policy = "Member")]
-        public IActionResult UserMenu()
-        {
-            return View();
-        }
-
-        [Authorize(Policy = "Admin")]
-        public IActionResult AdminMenu()
-        {
-            return View();
-        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
