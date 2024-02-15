@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize]
+
     public class RegistrationController : Controller
     {
         // GET: RegistrationController

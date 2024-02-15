@@ -31,17 +31,7 @@ namespace AllPaczkinoMVC.Controllers
             return View();
         }
 
-        [Authorize(Policy = "MemberDep")]
-        public IActionResult Member()
-        {
-            return View();
-        }
 
-        [Authorize(Policy = "AdminDep")]
-        public IActionResult Admin()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

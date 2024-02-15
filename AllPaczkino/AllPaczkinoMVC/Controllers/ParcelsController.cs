@@ -3,6 +3,7 @@ using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,8 @@ using System.Reflection;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize]
+
     public class ParcelsController : Controller
     {
         ParcelsRepository parcelRepository = new();

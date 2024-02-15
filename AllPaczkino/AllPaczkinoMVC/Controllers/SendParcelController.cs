@@ -3,6 +3,7 @@ using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.Models;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,8 @@ using System.Text.Json;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize]
+
     public class SendParcel : Controller
     {
         ParcelsRepository parcelRepository = new();

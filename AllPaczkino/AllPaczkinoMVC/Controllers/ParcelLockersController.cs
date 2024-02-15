@@ -2,12 +2,15 @@
 using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoPersistance.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize]
+
     public class ParcelLockersController : Controller
     {
 
