@@ -13,27 +13,12 @@
     <div class="card" style="width: 18rem;">
         <!--<img src="..." class="card-img-top" alt="...">-->
         <div class="card-body">
-            <h5 class="card-title">AdminMenu</h5>
-            <p class="card-text">zaloguj sie</p>
-            <a asp-action="AdminMenu" class="btn btn-primary">Zaloguj się</a>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary">Zaloguj się</a>
         </div>
-      
     </div>
     <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
         <div class="card-body">
-            <h5 class="card-title">UserMenu</h5>
-            <p class="card-text">zaloguj sie</p>
-            <a asp-action="UserMenu" class="btn btn-primary">Zaloguj się</a>
-        </div>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary">Zarejestruj się</a>
 
-    </div>
-@*     <div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Rejestracja</h5>
-        <p class="card-text">Nie masz konta? Zarejestruj się by nadawać paczuchy!</p>
-        <a href="Registration" class="btn btn-primary">Zarejestruj się</a>
         </div>
-    </div> *@
-   
-</div>
+    </div>
