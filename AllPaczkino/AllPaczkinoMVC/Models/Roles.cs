@@ -5,7 +5,7 @@ namespace AllPaczkinoMVC.Models
 
     public enum Roles
     {
-        [EnumMember(Value = "Member")]
+        [EnumMember(Value = "User")]
         Member = 0,
 
         [EnumMember(Value = "Admin")]

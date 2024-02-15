@@ -11,6 +11,6 @@ namespace AllPaczkinoMVC.Models
         [Required(ErrorMessage = "Password must be provided.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        public bool RememberMe { get; set; }
+        //public bool RememberMe { get; set; }
     }
 }
