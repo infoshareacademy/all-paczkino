@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Identity\**" />
+    <Content Remove="Views\Identity\**" />
+    <EmbeddedResource Remove="Views\Identity\**" />
+    <None Remove="Views\Identity\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="DAL\clientlist.json" />
     <Content Remove="DAL\parcellockers.json" />
     <Content Remove="DAL\parcels.json" />
@@ -26,23 +33,24 @@
   <ItemGroup>
     <PackageReference Include="Bootstrap" Version="5.3.2" />
     <PackageReference Include="jQuery" Version="3.7.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AllPaczkinoLogic\AllPaczkinoLogic.csproj" />
     <ProjectReference Include="..\AllPaczkinoPersistance\AllPaczkinoPersistance.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Identity\" />
   </ItemGroup>
 
 </Project>
