@@ -14,6 +14,10 @@ namespace AllPaczkinoPersistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Name = "Admin", NormalizedName="ADMIN", Id = Guid.NewGuid().ToString()},
+                new IdentityRole { Name = "User", NormalizedName="USER", Id = Guid.NewGuid().ToString()}
+                );
             modelBuilder.Entity<ParcelLockerDb>().HasData(
                    new ParcelLockerDb
                    {

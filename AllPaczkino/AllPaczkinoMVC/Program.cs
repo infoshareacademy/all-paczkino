@@ -17,13 +17,14 @@ namespace AllPaczkinoMVC
             builder.Services.AddDbContext<PaczkinoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AllPaczkino")));
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                            .AddEntityFrameworkStores<PaczkinoDbContext>();
+                .AddRoles<IdentityRole>()            
+                .AddEntityFrameworkStores<PaczkinoDbContext>();
 
             builder.Services.AddTransient<IParcelLockersRepository, ParcelLockersEFRepository>();
 
             var app = builder.Build();
 
-            
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -37,9 +38,16 @@ namespace AllPaczkinoMVC
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
+           
+            //dodatkowe trasowanie zeby u�yc dodatkowego kontrolera dla logowania
+            app.MapControllerRoute(
+                name: "identity",
+                pattern: "Identity/{action=Index}/{id?}",
+                defaults: new { controller = "Identity" });
+            //------------
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

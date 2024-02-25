@@ -4,6 +4,7 @@ using AllPaczkinoPersistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AllPaczkinoPersistance.Migrations
 {
     [DbContext(typeof(PaczkinoDbContext))]
-    partial class PaczkinoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240225104505_AddRolesToIdentity")]
+    partial class AddRolesToIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
