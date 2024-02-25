@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminMenuController : Controller
     {
         public IActionResult Index()
