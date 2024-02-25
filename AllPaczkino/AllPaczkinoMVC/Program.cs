@@ -27,10 +27,11 @@ namespace AllPaczkinoMVC
             // Seedowanie danych
             using (var scope = app.Services.CreateScope())
             {
+
                 var services = scope.ServiceProvider;
-                var dbContext = services.GetRequiredService<PaczkinoDbContext>();
-                var seedData = new SeedData(dbContext);
+                var seedData = services.GetRequiredService<SeedData>();
                 seedData.Initialize();
+
             }
 
             // Configure the HTTP request pipeline.
