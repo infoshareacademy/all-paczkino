@@ -21,6 +21,8 @@ namespace AllPaczkinoMVC
                 .AddEntityFrameworkStores<PaczkinoDbContext>();
 
             builder.Services.AddTransient<IParcelLockersRepository, ParcelLockersEFRepository>();
+            // Rejestracja usługi SeedData
+            builder.Services.AddTransient<SeedData>();
 
             var app = builder.Build();
 

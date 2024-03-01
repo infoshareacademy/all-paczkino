@@ -17,28 +17,39 @@ namespace AllPaczkinoMVC
 
         public async Task Initialize()
         {
+            //change to synchro
+            var userTask = _userManager.FindByEmailAsync("admin@example.com");
+            var user2 = userTask.Result;
             // Seedowanie danych dla użytkowników
-            if (await _userManager.FindByNameAsync("admin@example.com") == null)
+            if ((user2 is null))
             {
                 var adminUser = new IdentityUser
                 {
                     UserName = "admin@example.com",
-                    Email = "admin@example.com"
+                    Email = "admin@example.com",
+                    EmailConfirmed = true
                 };
 
-                // Tworzenie użytkownika
-                var result = await _userManager.CreateAsync(adminUser, "Pa$$w0rd");
+                //change to synchro
+                var createUserTask =  _userManager.CreateAsync(adminUser, "Pa$$w0rd");
+                var createUserResultTask = createUserTask.Result;
 
                 // Jeśli tworzenie użytkownika zakończyło się powodzeniem, nadaj mu rolę administratora
-                if (result.Succeeded)
+                if (createUserResultTask.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(adminUser, "Administrator");
+                    //change to synchro
+                    var addRoleTask = _userManager.AddToRoleAsync(adminUser, "ADMIN");
+                    var addRoleTaskResult = addRoleTask.Result;
                 }
                 else
                 {
                     // Obsłużanie ewentualnych błędów podczas tworzenia użytkownika
-                    throw new Exception($"Nie można utworzyć użytkownika administratora. Błędy: {string.Join(", ", result.Errors)}");
+                    throw new Exception($"Nie można utworzyć użytkownika administratora. Błędy: {string.Join(", ", createUserResultTask.Errors)}");
                 }
+            }
+            else
+            {
+                Console.WriteLine("dupa is null");
             }
 
             // Sprawdź, czy baza danych jest pusta
