@@ -47,24 +47,6 @@ namespace AllPaczkinoMVC
                     throw new Exception($"Nie można utworzyć użytkownika administratora. Błędy: {string.Join(", ", createUserResultTask.Errors)}");
                 }
             }
-            else
-            {
-                Console.WriteLine("dupa is null");
-            }
-
-            // Sprawdź, czy baza danych jest pusta
-            //if (!_context.Users.Any())
-            //{
-            //    // Dodaj przykładowych użytkowników
-            //    var users = new List<User>
-            //{
-            //    new User {  Mail = "admin@admin.com",  },
-            //    };
-            //    //_context.Users.AddRange(users);
-            //    _context.SaveChanges();
-            //}
-
-            // Dodaj więcej danych początkowych w podobny sposób
         }
     }
 
