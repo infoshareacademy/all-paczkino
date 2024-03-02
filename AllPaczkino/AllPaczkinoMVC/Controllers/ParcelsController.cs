@@ -5,6 +5,7 @@ using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -13,7 +14,8 @@ using System.Reflection;
 
 namespace AllPaczkinoMVC.Controllers
 {
-    [Authorize]
+
+    [Authorize(Roles ="User, Admin")]
 
     public class ParcelsController : Controller
     {
@@ -21,16 +23,22 @@ namespace AllPaczkinoMVC.Controllers
         ParcelLockersRepository parcelLockersRepository = new();
         List<Parcel> parcelsData ;
 		private ParcelMapper parcelMapper;
+        private readonly UserManager<IdentityUser> _userManager;
 
-		public ParcelsController()
+        public ParcelsController(UserManager<IdentityUser> userManager)
         {
             parcelMapper = new ParcelMapper(parcelLockersRepository);
+            _userManager = userManager;
 		}
 
         // GET: ParcelsControler
         public ActionResult Index(string sortOrder, string searchString)
         {
             List<Parcel> parcelsData = parcelRepository.GetAll();
+            if (User.IsInRole("User"))
+            {
+                parcelsData = parcelsData.Where(parcel => parcel.Sender.ContactData.Email == User.Identity.Name).ToList();
+            }
             if (!String.IsNullOrEmpty(searchString))
             {
                 searchString = searchString.ToLower();

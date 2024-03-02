@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace AllPaczkinoMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
 
     public class ParcelLockersController : Controller
     {
