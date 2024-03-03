@@ -6,63 +6,45 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User, Admin")]
 
     public class ParcelStatusController : Controller
     {
         ParcelsRepository parcelRepository = new();
-        List<Parcel> parcelsData;
 
-            public ParcelStatusController()
+        public ParcelStatusController()
+        {
+            parcelRepository = new ParcelsRepository();
+
+        }
+
+        // GET: ParcelStatus
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        // POST: ParcelStatus/Details
+        [HttpPost]
+        public ActionResult Details(string nameOrId)
+        {
+
+            var parcel = parcelRepository.GetByName(nameOrId);
+
+            if (parcel == null && int.TryParse(nameOrId, out var parsedId))
+                parcel = parcelRepository.GetById(parsedId);
+            if (User.IsInRole("Admin"))
             {
-                parcelRepository = new ParcelsRepository();
-
+                return View(parcel);
             }
-
-            // GET: ParcelStatus
-            public IActionResult Index()
+            if (parcel != null &&(parcel.Sender.ContactData.Email == User.Identity.Name || parcel.Receiver.ContactData.Email == User.Identity.Name))
             {
-                return View();
+                return View(parcel);
             }
+            return View();
 
-            // POST: ParcelStatus/Details
-            [HttpPost]
-            public ActionResult Details(string nameOrId)
-            {
-                var parcel = parcelRepository.GetByName(nameOrId);
-
-                if (parcel == null && int.TryParse(nameOrId, out var parsedId))
-                    parcel = parcelRepository.GetById(parsedId);
-
-				return parcel == null ? NotFound() : View(parcel);
-
-                //if (id.HasValue)
-                //{
-                //    // If ID has a value, use it as ID
-                //    var parcelData = parcelRepository.GetById(id.Value);
-                //    return View(parcelData);
-                //}
-                //if (!string.IsNullOrEmpty(name))
-                //{
-                //    // If Name is not empty, treat it as a name
-                //    var parcelData = parcelRepository.GetByName(name);
-                //    return View(parcelData);
-                //}
-                //else if (!string.IsNullOrEmpty(name))
-                //{
-                //    // If Name is not empty, treat it as a name
-                //    var parcelsWithSameName = parcelRepository.GetAllByName(name);
-                //    return View(parcelsWithSameName);
-                //}
-                
-                //{
-                //    // Handle other cases or provide an error response
-                //    return View();
-                //}
-            }
-
-            
         }
     }
 }
+
 

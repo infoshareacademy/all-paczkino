@@ -13,8 +13,17 @@
         <thead>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.ParcelNumber)</th>
-                <th>@Html.DisplayNameFor(model => model.ID)</th>
                 <th>@Html.DisplayNameFor(model => model.Name)</th>
+                @if (Model !=null && User.Identity.Name == Model.Sender.ContactData.Email)
+                {
+                    <th>@Html.DisplayNameFor(model => model.Sender.ContactData.Email)</th>
+
+                }
+                @if (Model != null && User.Identity.Name == Model.Receiver.ContactData.Email)
+                {
+                    <th>@Html.DisplayNameFor(model => model.Receiver.ContactData.Email)</th>
+
+                }
                 <th>@Html.DisplayNameFor(model => model.SendTime)</th>
                 <th>@Html.DisplayNameFor(model => model.ReceiveTime)</th>
                 <th>@Html.DisplayNameFor(model => model.ParcelStatus)</th>
@@ -23,8 +32,16 @@
         <tbody>
             <tr>
                 <td>@Html.DisplayFor(model => model.ParcelNumber)</td>
-                <td>@Html.DisplayFor(model => model.ID)</td>
                 <td>@Html.DisplayFor(model => model.Name)</td>
+                @if (Model != null && User.Identity.Name == Model.Sender.ContactData.Email)
+                {
+                    <td>@Html.DisplayFor(model => model.Sender.ContactData.Email)</td>
+                }
+                @if (Model != null && User.Identity.Name == Model.Receiver.ContactData.Email)
+                {
+                    <td>@Html.DisplayFor(model => model.Receiver.ContactData.Email)</td>
+                }
+
                 <td>@Html.DisplayFor(model => model.SendTime)</td>
                 <td>@Html.DisplayFor(model => model.ReceiveTime)</td>
                 <td>@Html.DisplayFor(model => model.ParcelStatus)</td>

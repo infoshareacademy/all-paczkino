@@ -21,7 +21,7 @@ namespace AllPaczkino.Repositories
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
         public Parcel GetById(int id)
-        {        
+        {
             List<Parcel> items = GetAll();
             return items.FirstOrDefault(x => x.ID == id);
         }
@@ -56,14 +56,6 @@ namespace AllPaczkino.Repositories
         {
             List<Parcel> items = GetAll();
             return items.FirstOrDefault(x => x.Name == name);
-
-            // lub do rozważenia: 
-               //return items.FirstOrDefault(x => x.Name.ToLower().Contains(name.ToLower()));
         }
-        //public List<Parcel> GetAllByName(string name)
-        //{
-        //    List<Parcel> items = GetAll();
-        //    return items.Where(x => x.Name == name).ToList();
-        //}
     }
 }
