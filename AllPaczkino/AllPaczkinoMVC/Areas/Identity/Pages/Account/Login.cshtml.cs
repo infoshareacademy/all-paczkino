@@ -115,7 +115,12 @@ namespace AllPaczkinoMVC.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    if (User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("Index", "AdminMenu");
+                    }
+                    
+                    return RedirectToAction("Index","UserMenu");
                 }
                 if (result.RequiresTwoFactor)
                 {
