@@ -18,20 +18,20 @@ namespace AllPaczkinoMVC
         public async Task Initialize()
         {
             //change to synchro
-            var userTask = _userManager.FindByEmailAsync("admin@example.com");
+            var userTask = _userManager.FindByEmailAsync("admin@allpaczkino.com");
             var user2 = userTask.Result;
             // Seedowanie danych dla użytkowników
             if ((user2 is null))
             {
                 var adminUser = new IdentityUser
                 {
-                    UserName = "admin@example.com",
-                    Email = "admin@example.com",
+                    UserName = "admin@allpaczkino.com",
+                    Email = "admin@allpaczkino.com",
                     EmailConfirmed = true
                 };
 
                 //change to synchro
-                var createUserTask =  _userManager.CreateAsync(adminUser, "Pa$$w0rd");
+                var createUserTask =  _userManager.CreateAsync(adminUser, "A11P@czkin0");
                 var createUserResultTask = createUserTask.Result;
 
                 // Jeśli tworzenie użytkownika zakończyło się powodzeniem, nadaj mu rolę administratora
