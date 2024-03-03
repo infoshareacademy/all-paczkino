@@ -3,6 +3,7 @@ using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
+using AllPaczkinoPersistance.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,16 +17,18 @@ namespace AllPaczkinoMVC.Controllers
 
     public class ParcelsController : Controller
     {
+        private IParcelLockersRepository _parcelLockersRepository;
+        private ParcelLockersRepository parcelLockersRepository1 = new();
         ParcelsRepository parcelRepository = new();
-        ParcelLockersRepository parcelLockersRepository = new();
         List<Parcel> parcelsData;
         private ParcelMapper parcelMapper;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ParcelsController(UserManager<IdentityUser> userManager)
+        public ParcelsController(UserManager<IdentityUser> userManager, IParcelLockersRepository parcelLockersRepository)
         {
-            parcelMapper = new ParcelMapper(parcelLockersRepository);
+            parcelMapper = new ParcelMapper(parcelLockersRepository1);
             _userManager = userManager;
+            _parcelLockersRepository = parcelLockersRepository;
         }
 
         // GET: ParcelsControler
@@ -151,11 +154,11 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Create
         public ActionResult Create()
         {
-            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
-
-            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
-
-            List<string> cities = parcelLockerList?.parcel_lockers?.Select(x => x.city).Distinct().OrderBy(x => x).ToList();
+           var parcelLockers = _parcelLockersRepository.GetAll().ToList();
+            List<string> cities = parcelLockers?.Select(x => x.City)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
 
             var viewModel = new ParcelCreationRequest
             {
@@ -168,11 +171,9 @@ namespace AllPaczkinoMVC.Controllers
 
         public JsonResult GetParcelLockersInSelectedCity(string city)
         {
-            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
+            var parcelLockers = _parcelLockersRepository.GetAll().ToList();
 
-            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
-
-            List<ParcelLocker> parcelLockersInSelectedCity = parcelLockerList?.parcel_lockers?.Where(x => x.city == city).ToList();
+            List<ParcelLockerDb> parcelLockersInSelectedCity = parcelLockers?.Where(x => x.City == city).ToList();
 
             return Json(parcelLockersInSelectedCity);
         }
