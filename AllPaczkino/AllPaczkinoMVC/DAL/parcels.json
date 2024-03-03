@@ -1,6 +1,6 @@
 [
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 123456789,
     "Name": "TestPackage",
     "SenderLocker": {
@@ -43,7 +43,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 987654321,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -86,7 +86,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 3,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -129,7 +129,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 5,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -172,7 +172,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -229,7 +229,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -286,7 +286,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -343,7 +343,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna 3",
     "SenderLocker": {
@@ -400,7 +400,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -457,7 +457,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka wielkanocna",
     "SenderLocker": {
@@ -514,7 +514,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka urodzinowa ",
     "SenderLocker": {
@@ -571,7 +571,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "żwirek dla kota",
     "SenderLocker": {
@@ -628,7 +628,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna 500",
     "SenderLocker": {
@@ -685,7 +685,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -742,7 +742,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -799,7 +799,7 @@
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -856,7 +856,7 @@
     }
   },
   {
-    "ParcelNumber": 619.0,
+    "ParcelNumber": "619.0",
     "ID": 492,
     "Name": "Tajne rzeczy",
     "SenderLocker": {
@@ -899,7 +899,7 @@
     }
   },
   {
-    "ParcelNumber": 90.0,
+    "ParcelNumber": "90.0",
     "ID": 237,
     "Name": "żwirek dla kota n 2",
     "SenderLocker": {
@@ -942,7 +942,7 @@
     }
   },
   {
-    "ParcelNumber": 624.0,
+    "ParcelNumber": "624.0",
     "ID": 85,
     "Name": "paczka testowa",
     "SenderLocker": {
@@ -982,6 +982,49 @@
     },
     "ParcelSize": {
       "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": "b0b0cf5a-9709-44e8-b59c-f335e7cd566c",
+    "ID": 205,
+    "Name": "Piotr",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T06:30:23.2747617+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Admin@allpaczkino.com",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Stefan",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
     }
   }
 ]

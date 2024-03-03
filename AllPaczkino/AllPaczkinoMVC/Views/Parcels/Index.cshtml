@@ -21,9 +21,6 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewBag.IdSortParam">@Html.DisplayNameFor(model => model.ID)</a>
-            </th>
-            <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParam">@Html.DisplayNameFor(model => model.Name)</a>
             </th>
             <th>   
@@ -60,10 +57,6 @@
         @foreach (var item in Model)
         {
             <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
