@@ -15,7 +15,7 @@ namespace AllPaczkino.Models
     }
     public class Parcel
     {
-        public decimal ParcelNumber { get; set; }
+        public string ParcelNumber { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public ParcelLocker SenderLocker { get; set; }
@@ -30,7 +30,7 @@ namespace AllPaczkino.Models
         public Parcel(int id, string name, ParcelLocker senderLocker, 
             ParcelLocker receiverLocker, DateTime sendTime, Sender sender, Receiver receiver, ParcelSize parcelSize)
         {
-            ParcelNumber = (new Random()).Next(1000);
+            ParcelNumber = Guid.NewGuid().ToString();
             ID = id;
             Name = name;
             SenderLocker = senderLocker;
