@@ -1,14 +1,8 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
-using AllPaczkinoMVC.Models;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
-using System.Text.Json;
 
 namespace AllPaczkinoMVC.Controllers
 {

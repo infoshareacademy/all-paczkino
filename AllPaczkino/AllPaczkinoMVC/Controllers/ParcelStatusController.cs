@@ -1,7 +1,5 @@
-﻿using AllPaczkino.Models;
-using AllPaczkino.Repositories;
+﻿using AllPaczkino.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers

@@ -4,13 +4,10 @@ using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
-using Parcels.Parcels;
-using System.Reflection;
 
 namespace AllPaczkinoMVC.Controllers
 {
