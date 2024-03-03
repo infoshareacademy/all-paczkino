@@ -1,6 +1,5 @@
 ﻿using AllPaczkinoPersistance;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Graph.Models;
 
 namespace AllPaczkinoMVC
 {
@@ -17,11 +16,7 @@ namespace AllPaczkinoMVC
 
         public async Task Initialize()
         {
-            //change to synchro
-            var userTask = _userManager.FindByEmailAsync("admin@allpaczkino.com");
-            var user2 = userTask.Result;
-            // Seedowanie danych dla użytkowników
-            if ((user2 is null))
+            if ((await _userManager.FindByEmailAsync("admin@allpaczkino.com") is null))
             {
                 var adminUser = new IdentityUser
                 {
@@ -30,21 +25,17 @@ namespace AllPaczkinoMVC
                     EmailConfirmed = true
                 };
 
-                //change to synchro
-                var createUserTask =  _userManager.CreateAsync(adminUser, "A11P@czkin0");
-                var createUserResultTask = createUserTask.Result;
+                var createUserResult = await _userManager.CreateAsync(adminUser, "A11P@czkin0");
 
-                // Jeśli tworzenie użytkownika zakończyło się powodzeniem, nadaj mu rolę administratora
-                if (createUserResultTask.Succeeded)
+
+                if (createUserResult.Succeeded)
                 {
-                    //change to synchro
-                    var addRoleTask = _userManager.AddToRoleAsync(adminUser, "ADMIN");
-                    var addRoleTaskResult = addRoleTask.Result;
+                    await _userManager.AddToRoleAsync(adminUser, "ADMIN");
                 }
                 else
                 {
                     // Obsłużanie ewentualnych błędów podczas tworzenia użytkownika
-                    throw new Exception($"Nie można utworzyć użytkownika administratora. Błędy: {string.Join(", ", createUserResultTask.Errors)}");
+                    throw new Exception($"Nie można utworzyć użytkownika administratora. Błędy: {string.Join(", ", createUserResult.Errors)}");
                 }
             }
         }

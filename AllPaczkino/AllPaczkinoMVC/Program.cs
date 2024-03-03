@@ -7,7 +7,7 @@ namespace AllPaczkinoMVC
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public async static Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +32,7 @@ namespace AllPaczkinoMVC
 
                 var services = scope.ServiceProvider;
                 var seedData = services.GetRequiredService<SeedData>();
-                seedData.Initialize();
+                await seedData.Initialize();
 
             }
 
