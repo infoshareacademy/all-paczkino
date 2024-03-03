@@ -15,21 +15,21 @@ using System.Reflection;
 namespace AllPaczkinoMVC.Controllers
 {
 
-    [Authorize(Roles ="User, Admin")]
+    [Authorize(Roles = "User, Admin")]
 
     public class ParcelsController : Controller
     {
         ParcelsRepository parcelRepository = new();
         ParcelLockersRepository parcelLockersRepository = new();
-        List<Parcel> parcelsData ;
-		private ParcelMapper parcelMapper;
+        List<Parcel> parcelsData;
+        private ParcelMapper parcelMapper;
         private readonly UserManager<IdentityUser> _userManager;
 
         public ParcelsController(UserManager<IdentityUser> userManager)
         {
             parcelMapper = new ParcelMapper(parcelLockersRepository);
             _userManager = userManager;
-		}
+        }
 
         // GET: ParcelsControler
         public ActionResult Index(string sortOrder, string searchString)
@@ -42,24 +42,26 @@ namespace AllPaczkinoMVC.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 searchString = searchString.ToLower();
-                parcelsData = parcelsData.Where(s => s.Name.ToLower().Contains(searchString) ||
-                s.ParcelNumber.ToString().Contains(searchString) ||
-                s.ReceiveTime.ToString().Contains(searchString) ||
-                s.SendTime.ToString().Contains(searchString) ||
-                s.Sender.ContactData.Name.ToLower().Contains(searchString) ||
-                s.Sender.ContactData.Email.ToLower().Contains(searchString) ||
-                s.Sender.ContactData.PhoneNumber.Contains(searchString) ||
-                s.SenderLocker.postal_code.Contains(searchString) ||
-                s.SenderLocker.city.ToLower().Contains(searchString) ||
-                s.SenderLocker.address.ToLower().Contains(searchString) ||
-                s.Receiver.ContactData.Name.ToLower().Contains(searchString) ||
-                s.Receiver.ContactData.Email.ToLower().Contains(searchString) ||
-                s.Receiver.ContactData.PhoneNumber.Contains(searchString) ||
-                s.ReceiverLocker.postal_code.Contains(searchString) ||
-                s.ReceiverLocker.city.ToLower().Contains(searchString) ||
-                s.ReceiverLocker.address.ToLower().Contains(searchString) ||
-                s.ParcelSize.Name.ToLower().Contains(searchString) 
-                ).ToList();
+                parcelsData = parcelsData.Where(s =>
+             (s.Name != null && s.Name.ToLower().Contains(searchString)) ||
+             (s.ParcelNumber != null && s.ParcelNumber.ToString().Contains(searchString)) ||
+             (s.ReceiveTime != null && s.ReceiveTime.ToString().Contains(searchString)) ||
+             s.SendTime.ToString().Contains(searchString) ||
+             (s.Sender?.ContactData?.Name != null && s.Sender.ContactData.Name.ToLower().Contains(searchString)) ||
+             (s.Sender?.ContactData?.Email != null && s.Sender.ContactData.Email.ToLower().Contains(searchString)) ||
+             (s.Sender?.ContactData?.PhoneNumber != null && s.Sender.ContactData.PhoneNumber.Contains(searchString)) ||
+             (s.SenderLocker?.postal_code != null && s.SenderLocker.postal_code.Contains(searchString)) ||
+             (s.SenderLocker?.city != null && s.SenderLocker.city.ToLower().Contains(searchString)) ||
+             (s.SenderLocker?.address != null && s.SenderLocker.address.ToLower().Contains(searchString)) ||
+             (s.Receiver?.ContactData?.Name != null && s.Receiver.ContactData.Name.ToLower().Contains(searchString)) ||
+             (s.Receiver?.ContactData?.Email != null && s.Receiver.ContactData.Email.ToLower().Contains(searchString)) ||
+             (s.Receiver?.ContactData?.PhoneNumber != null && s.Receiver.ContactData.PhoneNumber.Contains(searchString)) ||
+             (s.ReceiverLocker?.postal_code != null && s.ReceiverLocker.postal_code.Contains(searchString)) ||
+             (s.ReceiverLocker?.city != null && s.ReceiverLocker.city.ToLower().Contains(searchString)) ||
+             (s.ReceiverLocker?.address != null && s.ReceiverLocker.address.ToLower().Contains(searchString)) ||
+             (s.ParcelSize?.Name != null && s.ParcelSize.Name.ToLower().Contains(searchString))
+         ).ToList();
+
             }
             ViewBag.NameSortParam = sortOrder == "Name" ? "Name_desc" : "Name";
             ViewBag.ParcelNumberParam = sortOrder == "parcelnumber" ? "parcelnumber_desc" : "parcelnumber";
@@ -137,13 +139,13 @@ namespace AllPaczkinoMVC.Controllers
                     parcelsData = parcelsData.OrderBy(s => s.ID).ToList();
                     break;
             }
-            
+
             return View(parcelsData);
         }
-        		
 
-		// GET: ParcelsControler/Details/5
-		public ActionResult Details(int id)
+
+        // GET: ParcelsControler/Details/5
+        public ActionResult Details(int id)
         {
             var parcelData = parcelRepository.GetById(id);
             return View(parcelData);
@@ -152,20 +154,20 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Create
         public ActionResult Create()
         {
-				string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
+            string json = System.IO.File.ReadAllText("DAL/parcellockers.json");
 
-				ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
-	
-				List<string> cities = parcelLockerList?.parcel_lockers?.Select(x => x.city).Distinct().OrderBy(x => x).ToList();
+            ParcelLockerList parcelLockerList = JsonConvert.DeserializeObject<ParcelLockerList>(json);
 
-				var viewModel = new ParcelCreationRequest
-				{
-					Cities = new SelectList(cities),
-					ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
-				};
+            List<string> cities = parcelLockerList?.parcel_lockers?.Select(x => x.city).Distinct().OrderBy(x => x).ToList();
 
-				return View(viewModel);
-		}
+            var viewModel = new ParcelCreationRequest
+            {
+                Cities = new SelectList(cities),
+                ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
+            };
+
+            return View(viewModel);
+        }
 
         public JsonResult GetParcelLockersInSelectedCity(string city)
         {
@@ -183,23 +185,23 @@ namespace AllPaczkinoMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ParcelCreationRequest parcelRequest)
         {
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					return View(parcelRequest);
-				}
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(parcelRequest);
+                }
 
-				var parcel = parcelMapper.MapToParcel(parcelRequest);
-				parcelRepository.Create(parcel);
-                
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+                var parcel = parcelMapper.MapToParcel(parcelRequest);
+                parcelRepository.Create(parcel);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
         // GET: ParcelsControler/Edit/5
         public ActionResult Edit(int id)
