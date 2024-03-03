@@ -13,80 +13,56 @@ namespace AllPaczkinoMVC.Controllers
         ParcelsRepository parcelRepository = new();
         List<Parcel> parcelsData;
 
-        // GET: ParcelsControler
-        public ActionResult Index()
-        {
-            parcelsData = parcelRepository.GetAll();
-
-            return View(parcelsData);
-        }
-        // GET: ParcelStatusController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ParcelStatusController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ParcelStatusController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            public ParcelStatusController()
             {
-                return RedirectToAction(nameof(Index));
+                parcelRepository = new ParcelsRepository();
+
             }
-            catch
+
+            // GET: ParcelStatus
+            public IActionResult Index()
             {
                 return View();
             }
-        }
 
-        // GET: ParcelStatusController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            // POST: ParcelStatus/Details
+            [HttpPost]
+            public ActionResult Details(string nameOrId)
+            {
+                var parcel = parcelRepository.GetByName(nameOrId);
 
-        // POST: ParcelStatusController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                if (parcel == null && int.TryParse(nameOrId, out var parsedId))
+                    parcel = parcelRepository.GetById(parsedId);
 
-        // GET: ParcelStatusController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+				return parcel == null ? NotFound() : View(parcel);
 
-        // POST: ParcelStatusController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                //if (id.HasValue)
+                //{
+                //    // If ID has a value, use it as ID
+                //    var parcelData = parcelRepository.GetById(id.Value);
+                //    return View(parcelData);
+                //}
+                //if (!string.IsNullOrEmpty(name))
+                //{
+                //    // If Name is not empty, treat it as a name
+                //    var parcelData = parcelRepository.GetByName(name);
+                //    return View(parcelData);
+                //}
+                //else if (!string.IsNullOrEmpty(name))
+                //{
+                //    // If Name is not empty, treat it as a name
+                //    var parcelsWithSameName = parcelRepository.GetAllByName(name);
+                //    return View(parcelsWithSameName);
+                //}
+                
+                //{
+                //    // Handle other cases or provide an error response
+                //    return View();
+                //}
             }
-            catch
-            {
-                return View();
-            }
+
+            
         }
     }
 }
+
