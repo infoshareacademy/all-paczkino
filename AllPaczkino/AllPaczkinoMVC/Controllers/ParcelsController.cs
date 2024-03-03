@@ -43,7 +43,6 @@ namespace AllPaczkinoMVC.Controllers
             {
                 searchString = searchString.ToLower();
                 parcelsData = parcelsData.Where(s => s.Name.ToLower().Contains(searchString) ||
-                s.ID.ToString().Contains(searchString) ||
                 s.ParcelNumber.ToString().Contains(searchString) ||
                 s.ReceiveTime.ToString().Contains(searchString) ||
                 s.SendTime.ToString().Contains(searchString) ||
@@ -62,7 +61,6 @@ namespace AllPaczkinoMVC.Controllers
                 s.ParcelSize.Name.ToLower().Contains(searchString) 
                 ).ToList();
             }
-            ViewBag.IdSortParam = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             ViewBag.NameSortParam = sortOrder == "Name" ? "Name_desc" : "Name";
             ViewBag.ParcelNumberParam = sortOrder == "parcelnumber" ? "parcelnumber_desc" : "parcelnumber";
             ViewBag.SendTimeParam = sortOrder == "SendTime" ? "SendTime_desc" : "SendTime";
@@ -75,9 +73,6 @@ namespace AllPaczkinoMVC.Controllers
             ViewBag.ParcelSizeParam = sortOrder == "ParcelSize" ? "ParcelSize_desc" : "ParcelSize";
             switch (sortOrder)
             {
-                case "id_desc":
-                    parcelsData = parcelsData.OrderByDescending(s => s.ID).ToList();
-                    break;
                 case "Name_desc":
                     parcelsData = parcelsData.OrderByDescending(s => s.Name).ToList();
                     break;

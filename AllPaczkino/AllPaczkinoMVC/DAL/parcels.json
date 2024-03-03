@@ -1026,5 +1026,91 @@
     "ParcelSize": {
       "Name": "S"
     }
+  },
+  {
+    "ParcelNumber": "5b7fd3bc-3b8b-4ca1-82d0-bda6d405f4cf",
+    "ID": 767,
+    "Name": "Piotr",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T10:50:39.6942967+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "bla",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": "48d42446-5590-493b-9dd1-78b64e3596b1",
+    "ID": 278,
+    "Name": "qwe",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T10:51:00.7758678+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "piotr.cezary.nowak@gmail.com",
+        "Surname": null,
+        "Email": "piotr.cezary.nowak@gmail.com",
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "qwe",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
   }
 ]
