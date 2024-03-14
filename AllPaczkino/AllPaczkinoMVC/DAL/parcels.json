@@ -1112,5 +1112,119 @@
     "ParcelSize": {
       "Name": "S"
     }
+  },
+  {
+    "ParcelNumber": "f46ad458-5d34-4484-a5dd-054142a763fc",
+    "ID": 988,
+    "Name": "paczka Piotra",
+    "SenderLocker": {
+      "id": 100,
+      "city": "Bartoszyce",
+      "postal_code": "11-200",
+      "address": "ul. Dębowa 100"
+    },
+    "ReceiverLocker": {
+      "id": 85,
+      "city": "Będzin",
+      "postal_code": "42-500",
+      "address": "ul. Cedrowa 85"
+    },
+    "SendTime": "2024-03-17T08:37:01.050069+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": "Nowak",
+        "Email": "piotr.nowak@gmail.com",
+        "PhoneNumber": "+48500600700",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 1,
+          "CityName": "Wrocław",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": "Wensierski",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "+48400500600",
+        "Adress": {
+          "StreetName": "lipowa",
+          "HouseNumber": 2,
+          "CityName": "Gdynia",
+          "PostalCode": "81-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": "49a7dbf2-5460-4fca-9dfd-adce8773e3cb",
+    "ID": 679,
+    "Name": "paczka z db",
+    "SenderLocker": {
+      "id": 40,
+      "city": "Głogów",
+      "postal_code": "67-200",
+      "address": "ul. Topolowa 40"
+    },
+    "ReceiverLocker": {
+      "id": 62,
+      "city": "Gostynin",
+      "postal_code": "09-500",
+      "address": "ul. Lipowa 62"
+    },
+    "SendTime": "2024-03-17T10:04:43.9039828+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": "Nowak",
+        "Email": "piotr.nowak@gmail.com",
+        "PhoneNumber": "+48500600700",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 1,
+          "CityName": "Wrocław",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 2
+        }
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": "Wensierski",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "+48400500600",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 2,
+          "CityName": "Gdynia",
+          "PostalCode": "81-500",
+          "Country": "Polska",
+          "FlatNumber": 3
+        }
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "M"
+    }
   }
 ]

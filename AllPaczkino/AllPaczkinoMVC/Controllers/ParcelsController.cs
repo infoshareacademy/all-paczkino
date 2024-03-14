@@ -26,7 +26,7 @@ namespace AllPaczkinoMVC.Controllers
 
         public ParcelsController(UserManager<IdentityUser> userManager, IParcelLockersRepository parcelLockersRepository)
         {
-            parcelMapper = new ParcelMapper(parcelLockersRepository1);
+            parcelMapper = new ParcelMapper(parcelLockersRepository);
             _userManager = userManager;
             _parcelLockersRepository = parcelLockersRepository;
         }
@@ -151,58 +151,79 @@ namespace AllPaczkinoMVC.Controllers
             return View(parcelData);
         }
 
-        // GET: ParcelsControler/Create
-        public ActionResult Create()
-        {
-           var parcelLockers = _parcelLockersRepository.GetAll().ToList();
-            List<string> cities = parcelLockers?.Select(x => x.City)
-                .Distinct()
-                .OrderBy(x => x)
-                .ToList();
+		// GET: ParcelsControler/Create
+		public ActionResult Create()
+		{
+			var parcelLockers = _parcelLockersRepository.GetAll().ToList();
+			List<string> cities = parcelLockers?.Select(x => x.City)
+												.Distinct()
+												.OrderBy(x => x)
+												.ToList();
 
-            var viewModel = new ParcelCreationRequest
-            {
-                Cities = new SelectList(cities),
-                ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
-            };
+			var viewModel = new ParcelCreationRequest
+			{
+				Cities = new SelectList(cities ?? new List<string>()),
+				ParcelLockersInSelectedSenderCity = new SelectList(new List<ParcelLockerDb>()), // Initialize with an empty list
+				ParcelLockersInSelectedReceiverCity = new SelectList(new List<ParcelLockerDb>()) // Initialize with an empty list
+			};
 
-            return View(viewModel);
-        }
+			return View(viewModel);
+		}
 
-        public JsonResult GetParcelLockersInSelectedCity(string city)
+		public JsonResult GetParcelLockersInSelectedSenderCity(string city)
         {
             var parcelLockers = _parcelLockersRepository.GetAll().ToList();
 
-            List<ParcelLockerDb> parcelLockersInSelectedCity = parcelLockers?.Where(x => x.City == city).ToList();
+            List<ParcelLockerDb> parcelLockersInSelectedSenderCity = parcelLockers?.Where(x => x.City == city).ToList();
 
-            return Json(parcelLockersInSelectedCity);
+            return Json(parcelLockersInSelectedSenderCity);
         }
 
-        // POST: ParcelsControler/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(ParcelCreationRequest parcelRequest)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return View(parcelRequest);
-                }
+		public JsonResult GetParcelLockersInSelectedReceiverCity(string city)
+		{
+			var parcelLockers = _parcelLockersRepository.GetAll().ToList();
 
-                var parcel = parcelMapper.MapToParcel(parcelRequest);
-                parcelRepository.Create(parcel);
+			List<ParcelLockerDb> parcelLockersInSelectedReceiverCity = parcelLockers?.Where(x => x.City == city).ToList();
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			return Json(parcelLockersInSelectedReceiverCity);
+		}
 
-        // GET: ParcelsControler/Edit/5
-        public ActionResult Edit(int id)
+		// POST: ParcelsControler/Create
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Create(ParcelCreationRequest parcelRequest)
+		{
+			try
+			{
+				if (!ModelState.IsValid)
+				{
+					// Repopulate dropdown lists and return the view
+					var parcelLockers = _parcelLockersRepository.GetAll().ToList();
+					List<string> cities = parcelLockers?.Select(x => x.City)
+														.Distinct()
+														.OrderBy(x => x)
+														.ToList();
+
+					parcelRequest.Cities = new SelectList(cities);
+					parcelRequest.ParcelLockersInSelectedSenderCity = new SelectList(new List<ParcelLockerDb>()); // Initialize with an empty list
+					parcelRequest.ParcelLockersInSelectedReceiverCity = new SelectList(new List<ParcelLockerDb>()); // Initialize with an empty list
+
+					return View(parcelRequest);
+				}
+
+				var parcel = parcelMapper.MapToParcel(parcelRequest);
+				parcelRepository.Create(parcel);
+
+				return RedirectToAction(nameof(Index));
+			}
+			catch
+			{
+				return View();
+			}
+		}
+
+		// GET: ParcelsControler/Edit/5
+		public ActionResult Edit(int id)
         {
             var parcelDetails = parcelRepository.GetById(id);
             return View(parcelDetails);
