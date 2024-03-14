@@ -18,10 +18,12 @@ namespace AllPaczkinoMVC.DTO
 		[Required]
 		public string ParcelSize { get; set; }
 
-		public string SelectedCity { get; set; }
-		public string SelectedParcelLocker { get; set; }
+		public string SelectedSenderCity { get; set; }
+		public string SelectedReceiverCity { get; set; }
+
 		public SelectList Cities { get; set; }
-		public SelectList ParcelLockersInSelectedCity { get; set; }
+		public SelectList ParcelLockersInSelectedSenderCity { get; set; }
+		public SelectList ParcelLockersInSelectedReceiverCity { get; set; }
 
 	}
 

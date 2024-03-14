@@ -36,29 +36,29 @@
 
 								<!-- City dropdown -->
 								<div class="form-group">
-									@Html.LabelFor(model => model.SelectedCity, "Select City")
-									@Html.DropDownListFor(model => model.SelectedCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "cityDropdown" })
+									@Html.LabelFor(model => model.SelectedSenderCity, "Select Sender City")
+									@Html.DropDownListFor(model => model.SelectedSenderCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "senderCityDropdown" })
 								</div>
 
 								<!-- Parcellockers  dropdown -->
 								<div class="form-group">
-									@Html.LabelFor(model => model.ParcelLockersInSelectedCity, "Select parcel locker in selected city")
-									@Html.DropDownListFor(model => model.ParcelLockersInSelectedCity, Model.ParcelLockersInSelectedCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "parcelLockersDropdown" })
+									@Html.LabelFor(model => model.ParcelLockersInSelectedSenderCity, "Select parcel locker in selected city")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedSenderCity, Model.ParcelLockersInSelectedSenderCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "senderParcelLockersDropdown" })
 								</div>
 
 							<script>
 									// jQuery script for cascading dropdowns
 									$(document).ready(function () {
-										$("#cityDropdown").change(function () {
-											var selectedCity = $(this).val();
+										$("#senderCityDropdown").change(function () {
+											var selectedSenderCity = $(this).val();
 											$.ajax({
-												url: '@Url.Action("GetParcelLockersInSelectedCity", "Parcels")',
+												url: '@Url.Action("GetParcelLockersInSelectedSenderCity", "Parcels")',
 												type: 'GET',
-												data: { city: selectedCity },
+												data: { city: selectedSenderCity },
 												success: function (data) {
-													$("#parcelLockersDropdown").empty();
+													$("#senderParcelLockersDropdown").empty();
 													$.each(data, function (i, item) {
-														$("#parcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+														$("#senderParcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
 													});
 
 													// Update the value of SenderLockerId based on the first item in the data
@@ -74,9 +74,9 @@
 										});
 
 										// Add change event for the second dropdown to update ReceiverLockerId
-										$("#parcelLockersDropdown").change(function () {
-											var selectedLockerId = $(this).val();
-											$("#SenderLockerId").val(selectedLockerId);
+										$("#senderParcelLockersDropdown").change(function () {
+											var selectedSenderLockerId = $(this).val();
+											$("#SenderLockerId").val(selectedSenderLockerId);
 										});
 									});
 								</script>
@@ -96,32 +96,32 @@
 
 								<!-- City dropdown -->
 								<div class="form-group">
-									@Html.LabelFor(model => model.SelectedCity, "Select City")
-									@Html.DropDownListFor(model => model.SelectedCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "cityDropdown" })
+									@Html.LabelFor(model => model.SelectedReceiverCity, "Select Receiver City")
+									@Html.DropDownListFor(model => model.SelectedReceiverCity, Model.Cities, "-- Select City --", new { @class = "form-control", id = "receiverCityDropdown" })
 								</div>
 
 								<!-- Parcellockers  dropdown -->
 								<div class="form-group">
-									@Html.LabelFor(model => model.ParcelLockersInSelectedCity, "Select parcel locker in selected city")
-									@Html.DropDownListFor(model => model.ParcelLockersInSelectedCity, Model.ParcelLockersInSelectedCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "parcelLockersDropdown" })
+									@Html.LabelFor(model => model.ParcelLockersInSelectedReceiverCity, "Select parcel locker in selected city")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedReceiverCity, Model.ParcelLockersInSelectedReceiverCity, "-- Select parcel locker in selected city --", new { @class = "form-control", id = "receiverParcelLockersDropdown" })
 								</div>
 
 								<script>
 									// jQuery script for cascading dropdowns
 									$(document).ready(function () {
-										$("#cityDropdown").change(function () {
-											var selectedCity = $(this).val();
+										$("#receiverCityDropdown").change(function () {
+											var selectedReceiverCity = $(this).val();
 											$.ajax({
-												url: '@Url.Action("GetParcelLockersInSelectedCity", "Parcels")',
+												url: '@Url.Action("GetParcelLockersInSelectedReceiverCity", "Parcels")',
 												type: 'GET',
-												data: { city: selectedCity },
+												data: { city: selectedReceiverCity },
 												success: function (data) {
-													$("#parcelLockersDropdown").empty();
+													$("#receiverParcelLockersDropdown").empty();
 													$.each(data, function (i, item) {
-														$("#parcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+														$("#receiverParcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
 													});
 
-													// Update the value of SenderLockerId based on the first item in the data
+													// Update the value of ReceiverLockerId based on the first item in the data
 													if (data.length > 0) {
 														var firstItemId = data[0].id;
 														$("#ReceiverLockerId").val(firstItemId);
@@ -134,9 +134,9 @@
 										});
 
 										// Add change event for the second dropdown to update ReceiverLockerId
-										$("#parcelLockersDropdown").change(function () {
-											var selectedLockerId = $(this).val();
-											$("#ReceiverLockerId").val(selectedLockerId);
+										$("#receiverParcelLockersDropdown").change(function () {
+											var selectedReceiverLockerId = $(this).val();
+											$("#ReceiverLockerId").val(selectedReceiverLockerId);
 										});
 									});
 								</script>

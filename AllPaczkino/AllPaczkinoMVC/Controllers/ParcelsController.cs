@@ -163,23 +163,33 @@ namespace AllPaczkinoMVC.Controllers
             var viewModel = new ParcelCreationRequest
             {
                 Cities = new SelectList(cities),
-                ParcelLockersInSelectedCity = new SelectList(new List<string>()) // Initialize with an empty list
-            };
+                ParcelLockersInSelectedSenderCity = new SelectList(new List<string>()), // Initialize with an empty list
+				ParcelLockersInSelectedReceiverCity = new SelectList(new List<string>()) // Initialize with an empty list
+			};
 
             return View(viewModel);
         }
 
-        public JsonResult GetParcelLockersInSelectedCity(string city)
+        public JsonResult GetParcelLockersInSelectedSenderCity(string city)
         {
             var parcelLockers = _parcelLockersRepository.GetAll().ToList();
 
-            List<ParcelLockerDb> parcelLockersInSelectedCity = parcelLockers?.Where(x => x.City == city).ToList();
+            List<ParcelLockerDb> parcelLockersInSelectedSenderCity = parcelLockers?.Where(x => x.City == city).ToList();
 
-            return Json(parcelLockersInSelectedCity);
+            return Json(parcelLockersInSelectedSenderCity);
         }
 
-        // POST: ParcelsControler/Create
-        [HttpPost]
+		public JsonResult GetParcelLockersInSelectedReceiverCity(string city)
+		{
+			var parcelLockers = _parcelLockersRepository.GetAll().ToList();
+
+			List<ParcelLockerDb> parcelLockersInSelectedReceiverCity = parcelLockers?.Where(x => x.City == city).ToList();
+
+			return Json(parcelLockersInSelectedReceiverCity);
+		}
+
+		// POST: ParcelsControler/Create
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ParcelCreationRequest parcelRequest)
         {
