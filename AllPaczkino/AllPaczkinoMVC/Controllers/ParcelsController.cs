@@ -3,6 +3,7 @@ using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.DTO;
 using AllPaczkinoMVC.Mappers;
+using AllPaczkinoPersistance.Models;
 using AllPaczkinoPersistance.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,23 +19,26 @@ namespace AllPaczkinoMVC.Controllers
     public class ParcelsController : Controller
     {
         private IParcelLockersRepository _parcelLockersRepository;
-        private ParcelLockersRepository parcelLockersRepository1 = new();
-        ParcelsRepository parcelRepository = new();
+        //private ParcelLockersRepository parcelLockersRepository1 = new();
+        private IParcelsRepository _parcelsRepository;
+
+        //ParcelsRepository parcelRepository = new();
         List<Parcel> parcelsData;
         private ParcelMapper parcelMapper;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ParcelsController(UserManager<IdentityUser> userManager, IParcelLockersRepository parcelLockersRepository)
-        {
-            parcelMapper = new ParcelMapper(parcelLockersRepository);
-            _userManager = userManager;
-            _parcelLockersRepository = parcelLockersRepository;
-        }
+		public ParcelsController(UserManager<IdentityUser> userManager, IParcelLockersRepository parcelLockersRepository, IParcelsRepository parcelsRepository)
+		{
+			parcelMapper = new ParcelMapper(parcelLockersRepository);
+			_userManager = userManager;
+			_parcelLockersRepository = parcelLockersRepository;
+			_parcelsRepository = parcelsRepository;
+		}
 
-        // GET: ParcelsControler
-        public ActionResult Index(string sortOrder, string searchString)
+		// GET: ParcelsControler
+		public ActionResult Index(string sortOrder, string searchString)
         {
-            List<Parcel> parcelsData = parcelRepository.GetAll();
+            List<ParcelDb> parcelsData = _parcelsRepository.GetAll();
             if (User.IsInRole("User"))
             {
                 parcelsData = parcelsData.Where(parcel => parcel.Sender.ContactData.Email == User.Identity.Name).ToList();

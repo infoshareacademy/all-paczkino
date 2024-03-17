@@ -1,5 +1,6 @@
 ﻿using AllPaczkino.Clients;
 using Parcels.Parcels;
+using System.ComponentModel.DataAnnotations;
 
 namespace AllPaczkino.Models
 {
