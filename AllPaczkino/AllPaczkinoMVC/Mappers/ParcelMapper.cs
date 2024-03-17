@@ -3,26 +3,79 @@ using AllPaczkino.Clients.ContactInfo;
 using AllPaczkino.Models;
 using AllPaczkinoLogic.Repositories;
 using AllPaczkinoMVC.DTO;
+using AllPaczkinoPersistance.Repositories;
 using Parcels.Parcels;
 
 namespace AllPaczkinoMVC.Mappers
 {
     public class ParcelMapper
     {
-        private readonly ParcelLockersRepository parcelLockersRepository;
-
-        public ParcelMapper(ParcelLockersRepository parcelLockersRepository)
+		private IParcelLockersRepository _parcelLockersRepository;
+		
+        public ParcelMapper(IParcelLockersRepository parcelLockersRepository)
         {
-            this.parcelLockersRepository = parcelLockersRepository;
-        }
+			_parcelLockersRepository = parcelLockersRepository;
+		}
 
-        public Parcel MapToParcel(ParcelCreationRequest request)
+		private ParcelLocker ConvertToParcelLocker(ParcelLockerDb parcelLockerDb)
+		{
+			return new ParcelLocker
+			{
+				id = parcelLockerDb.Id,
+				address = parcelLockerDb.Address,
+				postal_code = parcelLockerDb.PostalCode,
+				city = parcelLockerDb.City
+			};
+		}
+
+		public Parcel MapToParcel(ParcelCreationRequest request)
         {
-            var senderLocker = parcelLockersRepository.GetById(request.SenderLockerId);
-            var receiverLocker = parcelLockersRepository.GetById(request.ReceiverLockerId);
-            var sender = new Sender { ContactData = new ContactData { Name = request.SenderName } };
-            var parcelSize = new ParcelSize { Name = request.ParcelSize };
-            var receiver = new Receiver { ContactData = new ContactData { Name = request.ReceiverName } };
+			var senderLockerDb = _parcelLockersRepository.GetById(request.SenderLockerId);
+			var receiverLockerDb = _parcelLockersRepository.GetById(request.ReceiverLockerId);
+
+			var senderLocker = ConvertToParcelLocker(senderLockerDb);
+			var receiverLocker = ConvertToParcelLocker(receiverLockerDb);
+
+			var sender = new Sender
+            {
+                ContactData = new ContactData
+                {
+                    Name = request.SenderName,
+                    Surname = request.SenderSurname,
+                    Email = request.SenderEmail,
+                    PhoneNumber = request.SenderPhoneNumber,
+                    Adress = new Adress
+                    {
+                        StreetName = request.SenderStreetName,
+                        HouseNumber = request.SenderHouseNumber,
+                        CityName = request.SenderCityName,
+                        PostalCode = request.SenderPostalCode,
+                        Country = request.SenderCountry,
+                        FlatNumber = request.SenderFlatNumber,
+                    }
+                }
+            };
+			var receiver = new Receiver
+			{
+				ContactData = new ContactData
+				{
+					Name = request.ReceiverName,
+					Surname = request.ReceiverSurname,
+					Email = request.ReceiverEmail,
+					PhoneNumber = request.ReceiverPhoneNumber,
+					Adress = new Adress
+					{
+						StreetName = request.ReceiverStreetName,
+						HouseNumber = request.ReceiverHouseNumber,
+						CityName = request.ReceiverCityName,
+						PostalCode = request.ReceiverPostalCode,
+						Country = request.ReceiverCountry,
+						FlatNumber = request.ReceiverFlatNumber,
+					}
+				}
+			};
+			var parcelSize = new ParcelSize { Name = request.ParcelSize };
+            
 
             return new Parcel(
                 new Random().Next(1000),
