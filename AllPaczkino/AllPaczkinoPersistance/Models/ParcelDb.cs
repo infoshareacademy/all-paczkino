@@ -14,7 +14,21 @@ namespace AllPaczkinoPersistance.Models
 {
 	public class ParcelDb
 	{
-		public string ParcelNumber { get; set; }
+		public ParcelDb(int id, string name, ParcelLockerDb senderLockerDb, ParcelLockerDb receiverLockerDb, DateTime sendTime, IdentityUser sender, IdentityUser receiver, ParcelSize parcelSize)
+		{
+			ID = id;
+			Name = name;
+			SenderLocker = senderLockerDb;
+			ReceiverLocker = receiverLockerDb;
+			SendTime = sendTime;
+			Sender = sender;
+			Receiver = receiver;
+			ParcelSize = parcelSize;
+		}
+
+		public ParcelDb() { }
+
+		public string? ParcelNumber { get; set; }
 		[Key]
 		public int ID { get; set; }
 		public string Name { get; set; }
@@ -26,5 +40,8 @@ namespace AllPaczkinoPersistance.Models
 		public IdentityUser Sender { get; set; }
 		public IdentityUser Receiver { get; set; }
 		public ParcelSize ParcelSize { get; set; }
+		
 	}
+
+	
 };

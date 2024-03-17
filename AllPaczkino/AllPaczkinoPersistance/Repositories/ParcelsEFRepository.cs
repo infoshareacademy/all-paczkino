@@ -28,7 +28,7 @@ namespace AllPaczkinoPersistance.Repositories
 
 		public List<ParcelDb> GetAll()
 		{
-			throw new NotImplementedException();
+			return context.Parcels.ToList();
 		}
 
 		public ParcelDb GetById(int id)

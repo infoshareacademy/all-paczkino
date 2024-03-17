@@ -16,7 +16,7 @@ namespace AllPaczkino.Models
     }
     public class Parcel
     {
-        public string ParcelNumber { get; set; }
+        public string? ParcelNumber { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public ParcelLocker SenderLocker { get; set; }

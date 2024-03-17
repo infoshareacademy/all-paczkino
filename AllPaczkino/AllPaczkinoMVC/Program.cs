@@ -2,6 +2,7 @@ using AllPaczkinoPersistance;
 using AllPaczkinoPersistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AllPaczkinoMVC
 {
@@ -21,8 +22,10 @@ namespace AllPaczkinoMVC
                 .AddEntityFrameworkStores<PaczkinoDbContext>();
 
             builder.Services.AddTransient<IParcelLockersRepository, ParcelLockersEFRepository>();
-            // Rejestracja usługi SeedData
-            builder.Services.AddTransient<SeedData>();
+
+			builder.Services.AddScoped<IParcelsRepository, ParcelsEFRepository>();
+			// Rejestracja usługi SeedData
+			builder.Services.AddTransient<SeedData>();
 
             var app = builder.Build();
 
