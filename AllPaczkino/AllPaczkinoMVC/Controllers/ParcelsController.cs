@@ -38,7 +38,8 @@ namespace AllPaczkinoMVC.Controllers
 		// GET: ParcelsControler
 		public ActionResult Index(string sortOrder, string searchString)
         {
-            List<ParcelDb> parcelsData = _parcelsRepository.GetAll();
+            List<ParcelDb> parcelsDbData = _parcelsRepository.GetAll();
+            var parcelsData = parcelsDbData.Select(parcelDb => parcelMapper.MapToParcel(parcelDb));
             if (User.IsInRole("User"))
             {
                 parcelsData = parcelsData.Where(parcel => parcel.Sender.ContactData.Email == User.Identity.Name).ToList();
@@ -151,8 +152,9 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Details/5
         public ActionResult Details(int id)
         {
-            var parcelData = parcelRepository.GetById(id);
-            return View(parcelData);
+            var parcelDb = _parcelsRepository.GetById(id);
+			var parcel = parcelMapper.MapToParcel(parcelDb);
+			return View(parcel);
         }
 
 		// GET: ParcelsControler/Create
@@ -216,7 +218,8 @@ namespace AllPaczkinoMVC.Controllers
 				}
 
 				var parcel = parcelMapper.MapToParcel(parcelRequest);
-				parcelRepository.Create(parcel);
+                var parcelDb = parcelMapper.MapToParcelDb(parcel);
+				_parcelsRepository.Create(parcelDb);
 
 				return RedirectToAction(nameof(Index));
 			}
@@ -229,7 +232,8 @@ namespace AllPaczkinoMVC.Controllers
 		// GET: ParcelsControler/Edit/5
 		public ActionResult Edit(int id)
         {
-            var parcelDetails = parcelRepository.GetById(id);
+            var parcelDbDetails = _parcelsRepository.GetById(id);
+            var parcelDetails = parcelMapper.MapToParcel(parcelDbDetails);
             return View(parcelDetails);
         }
 
@@ -240,7 +244,8 @@ namespace AllPaczkinoMVC.Controllers
         {
             try
             {
-                parcelRepository.Update(id, editedParcel);
+                var editedDbParcel = parcelMapper.MapToParcelDb(editedParcel);
+                _parcelsRepository.Update(id, editedDbParcel);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -252,7 +257,8 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelsControler/Delete/5
         public ActionResult Delete(int id)
         {
-            var parcelToDelete = parcelRepository.GetById(id);
+            var parcelDbToDelete = _parcelsRepository.GetById(id);
+            var parcelToDelete = parcelMapper.MapToParcel(parcelDbToDelete);
             return View(parcelToDelete);
         }
 
@@ -263,7 +269,7 @@ namespace AllPaczkinoMVC.Controllers
         {
             try
             {
-                parcelRepository.Delete(id);
+                _parcelsRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
