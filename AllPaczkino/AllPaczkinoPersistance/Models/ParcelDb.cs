@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using AllPaczkino.Models;
 using Microsoft.AspNetCore.Identity;
 using Parcels.Parcels;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AllPaczkinoPersistance.Models
 {
@@ -32,8 +33,12 @@ namespace AllPaczkinoPersistance.Models
 		[Key]
 		public int ID { get; set; }
 		public string Name { get; set; }
+		[ForeignKey("SenderLockerId")]
 		public ParcelLockerDb SenderLocker { get; set; }
+		public int SenderLockerId { get; set; }
+		[ForeignKey("ReceiverLockerId")]
 		public ParcelLockerDb ReceiverLocker { get; set; }
+		public int ReceiverLockerId { get; set; }
 		public DateTime SendTime { get; set; }
 		public DateTime? ReceiveTime { get; set; }
 		public ParcelStatus ParcelStatus { get; set; }

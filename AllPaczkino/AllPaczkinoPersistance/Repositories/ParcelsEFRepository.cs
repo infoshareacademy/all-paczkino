@@ -1,5 +1,6 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkinoPersistance.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,12 @@ namespace AllPaczkinoPersistance.Repositories
 
 		public List<ParcelDb> GetAll()
 		{
-			return context.Parcels.ToList();
+			return context.Parcels
+				.Include(p => p.ReceiverLocker)
+				.Include(p => p.SenderLocker)
+				.Include(p => p.Sender)
+				.Include(p => p.Receiver)
+				.ToList();
 		}
 
 		public ParcelDb GetById(int id)

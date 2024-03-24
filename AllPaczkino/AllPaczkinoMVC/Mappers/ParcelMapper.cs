@@ -21,6 +21,11 @@ namespace AllPaczkinoMVC.Mappers
 
 		private ParcelLocker ConvertToParcelLocker(ParcelLockerDb parcelLockerDb)
 		{
+			if (parcelLockerDb == null)
+			{
+				return null;
+			}
+			
 			return new ParcelLocker
 			{
 				id = parcelLockerDb.Id,
