@@ -4,6 +4,7 @@ using AllPaczkinoPersistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AllPaczkinoPersistance.Migrations
 {
     [DbContext(typeof(PaczkinoDbContext))]
-    partial class PaczkinoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240317110558_parcelsdbinit")]
+    partial class parcelsdbinit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -881,6 +884,7 @@ namespace AllPaczkinoPersistance.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ParcelNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ParcelStatus")
@@ -946,13 +950,13 @@ namespace AllPaczkinoPersistance.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "73e3691e-24e1-42b9-b5c4-7d407565fd0c",
+                            Id = "08e70bd8-61d8-4709-903e-47895bd087cb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4bed6bbe-d376-4ba6-b1c9-3be18fa0020f",
+                            Id = "3ee3eb60-efc6-45af-b813-6ac8e02973d6",
                             Name = "User",
                             NormalizedName = "USER"
                         });

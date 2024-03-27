@@ -1228,22 +1228,22 @@
     }
   },
   {
-    "ParcelNumber": "04a820da-ce89-40fe-a62b-d2caa8285d4e",
-    "ID": 301,
-    "Name": "paczka swiateczna x666",
+    "ParcelNumber": "46e9c1a7-1f42-4913-b3be-5f90c668a453",
+    "ID": 257,
+    "Name": "paczka z zajec",
     "SenderLocker": {
-      "id": 40,
-      "city": "Głogów",
-      "postal_code": "67-200",
-      "address": "ul. Topolowa 40"
+      "id": 31,
+      "city": "Ełk",
+      "postal_code": "19-300",
+      "address": "ul. Lipowa 31"
     },
     "ReceiverLocker": {
-      "id": 12,
-      "city": "Gdynia",
-      "postal_code": "81-100",
-      "address": "ul. Jesionowa 12"
+      "id": 25,
+      "city": "Gliwice",
+      "postal_code": "44-100",
+      "address": "ul. Wierzbowy 25"
     },
-    "SendTime": "2024-03-17T14:17:36.8144437+01:00",
+    "SendTime": "2024-03-17T11:28:04.7868617+01:00",
     "ReceiveTime": null,
     "ParcelStatus": 0,
     "Sender": {
@@ -1255,7 +1255,7 @@
         "Adress": {
           "StreetName": "klonowa",
           "HouseNumber": 1,
-          "CityName": "Wrocław",
+          "CityName": "Wroclaw",
           "PostalCode": "10-500",
           "Country": "Polska",
           "FlatNumber": 2
@@ -1267,13 +1267,13 @@
       "ContactData": {
         "Name": "Adam",
         "Surname": "Wensierski",
-        "Email": "ada",
+        "Email": "adam.wensierski.24@gmail.com",
         "PhoneNumber": "+48400500600",
         "Adress": {
-          "StreetName": "lipowa",
+          "StreetName": "klonowa",
           "HouseNumber": 2,
           "CityName": "Gdynia",
-          "PostalCode": "81-500",
+          "PostalCode": "91-500",
           "Country": "Polska",
           "FlatNumber": 3
         }

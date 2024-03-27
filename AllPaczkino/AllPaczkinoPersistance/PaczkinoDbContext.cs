@@ -1,4 +1,5 @@
 ﻿using AllPaczkino.Models;
+using AllPaczkinoPersistance.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,14 @@ namespace AllPaczkinoPersistance
         {
 
         }
+		public DbSet<ParcelLockerDb> ParcelLockers { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		public DbSet<ParcelDb> Parcels { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ParcelDb>().OwnsOne(x=>x.ParcelSize);
+
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Name = "Admin", NormalizedName="ADMIN", Id = Guid.NewGuid().ToString()},
                 new IdentityRole { Name = "User", NormalizedName="USER", Id = Guid.NewGuid().ToString()}
@@ -837,6 +843,6 @@ namespace AllPaczkinoPersistance
             );
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<ParcelLockerDb> ParcelLockers { get; set; }
+
     }
 }
