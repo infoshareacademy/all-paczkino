@@ -1,39 +1,53 @@
 ﻿@{
     ViewData["Title"] = "User Home Page";
 }
-<h1 class="display-4 text-center">Menu użytkownika</h1>
-<div class="text-center" style="display: flex ; justify-content: space-evenly">
-
-    <div class="card" style="width: 18rem;" >
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Nadaj paczuchę</h5>
-            <p class="card-text">Wybierz opcję by nadać nową paczkę</p>
-            <a href="SendParcel/Create" class="btn btn-primary">Nadaj paczkę</a>
-        </div>
+<div class="container">
+    <div class="col-12 text-center">
+        <h1 class="display-4" style="margin-top: 30px;">Panel użytkownika</h1>
     </div>
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Lista paczek</h5>
-            <p class="card-text">Wybierz opcję by wśwyetlić listę paczek</p>
-            <a href="#" class="btn btn-primary">Wyświetl listę paczek</a>
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Nadaj paczuchę</h5>
+                    <p class="card-text">Wybierz opcję by nadać nową paczkę</p>
+                    <a href="SendParcel/Create" class="btn btn-primary">Nadaj paczkę</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Dane użytkownika</h5>
-            <p class="card-text">Wybierz opcję by wyświetlić swoje dane</p>
-            <a href="#" class="btn btn-primary">Wyświetl dane użytkownika</a>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <!--<img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">Lista paczek</h5>
+                    <p class="card-text">Wybierz opcję by wśwyetlić listę paczek</p>
+                    <a href="Parcels" class="btn btn-primary">Wyświetl listę paczek</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Gdzie ta paczka?</h5>
-            <p class="card-text">Wybierz opcję by sprawdzić status paczki używając jej nazwy lub identyfikatora</p>
-            <a href="ParcelStatus" class="btn btn-primary">Sprawdź status paczki</a>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <!--<img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">Dane użytkownika</h5>
+                    <p class="card-text">Wybierz opcję by wyświetlić swoje dane</p>
+                    <a href="/Identity/Account/Manage" class="btn btn-primary">Wyświetl dane użytkownika</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <!--<img src="..." class="card-img-top" alt="...">-->
+                <div class="col-md-3 mb-4">
+                    <div class="card" style="width: 18rem; margin-top: -200px;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Gdzie ta paczka?</h5>
+                            <p class="card-text">Wybierz opcję by sprawdzić status paczki używając jej nazwy lub identyfikatora</p>
+                            <a href="ParcelStatus" class="btn btn-primary">Sprawdź status paczki</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

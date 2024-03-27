@@ -5,49 +5,50 @@
     ViewData["Title"] = "Lista paczek";
 }
 
-<h1>Index</h1>
+<h1>Lista paczuch</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Utwórz nową paczkę</a>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Przefiltruj listę: @Html.TextBox("SearchString")
+        <input type="submit" value="Filtruj" />
+    </p>
+    }
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParam">@Html.DisplayNameFor(model => model.Name)</a>
+            </th>
+            <th>   
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ParcelNumberParam">@Html.DisplayNameFor(model => model.ParcelNumber)</a>
+            </th>      
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.SendTimeParam">@Html.DisplayNameFor(model => model.SendTime)</a>
+            </th>
+            <th>      
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ReceiveTimeParam">@Html.DisplayNameFor(model => model.ReceiveTime)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ParcelStatusParam">@Html.DisplayNameFor(model => model.ParcelStatus)</a>
             </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.ParcelNumber)
-            </th>
-
-      
-            <th>
-                @Html.DisplayNameFor(model => model.SendTime)
+            <th>               
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.SenderParam">@Html.DisplayNameFor(model => model.Sender)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReceiveTime)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.SenderLockerParam">@Html.DisplayNameFor(model => model.SenderLocker)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ParcelStatus)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ReceiverParam">@Html.DisplayNameFor(model => model.Receiver)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sender)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ReceiverLockerParam">@Html.DisplayNameFor(model => model.ReceiverLocker)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SenderLocker)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receiver)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReceiverLocker)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ParcelSize)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.ParcelSizeParam">@Html.DisplayNameFor(model => model.ParcelSize)</a>
             </th>
             <th></th>
         </tr>
@@ -56,10 +57,6 @@
         @foreach (var item in Model)
         {
             <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

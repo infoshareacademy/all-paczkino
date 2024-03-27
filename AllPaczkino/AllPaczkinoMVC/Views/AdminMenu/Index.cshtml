@@ -1,32 +1,43 @@
 ﻿@{
     ViewData["Title"] = "Admin Home Page";
 }
-<h1 class="display-4 text-center">Aministrator menu</h1>
-<div class="text-center" style="display: flex ; justify-content: space-evenly">
 
-    <div class="card" style="width: 18rem;  ">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Lista paczkomatów</h5>
-            <p class="card-text">Wybierz opcję by zarządzać paczkomatami</p>
-            <a href="ParcelLockers" class="btn btn-primary">Wyświetl listę paczkomatów</a>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/AllPaczkinoMVC.styles.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="col-12 text-center">
+        <h1 class="display-4" style="margin-top: 30px;">Panel admina</h1>
+    </div>
+    <div class="row justify-content-center align-items-center vh-100">
+     
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem; margin-right: 15px; margin-top: -200px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lista paczkomatów</h5>
+                    <p class="card-text">Wybierz opcję by zarządzać paczkomatami</p>
+                    <a href="ParcelLockers" class="btn btn-primary">Wyświetl listę paczkomatów</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem; margin-right: 15px; margin-top: -200px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lista paczek</h5>
+                    <p class="card-text">Wybierz opcję by zarządzać paczkami, wywalić, wdytować istniejącą</p>
+                    <a href="Parcels" class="btn btn-primary">Wyświetl listę paczek</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem; margin-top: -200px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lista użytkowników</h5>
+                    <p class="card-text">Wybierz opcję by zarządzać użytkownikami, wywalić, wdytować istniejącą</p>
+                    <a href="#" class="btn btn-primary">Wyświetl listę użytkowników</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Lista paczek</h5>
-            <p class="card-text">Wybierz opcję by zarządzać paczkami, wywalić, wdytować istniejącą</p>
-            <a href="Parcels" class="btn btn-primary">Wyświetl listę paczek</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">Lista użytkowników</h5>
-            <p class="card-text">Wybierz opcję by zarządzać użytkownikami, wywalić, wdytować istniejącą</p>
-            <a href="#" class="btn btn-primary">Wyświetl listę użytkowników</a>
-        </div>
-    </div>
-   
 </div>

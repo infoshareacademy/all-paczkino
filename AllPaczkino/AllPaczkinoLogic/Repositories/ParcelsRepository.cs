@@ -21,7 +21,7 @@ namespace AllPaczkino.Repositories
             File.WriteAllText(jsonPath, updatedJsonContent);
         }
         public Parcel GetById(int id)
-        {        
+        {
             List<Parcel> items = GetAll();
             return items.FirstOrDefault(x => x.ID == id);
         }
@@ -51,6 +51,11 @@ namespace AllPaczkino.Repositories
                 //TODO update rest of fields
                 SaveAll(items);
             }
+        }
+        public Parcel GetByName(string name)
+        {
+            List<Parcel> items = GetAll();
+            return items.FirstOrDefault(x => x.Name == name);
         }
     }
 }

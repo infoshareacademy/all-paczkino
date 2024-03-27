@@ -1,6 +1,6 @@
 [
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 123456789,
     "Name": "TestPackage",
     "SenderLocker": {
@@ -25,7 +25,8 @@
         "Email": "Senderemail",
         "PhoneNumber": "SenderphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -34,14 +35,15 @@
         "Email": "Receiveremail",
         "PhoneNumber": "ReceiverphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "BIG"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 987654321,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -66,7 +68,8 @@
         "Email": "AnotherSenderemail",
         "PhoneNumber": "AnotherSenderphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -75,14 +78,15 @@
         "Email": "AnotherReceiveremail",
         "PhoneNumber": "AnotherReceiverphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "MEDIUM"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 3,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -107,7 +111,8 @@
         "Email": "AnotherSenderemail",
         "PhoneNumber": "AnotherSenderphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -116,14 +121,15 @@
         "Email": "AnotherReceiveremail",
         "PhoneNumber": "AnotherReceiverphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "MEDIUM"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 5,
     "Name": "AnotherPackage",
     "SenderLocker": {
@@ -148,7 +154,8 @@
         "Email": "AnotherSenderemail",
         "PhoneNumber": "AnotherSenderphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -157,14 +164,15 @@
         "Email": "AnotherReceiveremail",
         "PhoneNumber": "AnotherReceiverphoneNumber",
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "MEDIUM"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -196,7 +204,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -212,14 +221,15 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "paczka swiateczna"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -251,7 +261,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -267,14 +278,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -306,7 +318,8 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -322,14 +335,15 @@
           "Country": "Polska",
           "FlatNumber": 7
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna 3",
     "SenderLocker": {
@@ -361,7 +375,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -377,14 +392,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -416,7 +432,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -432,14 +449,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka wielkanocna",
     "SenderLocker": {
@@ -471,7 +489,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -487,14 +506,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "M"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka urodzinowa ",
     "SenderLocker": {
@@ -526,7 +546,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -542,14 +563,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "L"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "żwirek dla kota",
     "SenderLocker": {
@@ -581,7 +603,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -597,14 +620,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "L"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna 500",
     "SenderLocker": {
@@ -636,7 +660,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -652,14 +677,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "M"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -691,7 +717,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -707,14 +734,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -746,7 +774,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -762,14 +791,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "L"
     }
   },
   {
-    "ParcelNumber": 0.0,
+    "ParcelNumber": "0.0",
     "ID": 0,
     "Name": "paczka swiateczna",
     "SenderLocker": {
@@ -801,7 +831,8 @@
           "Country": "Polska",
           "FlatNumber": 5
         }
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -817,14 +848,15 @@
           "Country": "Polska",
           "FlatNumber": 6
         }
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "L"
     }
   },
   {
-    "ParcelNumber": 619.0,
+    "ParcelNumber": "619.0",
     "ID": 492,
     "Name": "Tajne rzeczy",
     "SenderLocker": {
@@ -849,7 +881,8 @@
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -858,14 +891,15 @@
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "M"
     }
   },
   {
-    "ParcelNumber": 90.0,
+    "ParcelNumber": "90.0",
     "ID": 237,
     "Name": "żwirek dla kota n 2",
     "SenderLocker": {
@@ -890,7 +924,8 @@
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
@@ -899,48 +934,351 @@
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "L"
     }
   },
   {
-    "ParcelNumber": 726.0,
-    "ID": 339,
-    "Name": "laptop",
+    "ParcelNumber": "624.0",
+    "ID": 85,
+    "Name": "paczka testowa",
     "SenderLocker": {
-      "id": 10,
-      "city": "Lublin",
-      "postal_code": "20-001",
-      "address": "ul. Cedrowa 10"
+      "id": 101,
+      "city": "Gdańsk",
+      "postal_code": "80-500",
+      "address": "Łakowa 3"
     },
     "ReceiverLocker": {
-      "id": 12,
-      "city": "Gdynia",
-      "postal_code": "81-100",
-      "address": "ul. Jesionowa 12"
+      "id": 1,
+      "city": "Warszawa",
+      "postal_code": "00-001",
+      "address": "ul. Klonowa 1"
     },
-    "SendTime": "2024-01-21T12:49:25.7452999+01:00",
+    "SendTime": "2024-02-04T11:30:19.654865+01:00",
     "ReceiveTime": null,
     "ParcelStatus": 0,
     "Sender": {
       "ContactData": {
-        "Name": "Zuza",
+        "Name": "Maciej",
         "Surname": null,
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
     },
     "Receiver": {
       "ContactData": {
-        "Name": "Patryk",
+        "Name": "Paweł",
         "Surname": null,
         "Email": null,
         "PhoneNumber": null,
         "Adress": null
-      }
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": "b0b0cf5a-9709-44e8-b59c-f335e7cd566c",
+    "ID": 205,
+    "Name": "Piotr",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T06:30:23.2747617+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Admin@allpaczkino.com",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Stefan",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": "5b7fd3bc-3b8b-4ca1-82d0-bda6d405f4cf",
+    "ID": 767,
+    "Name": "Piotr",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T10:50:39.6942967+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "bla",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "L"
+    }
+  },
+  {
+    "ParcelNumber": "48d42446-5590-493b-9dd1-78b64e3596b1",
+    "ID": 278,
+    "Name": "qwe",
+    "SenderLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "ReceiverLocker": {
+      "id": 61,
+      "city": "Bielawa",
+      "postal_code": "58-260",
+      "address": "ul. Klonowa 61"
+    },
+    "SendTime": "2024-03-03T10:51:00.7758678+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "piotr.cezary.nowak@gmail.com",
+        "Surname": null,
+        "Email": "piotr.cezary.nowak@gmail.com",
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "qwe",
+        "Surname": null,
+        "Email": null,
+        "PhoneNumber": null,
+        "Adress": null
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": "f46ad458-5d34-4484-a5dd-054142a763fc",
+    "ID": 988,
+    "Name": "paczka Piotra",
+    "SenderLocker": {
+      "id": 100,
+      "city": "Bartoszyce",
+      "postal_code": "11-200",
+      "address": "ul. Dębowa 100"
+    },
+    "ReceiverLocker": {
+      "id": 85,
+      "city": "Będzin",
+      "postal_code": "42-500",
+      "address": "ul. Cedrowa 85"
+    },
+    "SendTime": "2024-03-17T08:37:01.050069+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": "Nowak",
+        "Email": "piotr.nowak@gmail.com",
+        "PhoneNumber": "+48500600700",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 1,
+          "CityName": "Wrocław",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 5
+        }
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": "Wensierski",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "+48400500600",
+        "Adress": {
+          "StreetName": "lipowa",
+          "HouseNumber": 2,
+          "CityName": "Gdynia",
+          "PostalCode": "81-500",
+          "Country": "Polska",
+          "FlatNumber": 6
+        }
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "S"
+    }
+  },
+  {
+    "ParcelNumber": "49a7dbf2-5460-4fca-9dfd-adce8773e3cb",
+    "ID": 679,
+    "Name": "paczka z db",
+    "SenderLocker": {
+      "id": 40,
+      "city": "Głogów",
+      "postal_code": "67-200",
+      "address": "ul. Topolowa 40"
+    },
+    "ReceiverLocker": {
+      "id": 62,
+      "city": "Gostynin",
+      "postal_code": "09-500",
+      "address": "ul. Lipowa 62"
+    },
+    "SendTime": "2024-03-17T10:04:43.9039828+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": "Nowak",
+        "Email": "piotr.nowak@gmail.com",
+        "PhoneNumber": "+48500600700",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 1,
+          "CityName": "Wrocław",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 2
+        }
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": "Wensierski",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "+48400500600",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 2,
+          "CityName": "Gdynia",
+          "PostalCode": "81-500",
+          "Country": "Polska",
+          "FlatNumber": 3
+        }
+      },
+      "Password": null
+    },
+    "ParcelSize": {
+      "Name": "M"
+    }
+  },
+  {
+    "ParcelNumber": "46e9c1a7-1f42-4913-b3be-5f90c668a453",
+    "ID": 257,
+    "Name": "paczka z zajec",
+    "SenderLocker": {
+      "id": 31,
+      "city": "Ełk",
+      "postal_code": "19-300",
+      "address": "ul. Lipowa 31"
+    },
+    "ReceiverLocker": {
+      "id": 25,
+      "city": "Gliwice",
+      "postal_code": "44-100",
+      "address": "ul. Wierzbowy 25"
+    },
+    "SendTime": "2024-03-17T11:28:04.7868617+01:00",
+    "ReceiveTime": null,
+    "ParcelStatus": 0,
+    "Sender": {
+      "ContactData": {
+        "Name": "Piotr",
+        "Surname": "Nowak",
+        "Email": "piotr.nowak@gmail.com",
+        "PhoneNumber": "+48500600700",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 1,
+          "CityName": "Wroclaw",
+          "PostalCode": "10-500",
+          "Country": "Polska",
+          "FlatNumber": 2
+        }
+      },
+      "Password": null
+    },
+    "Receiver": {
+      "ContactData": {
+        "Name": "Adam",
+        "Surname": "Wensierski",
+        "Email": "adam.wensierski.24@gmail.com",
+        "PhoneNumber": "+48400500600",
+        "Adress": {
+          "StreetName": "klonowa",
+          "HouseNumber": 2,
+          "CityName": "Gdynia",
+          "PostalCode": "91-500",
+          "Country": "Polska",
+          "FlatNumber": 3
+        }
+      },
+      "Password": null
     },
     "ParcelSize": {
       "Name": "S"

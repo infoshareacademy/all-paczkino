@@ -1,10 +1,12 @@
 ﻿@model AllPaczkinoMVC.DTO.ParcelCreationRequest
 
+<head>
+	<!-- Include jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
 
 <h4>Parcel</h4>
 <hr />
@@ -12,18 +14,6 @@
     <div class="col-md-4">
 		<form asp-action="Create">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
-			@*      <div class="form-group">
-			<label asp-for="ParcelNumber" class="control-label"></label>
-			<input asp-for="ParcelNumber" class="form-control" />
-			<span asp-validation-for="ParcelNumber" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-			<label asp-for="ID" class="control-label"></label>
-			<input asp-for="ID" class="form-control" />
-			<span asp-validation-for="ID" class="text-danger"></span>
-			</div> *@
 
 			<h5>Nazwa paczki</h5>
 			<h8>(opcjonalnie)</h8>
@@ -37,22 +27,63 @@
 
 			<h6> </h6>
 
-
 			<table border="1">
 				<tr>
 					<td>
 
 						<h5>Paczkomat nadawcy</h5>
 						<div class="card" style="width: 18rem;">
-							<!--<img src="..." class="card-img-top" alt="...">-->
-							@* <h8>* Kod paczkomatu:</h8>
-							<div class="card-body">
-							<input asp-for="SenderLocker.id" class="form-control" />
-							<span asp-validation-for="SenderLocker.id" class="text-danger"></span>
-							</div> *@
-							<h7>* Id paczkomatu nadawcy:</h7>
-							<div class="card-body">
-								<input asp-for="SenderLockerId" class="form-control" />
+
+								<!-- City dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.SelectedSenderCity, "Miasto:")
+									@Html.DropDownListFor(model => model.SelectedSenderCity, Model.Cities, "-- wybierz miasto --", new { @class = "form-control", id = "senderCityDropdown" })
+								</div>
+
+								<!-- Parcellockers  dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.ParcelLockersInSelectedSenderCity, "Paczkomaty w wybranym mieście:")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedSenderCity, Model.ParcelLockersInSelectedSenderCity, "-- wybierz paczkomat --", new { @class = "form-control", id = "senderParcelLockersDropdown" })
+								</div>
+
+							<script>
+									// jQuery script for cascading dropdowns
+									$(document).ready(function () {
+										$("#senderCityDropdown").change(function () {
+											var selectedSenderCity = $(this).val();
+											$.ajax({
+												url: '@Url.Action("GetParcelLockersInSelectedSenderCity", "Parcels")',
+												type: 'GET',
+												data: { city: selectedSenderCity },
+												success: function (data) {
+													$("#senderParcelLockersDropdown").empty();
+													$.each(data, function (i, item) {
+														$("#senderParcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+													});
+
+													// Update the value of SenderLockerId based on the first item in the data
+													if (data.length > 0) {
+														var firstItemId = data[0].id;
+														$("#SenderLockerId").val(firstItemId);
+													}
+												},
+												error: function (error) {
+													console.log(error);
+												}
+											});
+										});
+
+										// Add change event for the second dropdown to update ReceiverLockerId
+										$("#senderParcelLockersDropdown").change(function () {
+											var selectedSenderLockerId = $(this).val();
+											$("#SenderLockerId").val(selectedSenderLockerId);
+										});
+									});
+								</script>
+								
+							<div class="card-body" contenteditable="false">
+								@Html.LabelFor(model => model.SenderLockerId, "Numer wybranego paczkomatu:")
+								<input asp-for="SenderLockerId" class="form-control" readonly/> 
 								<span asp-validation-for="SenderLockerId" class="text-danger"></span>
 							</div>
 						</div>
@@ -62,18 +93,60 @@
 					<td>
 
 						<h5>Paczkomat odbiorcy</h5>
-						<div class="card" style="width: 18rem;">
-							<!--<img src="..." class="card-img-top" alt="...">-->
-							@* <h8>* Kod paczkomatu:</h8>
-							<div class="card-body">
-							<input asp-for="ReceiverLocker.id" class="form-control" />
-							<span asp-validation-for="ReceiverLocker.id" class="text-danger"></span>
-							</div> *@
-							<h7>* Id paczkomatu odbiorcy:</h7>
-							<div class="card-body">
-								<input asp-for="ReceiverLockerId" class="form-control" />
-								<span asp-validation-for="SenderLockerId" class="text-danger"></span>
-							</div>
+							<div class="card" style="width: 18rem;">
+
+								<!-- City dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.SelectedReceiverCity, "Miasto:")
+									@Html.DropDownListFor(model => model.SelectedReceiverCity, Model.Cities, "-- wybierz miasto --", new { @class = "form-control", id = "receiverCityDropdown" })
+								</div>
+
+								<!-- Parcellockers  dropdown -->
+								<div class="form-group">
+									@Html.LabelFor(model => model.ParcelLockersInSelectedReceiverCity, "Paczkomaty w wybranym mieście:")
+									@Html.DropDownListFor(model => model.ParcelLockersInSelectedReceiverCity, Model.ParcelLockersInSelectedReceiverCity, "-- wybierz paczkomat --", new { @class = "form-control", id = "receiverParcelLockersDropdown" })
+								</div>
+
+								<script>
+									// jQuery script for cascading dropdowns
+									$(document).ready(function () {
+										$("#receiverCityDropdown").change(function () {
+											var selectedReceiverCity = $(this).val();
+											$.ajax({
+												url: '@Url.Action("GetParcelLockersInSelectedReceiverCity", "Parcels")',
+												type: 'GET',
+												data: { city: selectedReceiverCity },
+												success: function (data) {
+													$("#receiverParcelLockersDropdown").empty();
+													$.each(data, function (i, item) {
+														$("#receiverParcelLockersDropdown").append($('<option>').text(item.address).val(item.id));
+													});
+
+													// Update the value of ReceiverLockerId based on the first item in the data
+													if (data.length > 0) {
+														var firstItemId = data[0].id;
+														$("#ReceiverLockerId").val(firstItemId);
+													}
+												},
+												error: function (error) {
+													console.log(error);
+												}
+											});
+										});
+
+										// Add change event for the second dropdown to update ReceiverLockerId
+										$("#receiverParcelLockersDropdown").change(function () {
+											var selectedReceiverLockerId = $(this).val();
+											$("#ReceiverLockerId").val(selectedReceiverLockerId);
+										});
+									});
+								</script>
+
+								<div class="card-body">
+									@Html.LabelFor(model => model.ReceiverLockerId, "Numer wybranego paczkomatu:")
+									<input asp-for="ReceiverLockerId" class="form-control" readonly/> 
+									<span asp-validation-for="ReceiverLockerId" class="text-danger"></span>
+								</div>
 						</div>
 
 					</td>
@@ -82,26 +155,9 @@
 
 			<h6> </h6>
 
-			@*  <div class="form-group">
-			<label asp-for="SendTime" class="control-label"></label>
-			<input asp-for="SendTime" class="form-control" />
-			<span asp-validation-for="SendTime" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-			<label asp-for="ReceiveTime" class="control-label"></label>
-			<input asp-for="ReceiveTime" class="form-control" />
-			<span asp-validation-for="ReceiveTime" class="text-danger"></span>
-			</div> *@
-			@*   <div class="form-group">
-			<label asp-for="ParcelStatus" class="control-label"></label>
-			<input asp-for="ParcelStatus" class="form-control" />
-			<span asp-validation-for="ParcelStatus" class="text-danger"></span>
-			</div> *@
-
 			<table border="1">
 				<tr>
 					<td>
-
 						<h5>Nadawca</h5>
 						<div class="card" style="width: 18rem;">
 							<!--<img src="..." class="card-img-top" alt="...">-->
@@ -109,13 +165,56 @@
 							<div class="card-body">
 								<input asp-for="SenderName" class="form-control" />
 								<span asp-validation-for="SenderName" class="text-danger"></span>
+								</div>
+							<h8>* Nazwisko:</h8>
+							<div class="card-body">
+								<input asp-for="SenderSurname" class="form-control" />
+								<span asp-validation-for="SenderSurname" class="text-danger"></span>
+							</div>
+							<h8>* E-mail:</h8>
+							<div class="card-body">
+								<input asp-for="SenderEmail" class="form-control" />
+								<span asp-validation-for="SenderEmail" class="text-danger"></span>
+							</div>
+							<h8>* Telefon:</h8>
+							<div class="card-body">
+								<input asp-for="SenderPhoneNumber" class="form-control" />
+								<span asp-validation-for="SenderPhoneNumber" class="text-danger"></span>
+							</div>
+							<h8>* Adres - ulica:</h8>
+							<div class="card-body">
+								<input asp-for="SenderStreetName" class="form-control" />
+								<span asp-validation-for="SenderStreetName" class="text-danger"></span>
+							</div>
+							<h8>* Adres - nr domu:</h8>
+							<div class="card-body">
+								<input asp-for="SenderHouseNumber" class="form-control" />
+								<span asp-validation-for="SenderHouseNumber" class="text-danger"></span>
+							</div>
+							<h8> Adres - nr mieszkania:</h8>
+							<div class="card-body">
+								<input asp-for="SenderFlatNumber" class="form-control" />
+								<span asp-validation-for="SenderFlatNumber" class="text-danger"></span>
+							</div>
+							<h8>* Adres - miejscowość:</h8>
+							<div class="card-body">
+								<input asp-for="SenderCityName" class="form-control" />
+								<span asp-validation-for="SenderCityName" class="text-danger"></span>
+							</div>
+							<h8>* Adres - kod pocztowy:</h8>
+							<div class="card-body">
+								<input asp-for="SenderPostalCode" class="form-control" />
+								<span asp-validation-for="SenderPostalCode" class="text-danger"></span>
+							</div>
+							<h8>* Adres - kraj:</h8>
+							<div class="card-body">
+								<input asp-for="SenderCountry" class="form-control" />
+								<span asp-validation-for="SenderCountry" class="text-danger"></span>
 							</div>
 						</div>
-
 					</td>
-
+					
 					<td>
-
 						<h5>Odbiorca</h5>
 						<div class="card" style="width: 18rem;">
 							<!--<img src="..." class="card-img-top" alt="...">-->
@@ -124,9 +223,52 @@
 								<input asp-for="ReceiverName" class="form-control" />
 								<span asp-validation-for="ReceiverName" class="text-danger"></span>
 							</div>
-							
+							<h8>* Nazwisko:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverSurname" class="form-control" />
+								<span asp-validation-for="ReceiverSurname" class="text-danger"></span>
+							</div>
+							<h8>* E-mail:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverEmail" class="form-control" />
+								<span asp-validation-for="ReceiverEmail" class="text-danger"></span>
+							</div>
+							<h8>* Telefon:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverPhoneNumber" class="form-control" />
+								<span asp-validation-for="ReceiverPhoneNumber" class="text-danger"></span>
+							</div>
+							<h8>* Adres - ulica:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverStreetName" class="form-control" />
+								<span asp-validation-for="ReceiverStreetName" class="text-danger"></span>
+							</div>
+							<h8>* Adres - nr domu:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverHouseNumber" class="form-control" />
+								<span asp-validation-for="ReceiverHouseNumber" class="text-danger"></span>
+							</div>
+							<h8> Adres - nr mieszkania:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverFlatNumber" class="form-control" />
+								<span asp-validation-for="ReceiverFlatNumber" class="text-danger"></span>
+							</div>
+							<h8>* Adres - miejscowość:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverCityName" class="form-control" />
+								<span asp-validation-for="ReceiverCityName" class="text-danger"></span>
+							</div>
+							<h8>* Adres - kod pocztowy:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverPostalCode" class="form-control" />
+								<span asp-validation-for="ReceiverPostalCode" class="text-danger"></span>
+							</div>
+							<h8>* Adres - kraj:</h8>
+							<div class="card-body">
+								<input asp-for="ReceiverCountry" class="form-control" />
+								<span asp-validation-for="ReceiverCountry" class="text-danger"></span>
+							</div>
 						</div>
-
 					</td>
 				</tr>
 			</table>
@@ -162,6 +304,8 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+</head>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

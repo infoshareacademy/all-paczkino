@@ -1,16 +1,24 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
+
+@model AllPaczkinoMVC.Models.ParcelLockerViewModel
+
+
+
 <h1 class="display-4 text-center">Welcome</h1>
 <div class="text-center" style="display: flex ; justify-content: space-evenly">
     
     <div class="card" style="width: 18rem;">
         <!--<img src="..." class="card-img-top" alt="...">-->
         <div class="card-body">
-            <h5 class="card-title">Logowanie</h5>
-            <p class="card-text">Wkrótce tutaj będziesz się mógł zalogować . . . . . .</p>
-            <a href="AdminMenu" class="btn btn-primary">Zaloguj się</a>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary">Zaloguj się</a>
         </div>
     </div>
-   
-</div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary">Zarejestruj się</a>
+
+        </div>
+    </div>

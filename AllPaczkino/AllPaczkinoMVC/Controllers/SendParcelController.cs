@@ -1,23 +1,26 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Http;
+using AllPaczkinoLogic.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize]
+
     public class SendParcel : Controller
     {
         ParcelsRepository parcelRepository = new();
         List<Parcel> parcelsData;
 
-        // GET: SendParcelControler
-        public ActionResult Index()
-        {
-            parcelsData = parcelRepository.GetAll();
+		ParcelLockersRepository parcelLockersRepository = new();
+        List<ParcelLocker> parcelLockersData;
 
-            return View(parcelsData);
-        }
+		// GET: SendParcelControler
+		public ActionResult Index()
+        {
+			return View();
+		}
 
         // GET: SendParcel/Details/5
         public ActionResult Details(int id)
@@ -92,5 +95,6 @@ namespace AllPaczkinoMVC.Controllers
                 return View();
             }
         }
-    }
+
+	}
 }

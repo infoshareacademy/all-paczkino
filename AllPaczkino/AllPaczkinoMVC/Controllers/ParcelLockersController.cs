@@ -1,29 +1,37 @@
 ﻿using AllPaczkino.Models;
 using AllPaczkino.Repositories;
 using AllPaczkinoLogic.Repositories;
+using AllPaczkinoPersistance.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace AllPaczkinoMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class ParcelLockersController : Controller
     {
 
-        ParcelLockersRepository parcelLockersRepository = new();
-        List<ParcelLocker> parcelLockerList;
+        List<ParcelLockerDb> parcelLockerList;
+        private IParcelLockersRepository _parcelLockersRepository;
 
+        public ParcelLockersController(IParcelLockersRepository parcelLockersRepository)
+        {
+            _parcelLockersRepository = parcelLockersRepository;
+        }
         // GET: ParcelLockers
         public ActionResult Index()
         {
-            parcelLockerList = parcelLockersRepository.GetAll();
+            parcelLockerList = _parcelLockersRepository.GetAll();
             return View(parcelLockerList);
         }
 
         // GET: ParcelLockers/Details/5
         public ActionResult Details(int id)
         {
-            var parcelLocker = parcelLockersRepository.GetById(id);
+            var parcelLocker = _parcelLockersRepository.GetById(id);
             return View(parcelLocker);
         }
 
@@ -36,7 +44,7 @@ namespace AllPaczkinoMVC.Controllers
         // POST: ParcelLockers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ParcelLocker parcelLocker)
+        public async Task<ActionResult> Create(ParcelLockerDb parcelLocker)
         {
             try
             {
@@ -44,7 +52,7 @@ namespace AllPaczkinoMVC.Controllers
                 {
                     return View(parcelLocker);
                 }
-                parcelLockersRepository.Create(parcelLocker);
+                await _parcelLockersRepository.Create(parcelLocker);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -56,18 +64,18 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelLockers/Edit/5
         public ActionResult Edit(int id)
         {
-            var lockerToEdit = parcelLockersRepository.GetById(id);
+            var lockerToEdit = _parcelLockersRepository.GetById(id);
             return View(lockerToEdit);
         }
 
         // POST: ParcelLockers/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ParcelLocker lockerToEdit)
+        public async Task<ActionResult> Edit(int id, ParcelLockerDb lockerToEdit)
         {
             try
             {
-              parcelLockersRepository.Update(id, lockerToEdit);
+              await _parcelLockersRepository.Update(id, lockerToEdit);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -79,18 +87,18 @@ namespace AllPaczkinoMVC.Controllers
         // GET: ParcelLockers/Delete/5
         public ActionResult Delete(int id)
         {
-            var lockerToDelete = parcelLockersRepository.GetById(id);
+            var lockerToDelete = _parcelLockersRepository.GetById(id);
             return View(lockerToDelete);
         }
 
         // POST: ParcelLockers/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ParcelLocker lockerToDelete)
+        public async Task<ActionResult> Delete(int id, ParcelLockerDb lockerToDelete)
         {
             try
             {
-                parcelLockersRepository.Delete(id);
+                await _parcelLockersRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

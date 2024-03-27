@@ -1,9 +1,6 @@
-﻿using AllPaczkino.Models;
-using AllPaczkinoMVC.Models;
+﻿using AllPaczkinoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using AllPaczkino.View;
-using AllPaczkino.Repositories;
 
 namespace AllPaczkinoMVC.Controllers
 {
@@ -18,11 +15,7 @@ namespace AllPaczkinoMVC.Controllers
 
         public IActionResult Index()
         {
-            var a = new ParcelsRepository();
-           
-            var b = a.GetAll();
 
-            
             return View();
         }
 
@@ -31,10 +24,13 @@ namespace AllPaczkinoMVC.Controllers
             return View();
         }
 
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+       
     }
 }
